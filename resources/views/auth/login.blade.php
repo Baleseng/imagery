@@ -3,11 +3,13 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header fs-2 text-center">{{ isset($url) ? ucwords($url) : ""}} {{ __('Login') }}</div>
 
-                <div class="card-body">
+        <div class="container-fluid d-flex justify-content-center align-items-center" style="height:100vh; overflow:hidden;">
+            <div class="card col-5 text-center d-flex align-items-center" style="overflow:hidden;">
+
+                <div class="card-header col-12 fs-2 text-center">{{ isset($url) ? ucwords($url) : ""}} {{ __('Login') }}</div>
+
+                <div class="card-body col-12">
 
                     @isset($url)
                     <form method="POST" action='{{ url("login/$url") }}' aria-label="{{ __('Login') }}">
@@ -17,6 +19,7 @@
                     @csrf
 
                         <div class="row d-grid gap-2 col-8 mx-auto">
+
                             <div class="col-0">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Email Address" required autocomplete="email" autofocus>
                                 @error('email')
@@ -36,7 +39,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
+                        <div class="row my-3">
                             <div class="col-6 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 
@@ -46,7 +49,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-0">
+                        <div class="row ">
                             <div class="d-grid gap-2 col-8 mx-auto">
                                 <button type="submit" class="btn btn-primary">{{ __('Login') }}</button>
                                 @if (Route::has('password.request'))
@@ -55,7 +58,7 @@
                             </div>
                         </div>
                     </form>
-
+                    
                     <div class="col-7 mx-auto"><hr></div>
 
                     <div class="d-grid gap-2 col-8 mx-auto">

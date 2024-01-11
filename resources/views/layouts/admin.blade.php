@@ -16,12 +16,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-
-
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
@@ -30,14 +24,14 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm position-fixed top-0 z-3">
             <div class="container-fluid">
                 <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-2 col-2">
-                    <a href="{{ url('/') }}"><img src="{{ URL::asset('images/logo.png') }}" style="width:50%;"></a>
+                    <a href="{{ url('/creator') }}"><img src="{{ URL::asset('images/logo.png') }}" style="width:50%;"></a>
                 </div>
                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-0">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search image">
                         <div class="input-group-append">
-                            <button class="btn btn-secondary rounded-0" type="button">
-                                <i class="fa fa-search"></i>
+                            <button class="btn btn-secondary" type="button">
+                            <i class="fa fa-search"></i>
                             </button>
                         </div>
                     </div>
@@ -66,38 +60,39 @@
                             @endif
                         @else
                         <ul class="list-group list-group-horizontal">
-                            <li class="list-group-item bg-secondary rounded-0 border-0">
-                                <a href="#" class="text-light">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </a>
-                            </li>
-                            
                             <li class="list-group-item text-secondary border-0">
-                                <a href="{{ url('/') }}" class="text-secondary">
-                                    <i class="fa fa-home"></i>
-                                </a>
-                            </li>
-                            
-                            <li class="list-group-item text-secondary border-0">
-                                <a href="{{ url('/feed') }}" class="text-secondary">
-                                    <i class="fa-solid fa-share-from-square"></i>
-                                </a>
+                                <a href="{{ url('/creator') }}" class="text-secondary"><i class="fa fa-home"></i></a>
                             </li>
                             
                             <li class="list-group-item text-secondary dropdown border-0">
                                 <a id="navbarDropdown" class="nav-link ]" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <i class="fa-solid fa-user"></i>
+                                <i class="fa-solid fa-user"></i>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    
+                                    <a class="dropdown-item" href="{{ url('/creator/profile') }}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> <i class="fa fa-user"></i> 
                                     {{ Auth::user()->name }}
                                     </a>
+
+                                    <a class="dropdown-item" href=""><i class="fa fa-camera"></i> Upload Profile Picture</a>
+                                    <a class="dropdown-item" href=""><i class="fa fa-file-text"></i> Create / Manage Page</a>
+                                    <a class="dropdown-item" href=""><i class="fa fa-expeditedssl"></i> Security / Privacy</a>
+                                    <a class="dropdown-item" href=""><i class="fa fa-connectdevelop"></i> Setting A.I</a>
+                                    <a class="dropdown-item" href=""><i class="fa fa-bell-o"></i> Setting Notification</a>
+                                    <a class="dropdown-item" href=""><i class="fa fa-envelope-open-o"></i> Setting Message</a>
+                                    <a class="dropdown-item" href=""><i class="fa fa-user-plus"></i> Setting Requests</a>
+                                    <a class="dropdown-item" href=""><i class="fa fa-sitemap"></i> Sitemap</a>
+                                    <a class="dropdown-item" href=""><i class="fa fa-dashcube"></i> Feedback</a>
+                                    <a class="dropdown-item" href=""><i class="fa fa-question-circle-o"></i> Help</a>
+                                    
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+
+                                    
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
@@ -207,14 +202,9 @@
                 </div>
             </div>
 
-        <main class="py-4" style="min-height:50rem;">
+        <main class="py-4">
             @yield('content')
         </main>
-
-         <div class="mt-5 p-4 bg-dark text-white text-center col-lg-12">
-            <p>Footer</p>
     </div>
-    </div>
-   
 </body>
 </html>

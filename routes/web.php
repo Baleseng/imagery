@@ -18,6 +18,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CreatorController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\FileUploadController;
 
 
 Route::get('/', function () {
@@ -61,7 +62,22 @@ Route::get('/admin', [AdminController::class,'index']);
   |--------------------------------------------------------------------------
 */
 
-Route::get('/creator', [CreatorController::class,'index']);
+Route::get('/creator', [CreatorController::class,'dashboard']);
+
+Route::get('/creator/add', [CreatorController::class,'add']);
+Route::post('/creator', [CreatorController::class,'store']);
+
+Route::get('/creator/edit', [CreatorController::class,'edit']);
+Route::patch('/creator/', [CreatorController::class,'update']);
+
+Route::get('/creator/file', [CreatorController::class,'files']);
+Route::get('/creator/region', [CreatorController::class,'region']);
+
+Route::get('/creator/earnings', [CreatorController::class,'earning']);
+Route::get('/creator/portfolio', [CreatorController::class,'portfolio']);
+Route::get('/creator/insight', [CreatorController::class,'insight']);
+
+Route::get('/creator/profile', [CreatorController::class,'profile']);
 
 /*
   |--------------------------------------------------------------------------
@@ -70,3 +86,5 @@ Route::get('/creator', [CreatorController::class,'index']);
 */
 
 Route::get('/home', [HomeController::class,'index']);
+Route::get('/feed', [HomeController::class,'feed']);
+Route::get('/file', [HomeController::class,'files']);

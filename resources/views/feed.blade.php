@@ -1,0 +1,73 @@
+@extends('layouts.app')
+
+@section('content')
+
+<div class="container-fluid position-relative" style="top:5rem;">
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="bg-white border rounded p-2">Your Profile</div>
+      <div class="bg-white border rounded p-2 my-2">Recent Content</div>
+      <div class="bg-white border rounded p-2">Recent</div>
+    </div>
+    <div class="col-lg-5">
+      <div class="card" style="max-width:600px">
+        <div class="card-header">
+          
+          <div class="row">
+            <div class="col-6">
+              <img class="img-thumbnail rounded-3" src="{{ URL::asset('images/temp-img.jpg') }}" alt="profile image" style="width:70px;">
+              <span class="d-inline-block align-top">
+                <h6>Stephen Mokgosi</h6>
+                <p class="card-text"><small class="text-muted ">Last updated 3 mins ago</small></p>
+              </span>
+            </div>
+            <div class="col-6">
+              <div class="d-flex flex-row-reverse"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+          </div>
+
+        </div>
+        <a href="#" class="">
+          <img class="card-img-top img-fluid" src="{{ URL::asset('images/temp-img.jpg') }}" alt="Card image">
+        </a>
+        <div class="card-body">
+          <p class="card-text">Some example text.</p>
+          <hr/>
+          <div class="row">
+            <div class="col-6 position-relative">
+              <span class="text-secondary fs-5 p-0 position-absolute right-10"><i class="fa-solid fa-heart"></i></span>
+              <span class="text-secondary fs-5 p-0 position-absolute"><i class="fa-solid fa-face-kiss-wink-heart"></i></span>
+              <span class="text-secondary fs-5 p-0 position-absolute"><i class="fa-solid fa-face-grin-tears"></i></span>
+              <span class="text-secondary fs-5 p-0 position-absolute"><i class="fa-solid fa-face-sad-tear"></i></span>
+              <span class="text-secondary fs-5 p-0 position-absolute"><i class="fa-solid fa-face-angry"></i></span>
+              <span class="text-secondary fs-5 fw-bold mx-2">0</span>
+            </div>
+            <div class="col-6">
+              <div class="d-flex flex-row-reverse text-secondary fs-5">0 comment</div>
+            </div>
+          </div>
+
+        </div>
+        <div class="card-footer">
+          
+          <div class="row">
+            <div class="col-4 text-secondary text-center fs-5"><i class="fa-solid fa-heart"></i> Like</div>
+            <div class="col-4 text-secondary text-center fs-5"><i class="fa-solid fa-comments"></i> Comment</div>
+            <div class="col-4 text-secondary text-center fs-5"><i class="fa-solid fa-share-from-square"></i> Share</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="">
+        <div class="">Sponsored</div>
+        <div class="">Invite a Friend</div>
+        <div class="">Create a Group</div>
+        <div class="">One of three columns</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+@endsection

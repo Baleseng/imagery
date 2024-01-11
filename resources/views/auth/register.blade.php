@@ -3,11 +3,13 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="container-fluid d-flex justify-content-center align-items-center" style="height:100vh; overflow:hidden;">
-            <div class="card text-center d-flex align-items-center" style="overflow:hidden;">
-                <div class="card-header fs-2 text-center"> {{ isset($url) ? ucwords($url) : ""}} {{ __('Register') }}</div>
 
-                <div class="card-body">
+        <div class="container-fluid d-flex justify-content-center align-items-center" style="height:100vh; overflow:hidden;">
+            <div class="card col-5 text-center d-flex align-items-center" style="overflow:hidden;">
+
+                <div class="card-header col-12 fs-2 text-center"> {{ isset($url) ? ucwords($url) : ""}} {{ __('Register') }}</div>
+
+                <div class="card-body col-12">
                 @isset($url)
                 <form method="POST" action='{{ url("register/$url") }}' aria-label="{{ __('Register') }}">
                 @else
@@ -61,7 +63,7 @@
                             </div>
                         </div>
                     </form>
-                    <div class="d-grid gap-2 col-7 mx-auto fs-9 text-center">By creating an account, you agree to ImageryAfrica Terms of Use, Privacy Policy</div>
+                    <div class="d-grid gap-2 col-7 mx-auto my-3 fs-9 text-center">By creating an account, you agree to ImageryAfrica Terms of Use, Privacy Policy</div>
                     <div class="col-7 mx-auto"><hr></div>
                     <div class="d-grid gap-2 col-8 mx-auto">
                         <button type="button" class="btn btn-block btn-lg btn-outline-secondary">

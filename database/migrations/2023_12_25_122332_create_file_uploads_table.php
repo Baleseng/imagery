@@ -12,18 +12,23 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('file_uploads', function (Blueprint $table) {
+            
+            $table->id();
+
             $table->integer('users_id')->default('0');
             $table->integer('admin_id')->default('0');
             $table->integer('creator_id')->default('0');
 
-            $table->id();
-
             $table->string('type');
             $table->string('path');
-            $table->string('price');
-            $table->string('country');
+            $table->string('usage');
+            $table->string('description');
+            $table->string('keywords');
             $table->string('category');
+            $table->string('status');
+            $table->string('location');
             $table->timestamps();
+            
         });
     }
 
