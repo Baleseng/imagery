@@ -20,7 +20,7 @@
                 <li class="list-group-item my-0 border-0">
                   <input type="radio" class="btn-check" name="btnGroupRadio" id="btnRadio1" autocomplete="on">
                   <label class="btn btn-outline-secondary col-12" for="btnRadio1">
-                    <div class="text-start fs-5">Standard</div>
+                    <div class="text-start fs-5">Standards</div>
                     <span class="d-inline-block col-0"></span>
                     <span class="d-inline-block mx-1 col-9 text-start">Limited usage in print, advertising, and packaging. Unlimited web distribution</span>
                     <span class="d-inline-block align-top col-1 text-end">ZAR249</span>
