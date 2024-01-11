@@ -5,7 +5,7 @@
 <div class="container-fluid position-relative" style="top:5rem;">
   <div class="row">
     <div class="col-lg-8 border" style="max-width:80%;">
-      <div class="mx-auto my-3 col-9 border" style="overflow:hidden; height: 500px;">
+      <div class="mx-auto my-3 col-9 border overflow-hidden" style="height: 500px;">
         <img src="{{ URL::asset('images/temp-img.jpg') }}" class="object-fit-fill" style="width:100%;">
       </div>
     </div>
