@@ -18,12 +18,12 @@
            
               <ul class="list-group rounded-0">
                 <li class="list-group-item my-0 border-0">
-                  <input type="radio" class="btn-check" name="btnGroupRadio" id="btnRadio1" autocomplete="on">
+                  <input type="radio" class="btn-check" name="btnGroupRadio" id="btnRadio1" autocomplete="on" checked>
                   <label class="btn btn-outline-secondary col-12" for="btnRadio1">
-                    <div class="text-start fs-5">Standards</div>
+                    <div class="text-start fs-5">Standards licence </div>
                     <span class="d-inline-block col-0"></span>
                     <span class="d-inline-block mx-1 col-9 text-start">Limited usage in print, advertising, and packaging. Unlimited web distribution</span>
-                    <span class="d-inline-block align-top col-1 text-end">ZAR249</span>
+                    <span class="d-inline-block align-top col-2 text-end">ZAR249</span>
                   </label>
 
                 </li>
@@ -33,13 +33,13 @@
                     <div class="text-start fs-5">Enhanced license</div>
                     <span class="d-inline-block col-0"></span>
                     <span class="d-inline-block mx-1 col-9 text-start">Unlimited usage in print, advertising, packaging, and merchandising. Unlimited web distribution.</span>
-                    <span class="d-inline-block align-top col-1 text-end">ZAR349</span>
+                    <span class="d-inline-block align-top col-2 text-end">ZAR349</span>
                   </label>
                 </li>
               </ul>
 
               <div class="d-grid gap-2 my-3">
-                <button class="btn btn-primary" type="button">Make purchase</button>
+                <button class="btn btn-primary" type="button">Add </button>
                 <a href="{{ url('/pricing') }}" class="btn btn-light btn-outline-secondary" type="button">View plans and prices</a>
               </div>
                          
