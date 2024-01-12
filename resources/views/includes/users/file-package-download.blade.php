@@ -27,8 +27,8 @@
        </li>
      </ul>
 
-     <div class="d-grid gap-2 my-3">
-       <button class="btn btn-primary" type="button">Download</button>
+     <div class="d-grid gap-2 my-3" id="banner-message">
+       <button type="button" data-name="Oxford" data-price="59" class="default-btn border-radius-5">Add to cart</button>
        <a href="{{ url('/pricing') }}" class="btn btn-light btn-outline-secondary" type="button">View plans and prices</a>
      </div>
                 

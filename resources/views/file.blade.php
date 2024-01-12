@@ -17,7 +17,7 @@
     </div>
     <div class="col-lg-4">
       <div class="shadow-sm p-3 bg-white rounded">
-        @include('includes.users.file-package-license')
+        @include('includes.users.file-package-download')
       </div>
     </div>
   </div>

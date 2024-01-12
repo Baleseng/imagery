@@ -25,8 +25,8 @@
         </li>
       </ul>
 
-      <div class="d-grid gap-2 my-3">
-        <button class="btn btn-primary" type="button">Add to cart</button>
+      <div class="d-grid gap-2 my-3" id="banner-message">
+        <button type="button" data-name="Oxford" data-price="1200" class="default-btn border-radius-5"> Add to cart</button>
       </div>
 </form>
 

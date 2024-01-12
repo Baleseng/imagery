@@ -29,19 +29,17 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm position-fixed top-0 z-3">
             <div class="container-fluid">
+                
                 <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-2 col-2">
                     <a href="{{ url('/') }}"><img src="{{ URL::asset('images/logo.png') }}" style="width:50%;"></a>
                 </div>
+                
                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-0">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search image">
-                        <div class="input-group-append">
-                            <button class="btn btn-secondary rounded-0" type="button">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </div>
-                    </div>
+                    <form class="form-inline">
+                        <input class="form-control" type="search" id="search_field"  placeholder="Search image" aria-label="Search">
+                    </form>    
                 </div>
+                
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -53,7 +51,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <div class="col-xxl-6 col-xl-6 col-lg-8 col-md-8 col-6 d-flex flex-row-reverse">
+                    <div class="col-xxl-7 col-xl-6 col-lg-8 col-md-8 col-6 d-flex flex-row-reverse">
                         
                         <!-- Authentication Links -->
                         @guest
@@ -65,27 +63,29 @@
                             <button type="button" class="btn btn-primary ml-3" data-bs-toggle="modal" data-bs-target="#myLogin">Login</button>
                             @endif
                         @else
-                        <ul class="list-group list-group-horizontal">
-                            <li class="list-group-item bg-secondary rounded-0 border-0">
-                                <a href="#" class="text-light">
+                        <ul class="nav fs-6 ">
+                            <li class="nav-item rounded-0 border-0">
+                                <button type="button" class="nav-link link-secondary px-2" data-toggle="modal" data-target="#staticBackdrop">
                                     <i class="fa-solid fa-cart-shopping"></i>
+
+                                    <span class="total-count"></span>
+                                </button>
+                            </li>
+                            
+                            <li class="nav-item text-secondary border-0">
+                                <a href="{{ url('/') }}" class="nav-link link-secondary px-2">
+                                    <i class="fa-solid fa-bell"></i>
                                 </a>
                             </li>
                             
-                            <li class="list-group-item text-secondary border-0">
-                                <a href="{{ url('/') }}" class="text-secondary">
-                                    <i class="fa fa-home"></i>
-                                </a>
-                            </li>
-                            
-                            <li class="list-group-item text-secondary border-0">
-                                <a href="{{ url('/feed') }}" class="text-secondary">
+                            <li class="nav-item text-secondary border-0">
+                                <a href="{{ url('/feed') }}" class="nav-link link-secondary px-2">
                                     <i class="fa-solid fa-share-from-square"></i>
                                 </a>
                             </li>
                             
-                            <li class="list-group-item text-secondary dropdown border-0">
-                                <a id="navbarDropdown" class="nav-link ]" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <li class="nav-item text-secondary dropdown border-0">
+                                <a id="navbarDropdown" class="nav-link link-secondary px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <i class="fa-solid fa-user"></i>
                                 </a>
 
@@ -223,12 +223,41 @@
 
         <main class="py-4" style="min-height:50rem;">
             @yield('content')
+
+            <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+         aria-labelledby="staticBackdropLabel" aria-hidden="true">
+         <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Your Cart</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <table class="show-cart table"></table>
+                  <div class="grand-total">Total price: ZAR<span class="total-cart"></span></div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <!-- <button type="button" class="btn btn-danger clear-all">Clear All</button> -->
+                </div>
+            </div>
+         </div>
+      </div>
         </main>
 
          <div class="mt-5 p-4 bg-dark text-white text-center col-lg-12">
             <p>Footer</p>
     </div>
     </div>
-   
+
+<script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="http://127.0.0.1:5173/resources/js/cart.js"></script>
+
+
 </body>
 </html>

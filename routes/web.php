@@ -88,3 +88,5 @@ Route::get('/creator/profile', [CreatorController::class,'profile']);
 Route::get('/home', [HomeController::class,'index']);
 Route::get('/feed', [HomeController::class,'feed']);
 Route::get('/file', [HomeController::class,'files']);
+Route::get('/proceed', [HomeController::class,'proceeds']);
+Route::get('/tester', [HomeController::class,'test']);

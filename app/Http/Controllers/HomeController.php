@@ -14,6 +14,16 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    public function test()
+    {
+        return view('/tester');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function index()
     {
         return view('/home');
@@ -37,6 +47,16 @@ class HomeController extends Controller
     public function files()
     {
         return view('/file');
+    }
+
+     /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function proceeds()
+    {
+        return view('/proceed');
     }
 
 }

@@ -1,5 +1,5 @@
 <div class="col-xxl-3 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
-	<div class="card border-0">
+	<div class="card border-0 featured-item">
 		
 		<div class="card-body border-0 border-top border-start border-end rounded-top">
 			
