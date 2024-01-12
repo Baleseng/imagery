@@ -101,7 +101,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="vr mx-3"></div>
+                                    <div class="vr mx-3 p-0"></div>
 
                                     <div class="col-5">
                                         <div class="form-floating mb-3">

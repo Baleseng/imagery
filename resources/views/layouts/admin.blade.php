@@ -121,6 +121,7 @@
                             <!-- Modal body -->
                             <div class="modal-body">
                                 <div class="container">
+                                    
                                     <div class="row m-15">
 
                                         <div class="card col text-center mx-1">
@@ -171,26 +172,26 @@
                             <!-- Modal body -->
                             <div class="modal-body">
                                 <div class="container">
-                                    <div class="row m-15">
-                                        <div class="col text-center">
-                                            <a href="{{ url('register/') }}" class="fs-4">
-                                                <i class="fa fa-user"></i>
-                                                <div class="text-center">User</div>
-                                            </a>
-                                        </div> 
-                                        <div class="col text-center">
-                                            <a href="{{ url('register/creator') }}" class="fs-4">
-                                                <i class="fa fa-user"></i>
-                                                <div class="text-center">Contributor</div>
-                                            </a>
-                                        </div>
-                                        <div class="col text-center">
-                                            <a href="{{ url('register/admin') }}" class="fs-4">
-                                                <i class="fa fa-user"></i>
-                                                <div class="text-center">Admin</div>
-                                            </a>
-                                        </div>
-                                    </div>
+                                    <div class="mx-auto col-12" role="group">
+
+                                        
+                                        <a href="{{ url('register/') }}" class="btn btn-outline-primary col-3 py-4">
+                                            <i class="fa fa-user"></i><br/>
+                                            <span class="">User</span>
+                                        </a>
+                                    
+                                    
+                                        <a href="{{ url('register/creator') }}" class="btn btn-outline-primary col-3 mx-5 py-4">
+                                            <i class="fa fa-user"></i><br/>
+                                            <span class="">Contributor</span>
+                                        </a>
+                                    
+                                        <a href="{{ url('register/admin') }}" class=" btn btn-outline-primary col-3 py-4">
+                                            <i class="fa fa-user"></i><br/>
+                                            <span class="">Admin</span>
+                                        </a>
+                                        
+                                    </div> 
                                 </div>
                             </div>
                             <!-- Modal footer -->

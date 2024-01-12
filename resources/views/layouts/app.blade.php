@@ -90,14 +90,29 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    
+                                    <a class="dropdown-item" href="{{ url('/creator/profile') }}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> <i class="fa fa-user"></i> 
                                     {{ Auth::user()->name }}
                                     </a>
+
+                                    <a class="dropdown-item" href=""><i class="fa fa-camera"></i> Upload Profile Picture</a>
+                                    <a class="dropdown-item" href=""><i class="fa fa-file-text"></i> Create / Manage Page</a>
+                                    <a class="dropdown-item" href=""><i class="fa fa-expeditedssl"></i> Security / Privacy</a>
+                                    <a class="dropdown-item" href=""><i class="fa fa-connectdevelop"></i> Setting A.I</a>
+                                    <a class="dropdown-item" href=""><i class="fa fa-bell-o"></i> Setting Notification</a>
+                                    <a class="dropdown-item" href=""><i class="fa fa-envelope-open-o"></i> Setting Message</a>
+                                    <a class="dropdown-item" href=""><i class="fa fa-user-plus"></i> Setting Requests</a>
+                                    <a class="dropdown-item" href=""><i class="fa fa-sitemap"></i> Sitemap</a>
+                                    <a class="dropdown-item" href=""><i class="fa fa-dashcube"></i> Feedback</a>
+                                    <a class="dropdown-item" href=""><i class="fa fa-question-circle-o"></i> Help</a>
+                                    
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+
+                                    
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
@@ -126,26 +141,25 @@
                             <!-- Modal body -->
                             <div class="modal-body">
                                 <div class="container">
-                                    <div class="row m-15">
+                                    <div class="mx-auto col-12" role="group">
 
-                                        <div class="card col text-center mx-1">
-                                            <a href="{{ url('login/') }}" class="fs-6">
-                                                <i class="fa fa-user"></i><br/>
-                                                <span class="">User</span>
-                                            </a>
-                                        </div> 
-                                        <div class="card col text-center mx-1">
-                                            <a href="{{ url('login/creator') }}" class="fs-6">
-                                                <i class="fa fa-user"></i><br/>
-                                                <span class="">Contributor</span>
-                                            </a>
-                                        </div>
-                                        <div class="card col text-center mx-1">
-                                            <a href="{{ url('login/admin') }}" class="fs-6">
-                                                <i class="fa fa-user"></i><br/>
-                                                <span class="">Admin</span>
-                                            </a>
-                                        </div>
+                                        
+                                        <a href="{{ url('login/') }}" class="btn btn-outline-primary col-3 py-4">
+                                            <i class="fa fa-user"></i><br/>
+                                            <span class="">User</span>
+                                        </a>
+                                    
+                                    
+                                        <a href="{{ url('login/creator') }}" class="btn btn-outline-primary col-3 mx-5 py-4">
+                                            <i class="fa fa-user"></i><br/>
+                                            <span class="">Contributor</span>
+                                        </a>
+                                    
+                                        <a href="{{ url('login/admin') }}" class=" btn btn-outline-primary col-3 py-4">
+                                            <i class="fa fa-user"></i><br/>
+                                            <span class="">Admin</span>
+                                        </a>
+                                        
                                     </div> 
                                 </div>
 
@@ -176,26 +190,26 @@
                             <!-- Modal body -->
                             <div class="modal-body">
                                 <div class="container">
-                                    <div class="row m-15">
-                                        <div class="col text-center">
-                                            <a href="{{ url('register/') }}" class="fs-4">
-                                                <i class="fa fa-user"></i>
-                                                <div class="text-center">User</div>
-                                            </a>
-                                        </div> 
-                                        <div class="col text-center">
-                                            <a href="{{ url('register/creator') }}" class="fs-4">
-                                                <i class="fa fa-user"></i>
-                                                <div class="text-center">Contributor</div>
-                                            </a>
-                                        </div>
-                                        <div class="col text-center">
-                                            <a href="{{ url('register/admin') }}" class="fs-4">
-                                                <i class="fa fa-user"></i>
-                                                <div class="text-center">Admin</div>
-                                            </a>
-                                        </div>
-                                    </div>
+                                    <div class="mx-auto col-12" role="group">
+
+                                        
+                                        <a href="{{ url('register/') }}" class="btn btn-outline-primary col-3 py-4">
+                                            <i class="fa fa-user"></i><br/>
+                                            <span class="">User</span>
+                                        </a>
+                                    
+                                    
+                                        <a href="{{ url('register/creator') }}" class="btn btn-outline-primary col-3 mx-5 py-4">
+                                            <i class="fa fa-user"></i><br/>
+                                            <span class="">Contributor</span>
+                                        </a>
+                                    
+                                        <a href="{{ url('register/admin') }}" class=" btn btn-outline-primary col-3 py-4">
+                                            <i class="fa fa-user"></i><br/>
+                                            <span class="">Admin</span>
+                                        </a>
+                                        
+                                    </div> 
                                 </div>
                             </div>
                             <!-- Modal footer -->

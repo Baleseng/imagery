@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container-fluid position-relative" style="top:5rem;">
+<div class="container-fluid position-relative" style="top:3rem;">
   <div class="row">
     <div class="col-lg-3">
       <div class="bg-white border rounded p-2">Your Profile</div>
@@ -14,10 +14,10 @@
         <div class="card-header">
           
           <div class="row">
-            <div class="col-6">
+            <div class="col-6 overflow-hidden" style="max-height:500;">
               <img class="img-thumbnail rounded-3" src="{{ URL::asset('images/temp-img.jpg') }}" alt="profile image" style="width:70px;">
               <span class="d-inline-block align-top">
-                <h6>Stephen Mokgosi</h6>
+                <h6 class="mb-0">Stephen Mokgosi</h6>
                 <p class="card-text"><small class="text-muted ">Last updated 3 mins ago</small></p>
               </span>
             </div>
@@ -51,9 +51,9 @@
         <div class="card-footer">
           
           <div class="row">
-            <div class="col-4 text-secondary text-center fs-5"><i class="fa-solid fa-heart"></i> Like</div>
-            <div class="col-4 text-secondary text-center fs-5"><i class="fa-solid fa-comments"></i> Comment</div>
-            <div class="col-4 text-secondary text-center fs-5"><i class="fa-solid fa-share-from-square"></i> Share</div>
+            <div class="col-4 text-secondary text-center fs-6"><i class="fa-solid fa-heart"></i> Like</div>
+            <div class="col-4 text-secondary text-center fs-6"><i class="fa-solid fa-comments"></i> Comment</div>
+            <div class="col-4 text-secondary text-center fs-6"><i class="fa-solid fa-share-from-square"></i> Share</div>
           </div>
 
         </div>
@@ -62,9 +62,9 @@
     <div class="col-lg-4">
       <div class="">
         <div class="">Sponsored</div>
-        <div class="">Invite a Friend</div>
-        <div class="">Create a Group</div>
-        <div class="">One of three columns</div>
+        <div class="border-top">Invite a Friend</div>
+        <div class="border-top">Create a Group</div>
+        <div class="border-top">One of three columns</div>
       </div>
     </div>
   </div>

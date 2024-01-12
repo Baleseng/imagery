@@ -21,14 +21,14 @@
             <!-- Main Section -->
             <div class="col-xl col-lg-9 col-md bg-light">
                 <div class="row">
-                @include('includes.users.img-cards')
-                @include('includes.users.img-cards')
-                @include('includes.users.img-cards')
-                @include('includes.users.img-cards')
-                @include('includes.users.img-cards')
-                @include('includes.users.img-cards')
-                @include('includes.users.img-cards')
-                @include('includes.users.img-cards')
+                @include('includes.users.file-cards')
+                @include('includes.users.file-cards')
+                @include('includes.users.file-cards')
+                @include('includes.users.file-cards')
+                @include('includes.users.file-cards')
+                @include('includes.users.file-cards')
+                @include('includes.users.file-cards')
+                @include('includes.users.file-cards')
             </div>
         </div>
     </div>

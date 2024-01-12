@@ -29,10 +29,6 @@
 			<span class="btn btn-secondary ">
 				<a href="{{ url('/pricing') }}" class="link-light link-offset-2 link-underline link-underline-opacity-0">Buy</a>
 			</span>
-			<div class="btn-group float-end" role="group" aria-label="Basic outlined button group">
-			  <span class="btn btn-outline-secondary"><i class="fa-solid fa-cart-plus"></i></span>
-			  <span class="btn btn-outline-secondary"><i class="fa-solid fa-heart"></i></span>
-			</div>
 		@endguest
 		</div>
 	</div>
