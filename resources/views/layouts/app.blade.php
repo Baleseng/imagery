@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -250,13 +252,14 @@
 
          <div class="mt-5 p-4 bg-dark text-white text-center col-lg-12">
             <p>Footer</p>
-    </div>
+        </div>
     </div>
 
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="http://127.0.0.1:5173/resources/js/cart.js"></script>
+<script src="https://imagery.test:5173/resources/js/cart.js"></script>
+
 
 
 </body>

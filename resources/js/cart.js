@@ -141,7 +141,7 @@ var shoppingCart = (function () {
         + "<td><div class='input-group'>"
         + "<input type='number' class='item-count form-control' data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>"
         + "</div></td>"
-        + "<td><button class='delete-item btn btn-danger' data-name=" + cartArray[i].name + ">X</button></td>"
+        + "<td><button class='delete-item btn' data-name=" + cartArray[i].name + "><i class='fa-solid fa-trash'></i></button></td>"
         + " = "
         + "<td>" + cartArray[i].total + "</td>"
         + "</tr>";
