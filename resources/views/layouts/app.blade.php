@@ -23,7 +23,6 @@
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
-
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
@@ -91,24 +90,24 @@
                                     <i class="fa-solid fa-user"></i>
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-end text-secondary" aria-labelledby="navbarDropdown">
                                     
-                                    <a class="dropdown-item" href="{{ url('/creator/profile') }}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> <i class="fa fa-user"></i> 
+                                    <a class="dropdown-item link-secondary" href="{{ url('/creator/profile') }}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> <i class="fa fa-user"></i> 
                                     {{ Auth::user()->name }}
                                     </a>
 
-                                    <a class="dropdown-item" href=""><i class="fa fa-camera"></i> Upload Profile Picture</a>
-                                    <a class="dropdown-item" href=""><i class="fa fa-file-text"></i> Create / Manage Page</a>
-                                    <a class="dropdown-item" href=""><i class="fa fa-expeditedssl"></i> Security / Privacy</a>
-                                    <a class="dropdown-item" href=""><i class="fa fa-connectdevelop"></i> Setting A.I</a>
-                                    <a class="dropdown-item" href=""><i class="fa fa-bell-o"></i> Setting Notification</a>
-                                    <a class="dropdown-item" href=""><i class="fa fa-envelope-open-o"></i> Setting Message</a>
-                                    <a class="dropdown-item" href=""><i class="fa fa-user-plus"></i> Setting Requests</a>
-                                    <a class="dropdown-item" href=""><i class="fa fa-sitemap"></i> Sitemap</a>
-                                    <a class="dropdown-item" href=""><i class="fa fa-dashcube"></i> Feedback</a>
-                                    <a class="dropdown-item" href=""><i class="fa fa-question-circle-o"></i> Help</a>
+                                    <a class="dropdown-item link-secondary" href=""><i class="fa fa-camera"></i> Upload Profile Picture</a>
+                                    <a class="dropdown-item link-secondary" href=""><i class="fa fa-file-text"></i> Create / Manage Page</a>
+                                    <a class="dropdown-item link-secondary" href=""><i class="fa fa-expeditedssl"></i> Security / Privacy</a>
+                                    <a class="dropdown-item link-secondary" href=""><i class="fa fa-connectdevelop"></i> Setting A.I</a>
+                                    <a class="dropdown-item link-secondary" href=""><i class="fa fa-bell-o"></i> Setting Notification</a>
+                                    <a class="dropdown-item link-secondary" href=""><i class="fa fa-envelope-open-o"></i> Setting Message</a>
+                                    <a class="dropdown-item link-secondary" href=""><i class="fa-solid fa-gear"></i> Setting Requests</a>
+                                    <a class="dropdown-item link-secondary" href=""><i class="fa fa-sitemap"></i> Sitemap</a>
+                                    <a class="dropdown-item link-secondary" href=""><i class="fa fa-dashcube"></i> Feedback</a>
+                                    <a class="dropdown-item link-secondary" href=""><i class="fa fa-question-circle-o"></i> Help</a>
                                     
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item link-secondary" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -227,27 +226,27 @@
             @yield('content')
 
             <!-- Modal -->
-      <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
-         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <h5 class="modal-title" id="staticBackdropLabel">Your Cart</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                     <span aria-hidden="true">&times;</span>
-                  </button>
-               </div>
-               <div class="modal-body">
-                  <table class="show-cart table"></table>
-                  <div class="grand-total">Total price: ZAR<span class="total-cart"></span></div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <!-- <button type="button" class="btn btn-danger clear-all">Clear All</button> -->
+            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                       <div class="modal-header">
+                          <h5 class="modal-title" id="staticBackdropLabel">Your Cart</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                          </button>
+                       </div>
+                       <div class="modal-body">
+                          <table class="show-cart table"></table>
+                          <div class="grand-total">Total price: ZAR<span class="total-cart"></span></div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <!-- <button type="button" class="btn btn-danger clear-all">Clear All</button> -->
+                        </div>
+                    </div>
                 </div>
             </div>
-         </div>
-      </div>
         </main>
 
          <div class="mt-5 p-4 bg-dark text-white text-center col-lg-12">
@@ -258,9 +257,8 @@
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
 <script src="https://imagery.test:5173/resources/js/cart.js"></script>
-
-
 
 </body>
 </html>

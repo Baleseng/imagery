@@ -15,18 +15,28 @@ return new class extends Migration
             
             $table->id();
 
-            $table->integer('users_id')->default('0');
-            $table->integer('admin_id')->default('0');
-            $table->integer('creator_id')->default('0');
-
-            $table->string('type');
-            $table->string('path');
-            $table->string('usage');
+            /** ADD BY CREATOR **/
+            $table->integer('creator_id');
+            $table->string('status');
+            $table->string('title');
+            $table->string('name')->nullable();
+            $table->string('file_path')->nullable();
             $table->string('description');
             $table->string('keywords');
             $table->string('category');
-            $table->string('status');
-            $table->string('location');
+            $table->string('country');
+            $table->string('usage');
+            $table->string('type');
+            
+
+            /** ADD BY ADMIN **/
+            $table->integer('admin_id')->default('0');
+            $table->string('price')->default('0');
+
+            /** ADD BY USER **/
+            $table->integer('users_id')->default('0');
+
+            
             $table->timestamps();
             
         });

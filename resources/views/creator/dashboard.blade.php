@@ -55,18 +55,18 @@
                     <div class="card shadow-sm border-0 rounded-0">
                         <div class="card-header">Uploads
                             <div class="float-end btn-group">
-                                <button class="btn btn-primary active" onclick="tabBtnIndex('btnIndexSubmit')">Submit</button>
                                 <button class="btn btn-primary" onclick="tabBtnIndex('btnIndexReview')">Review</button>
+                                <button class="btn btn-primary" onclick="tabBtnIndex('btnIndexSubmit')">Submit</button>
                                 <button class="btn btn-primary" onclick="tabBtnIndex('btnIndexArchive')">Archive</button>
                             </div>
                         </div>
-                        
-                        <div class="card-body tabClassIndex" id="btnIndexSubmit">
-                            @include('includes.admin.dashboardTabSubmit')
+
+                        <div class="card-body tabClassIndex" id="btnIndexReview">
+                            @include('includes.admin.dashboardTabReview')
                         </div>
                         
-                        <div class="card-body tabClassIndex" id="btnIndexReview" style="display:none;">
-                            @include('includes.admin.dashboardTabReview')
+                        <div class="card-body tabClassIndex" id="btnIndexSubmit" style="display:none;">
+                            @include('includes.admin.dashboardTabSubmit')
                         </div>
 
                         <div class="card-body tabClassIndex" id="btnIndexArchive" style="display:none;">
@@ -75,6 +75,19 @@
 
                     </div>
                 </div>
+            </div>
+
+            <div class="row">
+                <nav class="nav nav-tabs" id="nav-tab" role="tablist">
+  <a class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
+  <a class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
+  <a class="nav-link disabled" id="nav-disabled-tab" data-bs-toggle="tab" href="#nav-disabled" role="tab" aria-controls="nav-disabled" tabindex="-1" aria-disabled="true">Disabled</a>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"><div>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"></div>
+  <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab"></div>
+</div>
             </div>
 
             <div class="row">
@@ -88,14 +101,32 @@
                                 <button class="btn btn-primary" onclick="tabBtnChart('btnChartShared')">Audio</button>
                             </div>
                         </div>
+
+
+                        
                         <div class="card-body tabClassChart" id="btnChartViews">
+                            
                             <figure class="highcharts-figure">
-                                <div class="d-flex flex-row-reverse">
-                                  <button id='2020' class="btn btn-outline-primary">2024</button>
+                                <nav class="nav nav-tabs" id="nav-tab" role="tablist">
+                                    <a class="nav-link active" id="nav-2023-tab" data-bs-toggle="tab" href="#nav-2024" role="tab" aria-controls="nav-2024" aria-selected="true">2024</a>
+                                    <a class="nav-link" id="nav-2023-tab" data-bs-toggle="tab" href="#nav-2023" role="tab" aria-controls="nav-2023" aria-selected="false">2023</a>
+                                    <a class="nav-link" id="nav-2022-tab" data-bs-toggle="tab" href="#nav-2022" role="tab" aria-controls="nav-2022" aria-selected="false">2022</a>
+                                </nav>
+
+                                <div class="tab-content" id="nav-tabContent">
+                                    <div class="tab-pane fade show active" id="nav-2024" role="tabpanel" aria-labelledby="nav-2024-tab">
+                                        <div id="photos-container"></div>
+                                    <div>
+                                    <div class="tab-pane fade" id="nav-2023" role="tabpanel" aria-labelledby="nav-2023-tab"></div>
+                                    <div class="tab-pane fade" id="nav-2022" role="tabpanel" aria-labelledby="nav-2022-tab"></div>
                                 </div>
-                                <div id="photos-container"></div>
+                               
                             </figure>
+
                         </div>
+
+
+
                         <div class="card-body tabClassChart" id="btnChartDownloads" style="display:none;">
                             <figure class="highcharts-figure">
                                 <div class="d-flex flex-row-reverse">

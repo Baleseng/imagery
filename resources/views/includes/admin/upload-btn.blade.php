@@ -1,7 +1,7 @@
 <div class="col-md-3">
   
 
-   <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#upLoad" style="width:100%;"><i class="fa-solid fa-upload"></i> Upload</button>
+   <a href="{{ url('/creator/add') }}" class="btn btn-primary mb-2" data-bs-target="#upLoad" style="width:100%;"><i class="fa-solid fa-upload"></i> Upload</a>
    <!-- The Modal -->
        <div class="modal" id="upLoad">
            <div class="modal-dialog">
@@ -16,26 +16,47 @@
                    <div class="modal-body">
                        <div class="container">
                            <div class="row">
-                            <div class="">
-                                <form method="POST" action="{{ url('creator')}}">
-                                  {{ csrf_field() }}
+                            
 
-                                    <div class="mb-3">
-                                      <label for="formFileMultiple" class="form-label">Multiple files input example</label>
-                                      <input class="form-control" name="status" type="file" id="formFileMultiple" multiple>
+                                <form action="{{route('fileUpload')}}" method="post" enctype="multipart/form-data">
+                                  <h3 class="text-center mb-5">Upload File in Laravel</h3>
+                                     @csrf
+                                     @if ($message = Session::get('success'))
+                                     <div class="alert alert-success">
+                                        <strong>{{ $message }}</strong>
+                                     </div>
+                                     @endif
+                                     @if (count($errors) > 0)
+                                        <div class="alert alert-danger">
+                                           <ul>
+                                              @foreach ($errors->all() as $error)
+                                              <li>{{ $error }}</li>
+                                              @endforeach
+                                           </ul>
+                                        </div>
+                                     @endif
+
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div id="drop-area" class="border rounded d-flex justify-content-center align-items-center"
+                                                style="height: 200px; cursor: pointer;">
+                                                <div class="text-center">
+                                                    <i class="bi bi-cloud-arrow-up-fill text-primary" style="font-size: 48px;"></i>
+                                                    <input type="file" name="file" class="custom-file-input" id="chooseFile" class="form-control">
+                                                    <p class="mt-3">Drag and drop your image here or click to select a file.</p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
 
-                                    <input type="hidden" value="{{ Auth::user()->id }}" name="owner_id"/>
-                                    <input type="hidden" value="review" name="status"/>
-                                    <div class="my-3">
-                                        <a class="link-light link-offset-2 border rounded-3 bg-primary p-2" href="{{ url('creator/add') }}">Next</a>
-                                    </div>
-                         
-                                </form>
-                            </div>
-                                
-                           </div> 
-                       </div>
+                                    <input type="hidden" value="{{ Auth::user()->id }}" name="creator_id"/>
+                                    <button type="submit" name="submit" class="btn btn-primary btn-block mt-4">Upload Files</button>
+
+                                 </form>
+
+    
+                            </div> 
+                        </div>
                    </div>
                    <!-- Modal footer -->
                    <div class="modal-footer">

@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use App\Models\FileUpload;
+use App\Models\Creator;
 use App\Models\Admin;
 use App\Models\User;
-use App\Models\Creator;
-use App\Models\FileUpload;
 use DB;
 
 class CreatorController extends Controller
@@ -26,27 +26,41 @@ class CreatorController extends Controller
     /*|-------------------------------- DASHBOARD ----------------------------------|*/
     public function dashboard(Request $request){      
         $url = 'creator';
-        return view('/creator/dashboard', compact('url'));
+        $reviews = DB::table('file_uploads')->where('status','review')->get();
+        return view('/creator/dashboard', compact('url','reviews'));
     }
 
     /*|-------------------------------- ADD & EDIT ----------------------------------|*/
-    public function add(FileUpload $upload, Creator $creator){
-        $url = 'creator';
-        return view('creator.add', compact('url','upload','creator'));
+    public function add(){
+        return view('creator/add');
     }
-    public function store(FileUpload $upload, Creator $creator, Request $request){
-        $url = 'creator';
-        FileUpload::create(request([
-            'type',
-            'path',
-            'usage',
-            'description',
-            'keywords',
-            'category',
-            'status',
-            'location',
-        ]));
-        return redirect('creator');
+    public function store(Request $request){
+        
+        $request->validate(['file' => 'required|mimes:pdf,jpg,jpeg,png|max:2048']);
+        $fileModel = new FileUpload;
+
+        $fileModel->creator_id=$request->post('creator_id');
+        $fileModel->status=$request->post('status');
+        $fileModel->title=$request->post('title');
+        $fileModel->description=$request->post('description');
+        $fileModel->keywords=$request->post('keywords');
+        $fileModel->category=$request->post('category');
+        $fileModel->country=$request->post('country');
+        $fileModel->usage=$request->post('usage');
+        $fileModel->type=$request->post('type');
+
+        
+        if($request->file()) {
+            $fileName = time().'_'.$request->file->getClientOriginalName();
+            $filePath = $request->file('file')->storeAs('uploads', $fileName, 'public');
+            $fileModel->name = time().'_'.$request->file->getClientOriginalName();
+            $fileModel->file_path = '/public/' . $filePath;    
+            $fileModel->save();
+            return redirect('creator')
+            ->with('success','File has been uploaded.')
+            ->with('file', $fileName);
+        }
+
     }
 
     public function edit(FileUpload $upload, Creator $creator, Request $request){ 

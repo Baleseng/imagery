@@ -15,14 +15,17 @@ class FileUpload extends Model
     'users_id',
     'creator_id',
 
+    'title',
     'type',
-    'path',
+    'name',
+    'file_path',
     'usage',
     'description',
     'keywords',
     'category',
     'status',
-    'location',
+    'country',
+    'price',
 
     ];
 }

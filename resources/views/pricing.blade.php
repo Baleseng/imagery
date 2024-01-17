@@ -2,8 +2,8 @@
 
 @section('content')
 
-<div class="container-fluid">
-    <div class="container p-5">
+<div class="container-fluid position-relative" style="top:7rem">
+    <div class="container">
       <div class="row">
         <div class="col-lg-4 col-md-12 mb-4">
           <div class="card h-100 shadow-lg">
