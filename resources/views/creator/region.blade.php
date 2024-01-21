@@ -15,7 +15,13 @@
         @include('includes.admin.upload-btn')
 
         <div class="col-md-9">
-
+            <div class="row">
+                <div class="btn mt-2 mx-auto col-12" role="group" aria-label="Basic outlined button group">
+                    <a href="{{ url($url.'/edit/'.$id->id . '-' . str_replace(' ', '-', $id->title)) }}" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+                    <a href="{{ url($url.'/preview/'.$id->id . '-' . str_replace(' ', '-', $id->title)) }}" class="btn btn-primary"><i class="fa-solid fa-eye"></i> Preview</a>
+                    <a href="{{ url('/creator') }}" class="btn btn-primary"><i class="fa-solid fa-cubes-stacked"></i> Dashboard</a>
+                </div>
+            </div>
             <div id="demo-wrapper">
                 <div id="map-box">
                     

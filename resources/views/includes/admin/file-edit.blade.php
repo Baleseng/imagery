@@ -1,26 +1,11 @@
-@extends('layouts.admin')
-
-@section('content')
-@if (session('status'))
-    <div class="alert alert-success" role="alert">
-        {{ session('status') }}
-    </div>
-@endif
-<div class="container-fluid" style="position: relative; top:3rem;">
-    <div class="row justify-content-center">
-        @include('includes.admin.upload-btn')
-        <div class="col-9">
-            <div class="row d-flex">
-
-                <div class="col-12 overflow-auto">
-                    <div class="btn mt-2 mx-auto col-12" role="group" aria-label="Basic outlined button group">
+<div class="btn mt-2 mx-auto col-12" role="group" aria-label="Basic outlined button group">
                         <a href="{{ url($url.'/preview/'.$id->id . '-' . str_replace(' ', '-', $id->title)) }}" class="btn btn-primary"><i class="fa-solid fa-eye"></i> Preview</a>
                         <a href="{{ url($url.'/region/'.$id->id . '-' . str_replace(' ', '-', $id->title)) }}" class="btn btn-primary"><i class="fa-solid fa-earth-africa"></i> Region</a>
                         <a href="{{ url('/creator') }}" class="btn btn-primary"><i class="fa-solid fa-cubes-stacked"></i> Dashboard</a>
-                    </div>
+                    </divs>
                     <div class="card rounded-0">
                         <div class="card-body">
-                            <form method="POST" action="{{ url('creator/'.$id->id) }}" id="reasonInput">
+                            <form method="POST" action="{{ url('admin/'.$id->id) }}" id="reasonInput">
                             {{ method_field('PATCH') }}
                             {{ csrf_field() }}
                                 <div class="row d-flex">
@@ -50,8 +35,7 @@
                                         </div>
                                     </div>
 
-                                    <input type="hidden" value="{{ Auth::user()->id }}" name="creator_id"/>
-                                    <input type="hidden" value="review" name="status"/>
+                                    <input type="hidden" value="{{ Auth::user()->id }}" name="admin_id"/>
                                         
                                     </div>
 
@@ -208,11 +192,3 @@
                             </form>
                         </div>
                     </div>
-                </div>
-
-                
-            </div>
-        </div>
-    </div>
-</div>
-@endsection

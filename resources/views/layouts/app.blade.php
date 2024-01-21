@@ -25,6 +25,7 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    
 </head>
 <body>
     <div id="app">
@@ -68,7 +69,6 @@
                             <li class="nav-item rounded-0 border-0">
                                 <button type="button" class="nav-link link-secondary px-2" data-toggle="modal" data-target="#staticBackdrop">
                                     <i class="fa-solid fa-cart-shopping"></i>
-
                                     <span class="total-count"></span>
                                 </button>
                             </li>
@@ -130,8 +130,8 @@
         </nav>
 
         <!-- The Modal -->
-                <div class="modal" id="myLogin">
-                    <div class="modal-dialog">
+                <div class="modal fade" id="myLogin">
+                    <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                         <!-- Modal Header -->
                             <div class="modal-header">
@@ -179,8 +179,8 @@
                 </div>
 
                 <!-- The Modal -->
-                <div class="modal" id="mySignup">
-                    <div class="modal-dialog">
+                <div class="modal fade" id="mySignup">
+                    <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                         <!-- Modal Header -->
                             <div class="modal-header">

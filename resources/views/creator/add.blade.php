@@ -49,9 +49,9 @@
                                         
                                     </div>
 
-                                    <div class="vr mx-3 p-0"></div>
+                                    <div class="vr mx-4 p-0"></div>
 
-                                    <div class="col-4">
+                                    <div class="col-5">
                                         <div class="form-floating mb-3">
                                             <input type="text" class="form-control border-bottom border-0" id="floatingInputKeywords" name="title" placeholder="Keywords">
                                             <label for="floatingInput">File Name</label>
@@ -79,7 +79,7 @@
                                             <div class="btn-group" role="group">
                                                 
                                                 <input type="radio" class="btn-check" name="usage" value="commercial" id="option3" autocomplete="off" checked>
-                                                <label class="btn btn-outline-primary" for="option3">Commercial</label>
+                                                <label class="btn btn-outline-primary" for="option3">License</label>
 
                                                 <input type="radio" class="btn-check" name="usage" value="download" id="option4" autocomplete="off">
                                                 <label class="btn btn-outline-primary" for="option4">Download</label>
@@ -105,32 +105,32 @@
                                         <div class="form-floating mb-3">
                                             <select name="category" class="form-select border-bottom border-0" id="floatingSelect" aria-label="Catergory">
                                                 <option value="">Select Catergory</option>
-                                                <option value="test">Abstract</option>
-                                                <option value="">Animals/Wildlife</option>
-                                                <option value="">Arts</option>
-                                                <option value="">Backgrounds/Textures</option>
-                                                <option value="">Beauty/Fashion</option>
-                                                <option value="">Buildings/Landmarks</option>
-                                                <option value="">Business/Finance</option>
-                                                <option value="">Celebrities</option>
-                                                <option value="">Education</option>
-                                                <option value="">Food and drink</option>
-                                                <option value="">Healthcare/Medical</option>
-                                                <option value="">Holidays</option>
-                                                <option value="">Industrial</option>
-                                                <option value="">Interiors</option>
-                                                <option value="">Miscellaneous</option>
-                                                <option value="">Nature</option>
-                                                <option value="">Objects</option>
-                                                <option value="">Parks/Outdoor</option>
-                                                <option value="">People</option>
-                                                <option value="">Religion</option>
-                                                <option value="">Science</option>
-                                                <option value="">Signs/Symbols</option>
-                                                <option value="">Sports/Recreation</option>
-                                                <option value="">Technology</option>
-                                                <option value="">Transportation</option>
-                                                <option value="">Vintage</option>
+                                                <option value="Abstract">Abstract</option>
+                                                <option value="Animals/Wildlife">Animals/Wildlife</option>
+                                                <option value="Arts">Arts</option>
+                                                <option value="Backgrounds/Textures">Backgrounds/Textures</option>
+                                                <option value="Beauty/Fashion">Beauty/Fashion</option>
+                                                <option value="Buildings/Landmarks">Buildings/Landmarks</option>
+                                                <option value="Business/Finance">Business/Finance</option>
+                                                <option value="Celebrities">Celebrities</option>
+                                                <option value="Education">Education</option>
+                                                <option value="Food&drink">Food and drink</option>
+                                                <option value="Healthcare/Medical">Healthcare/Medical</option>
+                                                <option value="Holidays">Holidays</option>
+                                                <option value="Industrial">Industrial</option>
+                                                <option value="Interiors">Interiors</option>
+                                                <option value="Miscellaneous">Miscellaneous</option>
+                                                <option value="Nature">Nature</option>
+                                                <option value="Objects">Objects</option>
+                                                <option value="Parks/Outdoor">Parks/Outdoor</option>
+                                                <option value="People">People</option>
+                                                <option value="Religion">Religion</option>
+                                                <option value="Science">Science</option>
+                                                <option value="Signs/Symbols">Signs/Symbols</option>
+                                                <option value="Sports/Recreation">Sports/Recreation</option>
+                                                <option value="Technology">Technology</option>
+                                                <option value="Transportation">Transportation</option>
+                                                <option value="Vintage">Vintage</option>
                                             </select>
                                             <label for="floatingSelect">Catergory</label>
                                         </div>
@@ -138,21 +138,21 @@
                                         <div class="form-floating mb-3">
                                             <select name="country" class="form-select border-bottom border-0" id="floatingSelect" aria-label="Region">
                                                 <option value="">Select Region</option>
-                                                <option value="">Algeria</option>
+                                                <option value="al">Algeria</option>
                                                 <option value="ao">Angola</option>
-                                                <option value="">Benin</option>
+                                                <option value="bi">Benin</option>
                                                 <option value="bw">Botswana</option>
                                                 <option value="bf">Burkina Faso</option>
-                                                <option value="">Burundi</option>
-                                                <option value="">Cabo Verde</option>
-                                                <option value="">Central African Republic</option>
-                                                <option value="">Chad</option>
-                                                <option value="">Comoros</option>
-                                                <option value="">Congo, Democratic Republic of the</option>
+                                                <option value="bu">Burundi</option>
+                                                <option value="cv">Cape Verde</option>
+                                                <option value="cf">Central African Republic</option>
+                                                <option value="ch">Chad</option>
+                                                <option value="co">Comoros</option>
                                                 <option value="cm">Cote d’Ivoire</option>
+                                                <option value="drc">Democratic Republic of the Congo</option>
                                                 <option value="dj">Djibouti</option>
                                                 <option value="eg">Egypt</option>
-                                                <option value="">Equatorial Guinea</option>
+                                                <option value="eq">Equatorial Guinea</option>
                                                 <option value="er">Eritrea</option>
                                                 <option value="sz">Eswatini</option>
                                                 <option value="et">Ethiopia</option>
@@ -160,17 +160,17 @@
                                                 <option value="gm">Gambia</option>
                                                 <option value="gh">Ghana</option>
                                                 <option value="gn">Guinea</option>
-                                                <option value="">Guinea-Bissau</option>
+                                                <option value="gb">Guinea-Bissau</option>
                                                 <option value="ke">Kenya</option>
                                                 <option value="ls">Lesotho</option>
                                                 <option value="lr">Liberia</option>
                                                 <option value="ly">Libya</option>
-                                                <option value="ma">Madagascar</option>
+                                                <option value="mg">Madagascar</option>
                                                 <option value="mw">Malawi</option>
                                                 <option value="ml">Mali</option>
-                                                <option value="">Mauritania</option>
-                                                <option value="">Mauritius</option>
-                                                <option value="">Morocco</option>
+                                                <option value="mr">Mauritania</option>
+                                                <option value="mu">Mauritius</option>
+                                                <option value="ma">Morocco</option>
                                                 <option value="mz">Mozambique</option>
                                                 <option value="na">Namibia</option>
                                                 <option value="ne">Niger</option>

@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+
 @if (session('status'))
     <div class="alert alert-success" role="alert">
         {{ session('status') }}
@@ -211,5 +212,3 @@ Highcharts.chart('audios-container', {
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-
-

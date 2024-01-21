@@ -20,7 +20,7 @@
                     </div>
                     <div class="card rounded-0">
                         <div class="card-body">
-                            <form method="POST" action="{{ url('creator/'.$id->id) }}" id="reasonInput">
+                            <form method="POST" action="{{ url('admin/'.$id->id) }}" id="reasonInput">
                             {{ method_field('PATCH') }}
                             {{ csrf_field() }}
                                 <div class="row d-flex">
@@ -50,8 +50,7 @@
                                         </div>
                                     </div>
 
-                                    <input type="hidden" value="{{ Auth::user()->id }}" name="creator_id"/>
-                                    <input type="hidden" value="review" name="status"/>
+                                    <input type="hidden" value="{{ Auth::user()->id }}" name="admin_id"/>
                                         
                                     </div>
 
@@ -199,6 +198,21 @@
                                             </select>
                                             <label for="floatingSelect">Region</label>
                                         </div>
+
+                                        <div class="mb-3">
+                                            <label for="submitCheckboxInput" class="form-label fw-bold d-block">Approval</label>
+                                            
+                                            <div class="btn-group" role="group">
+                                                
+                                                <input type="radio" class="btn-check" name="status" value="submit" id="submitOption1" autocomplete="off" checked>
+                                                <label class="btn btn-outline-primary" for="submitOption1">Submit No Correction</label>
+
+                                                <input type="radio" class="btn-check" name="status" value="review" id="submitOption2" autocomplete="off">
+                                                <label class="btn btn-outline-primary" for="submitOption2">Submit With Correction</label>
+
+                                            </div>  
+                                        </div>
+
 
                                         <div class=" d-grid gap-2 my-3">
                                             <button class="btn btn-primary">SUBMIT</button>

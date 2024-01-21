@@ -15,7 +15,9 @@ class Creator extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'mobile',
         'password',
+        'image',
     ];
 
     /**

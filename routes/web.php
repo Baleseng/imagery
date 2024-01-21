@@ -56,19 +56,29 @@ Route::get('logout', [LoginController::class,'logout']);
 
 Route::get('/admin', [AdminController::class,'index']);
 
+Route::get('/admin/edit/{id}', [AdminController::class,'edit']);
+Route::patch('/admin/{id}', [AdminController::class,'update']);
+
+Route::get('/admin/preview/{id}', [AdminController::class,'files']);
+
+Route::get('/admin/region/{id}', [AdminController::class,'region']);
+
 /*
   |--------------------------------------------------------------------------
   | Creator Route
   |--------------------------------------------------------------------------
 */
 
-Route::get('/creator', [CreatorController::class,'dashboard']);
+Route::get('/creator', [CreatorController::class,'index']);
 
-Route::get('/creator/edit', [CreatorController::class,'edit']);
-Route::patch('/creator/', [CreatorController::class,'update']);
+Route::get('/creator/add', [CreatorController::class, 'add']);
+Route::post('/creator', [CreatorController::class, 'store'])->name('fileUpload');
 
-Route::get('/creator/file', [CreatorController::class,'files']);
-Route::get('/creator/region', [CreatorController::class,'region']);
+Route::get('/creator/edit/{id}', [CreatorController::class,'edit']);
+Route::patch('/creator/{id}', [CreatorController::class,'update']);
+
+Route::get('/creator/preview/{id}', [CreatorController::class,'files']);
+Route::get('/creator/region/{id}', [CreatorController::class,'region']);
 
 Route::get('/creator/earnings', [CreatorController::class,'earning']);
 Route::get('/creator/portfolio', [CreatorController::class,'portfolio']);
@@ -76,8 +86,6 @@ Route::get('/creator/insight', [CreatorController::class,'insight']);
 
 Route::get('/creator/profile', [CreatorController::class,'profile']);
 
-Route::get('/creator/add', [CreatorController::class, 'add']);
-Route::post('/creator', [CreatorController::class, 'store'])->name('fileUpload');
 
 /*
   |--------------------------------------------------------------------------

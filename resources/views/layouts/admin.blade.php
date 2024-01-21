@@ -63,6 +63,12 @@
                             <li class="list-group-item text-secondary border-0">
                                 <a href="{{ url('/creator') }}" class="text-secondary"><i class="fa fa-home"></i></a>
                             </li>
+
+                            <li class="list-group-item text-secondary border-0">
+                                <a href="{{ url('/') }}" class="text-secondary">
+                                    <i class="fa-solid fa-bell"></i>
+                                </a>
+                            </li>
                             
                             <li class="list-group-item text-secondary dropdown border-0">
                                 <a id="navbarDropdown" class="nav-link ]" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

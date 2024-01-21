@@ -24,10 +24,23 @@ class CreatorController extends Controller
     }
 
     /*|-------------------------------- DASHBOARD ----------------------------------|*/
-    public function dashboard(Request $request){      
+    public function index(Request $request){      
+        
         $url = 'creator';
-        $reviews = DB::table('file_uploads')->where('status','review')->get();
-        return view('/creator/dashboard', compact('url','reviews'));
+        
+        $reviews = DB::table('file_uploads')
+        ->where('creator_id', auth()->id())
+        ->where('status','review')->get();
+
+        $submits = DB::table('file_uploads')
+        ->where('creator_id', auth()->id())
+        ->where('status','submit')->get();
+
+        $archives = DB::table('file_uploads')
+        ->where('creator_id', auth()->id())
+        ->where('status','archive')->get();
+        
+        return view('/creator/dashboard', compact('url','reviews','submits','archives'));
     }
 
     /*|-------------------------------- ADD & EDIT ----------------------------------|*/
@@ -52,9 +65,9 @@ class CreatorController extends Controller
         
         if($request->file()) {
             $fileName = time().'_'.$request->file->getClientOriginalName();
-            $filePath = $request->file('file')->storeAs('uploads', $fileName, 'public');
+            $filePath = $request->file('file')->storeAs('images', $fileName, 'public');
             $fileModel->name = time().'_'.$request->file->getClientOriginalName();
-            $fileModel->file_path = '/public/' . $filePath;    
+            $fileModel->file_path = '/storage/images/' . $filePath;    
             $fileModel->save();
             return redirect('creator')
             ->with('success','File has been uploaded.')
@@ -63,33 +76,42 @@ class CreatorController extends Controller
 
     }
 
-    public function edit(FileUpload $upload, Creator $creator, Request $request){ 
+    public function edit(FileUpload $id, Creator $creator, Request $request){ 
         $url = 'creator';
-        FileUpload::find($upload);
+        FileUpload::find($id);
         $creator = Creator::first();
-        return view('creator.edit',compact('url','upload','creator'));
+        return view('creator.edit',compact('url','id','creator'));
     }
-    public function update(FileUpload $upload, Request $request){
+    public function update(FileUpload $id, Request $request){
         $url = 'creator';
-        FileUpload::find($upload);
-        $upload->usage = $request->get('usage');
-        $upload->description = $request->get('description');
-        $upload->keywords = $request->get('keywords');
-        $upload->category = $request->get('category');
-        $upload->status = $request->get('status');
-        $upload->save(); 
+        FileUpload::find($id);
+        $id->usage = $request->get('usage');
+        $id->description = $request->get('description');
+        $id->keywords = $request->get('keywords');
+        $id->category = $request->get('category');
+        $id->status = $request->get('status');
+        $id->save(); 
         return redirect('creator');    
     }
 
      /*|-------------------------------- PAPGE ----------------------------------|*/
-    public function files(Request $request){      
+    public function files(FileUpload $id, Creator $creator, Request $request){      
+        
         $url = 'creator';
-        return view('/creator/file', compact('url'));
+        FileUpload::find($id);
+        $creator= Creator::first();
+
+        return view('/creator/preview', compact('url','id','creator'));
     }
-    /*|-------------------------------- LOCATIOn ----------------------------------|*/
-    public function region(Request $request){      
+
+    /*|-------------------------------- LOCATION ----------------------------------|*/
+    public function region(FileUpload $id, Creator $creator, Request $request){      
+        
         $url = 'creator';
-        return view('/creator/region', compact('url'));
+        FileUpload::find($id);
+        $creator= Creator::first();
+
+        return view('/creator/region', compact('url','id','creator'));
     }
 
     /*|-------------------------------- EARNINGS ----------------------------------|*/
