@@ -42,16 +42,29 @@
 
                                         <div class="card">
                                             <div class="card-body">
-                                                <div id="drop-area" class="border rounded d-flex justify-content-center align-items-center" style="height: 200px; cursor: pointer;">
-                                                    <div class="text-center">
-                                                        <input type="file" name="file" value="{{ $id->name }}" class="custom-file-input form-control">
+
+                                                <div id="drop-area" class="border rounded position-relative" style="min-height: 200px; cursor: pointer;">
+                                                    
+                                                    <div class="opacity-50 text-center position-absolute top-50 start-50 translate-middle">
+                                                        <label for="selectImage" class="custom-file-input form-control text-secondary ">
+                                                            <i class="fa-solid fa-cloud-arrow-up fs-1"></i>
+                                                            <div class="">upload file</div>
+                                                        </label>
+                                                        <input type="file" name="file" value="{{ $id->name }}" id="selectImage" hidden>
                                                     </div>
+
+                                                    <div class="img">
+                                                        <img id="preview" src="blob:https://imagery.test/{{ $id->name }}" alt="your image" class="rounded-1" style="display:none; width: 100%; height:auto;" />
+                                                    </div>
+
+                                                </div>
+
+
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <input type="hidden" value="{{ Auth::user()->id }}" name="creator_id"/>
-                                    <input type="hidden" value="review" name="status"/>
+                                        <input type="hidden" value="{{ Auth::user()->id }}" name="creator_id"/>
+                                        <input type="hidden" value="review" name="status"/>
                                         
                                     </div>
 
@@ -216,3 +229,16 @@
     </div>
 </div>
 @endsection
+
+@push('script')
+    <script>
+        selectImage.onchange = evt => {
+            preview = document.getElementById('preview');
+            preview.style.display = 'block';
+            const [file] = selectImage.files
+            if (file) {
+                preview.src = URL.createObjectURL(file)
+            }
+        }
+    </script>
+@endpush

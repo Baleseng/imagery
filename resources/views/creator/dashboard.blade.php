@@ -136,80 +136,89 @@
     </div>
 </div>
 
-<script type="text/javascript">
-  function tabBtnIndex(tabIdIndex) {
-    var i;
-    var x = document.getElementsByClassName("tabClassIndex");
-    for (i = 0; i < x.length; i++) {x[i].style.display = "none";}
-    document.getElementById(tabIdIndex).style.display = "block";
-  }
-</script>
 
-<script type="text/javascript">
-  function tabBtnChart(tabIdChart) {
-    var i;
-    var x = document.getElementsByClassName("tabClassChart");
-    for (i = 0; i < x.length; i++) {x[i].style.display = "none";}
-    document.getElementById(tabIdChart).style.display = "block";
-  }
-</script>
-
-<script type="text/javascript">
-Highcharts.chart('photos-container', {
-    chart: {type: 'column'},
-    title: {text: 'Photos for 2024'},
-    xAxis: {categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']},
-    credits: {enabled: true},
-    plotOptions: {
-        column: {borderRadius: '25%'}
-    },
-    series: [
-        {name: 'Views',data: [5, 3, 4, 7, 2, 5, 3, 4, 7, 2, 1,1]},
-        {name: 'Downloads', data: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]}, 
-        {name: 'Shares',data: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]}
-    ]
-});
-</script>
-
-<script type="text/javascript">
-Highcharts.chart('videos-container', {
-    chart: {type: 'column'},
-    title: {text: 'Videos for 2024'},
-    xAxis: {categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']},
-    credits: {enabled: true},
-    plotOptions: {
-        column: {borderRadius: '25%'}
-    },
-    series: [
-        {name: 'Views',data: [5, 3, 4, 7, 2, 5, 3, 4, 7, 2, 1,1]},
-        {name: 'Downloads', data: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]}, 
-        {name: 'Shared',data: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]}
-    ]
-});
-</script>
-
-<script type="text/javascript">
-Highcharts.chart('audios-container', {
-    chart: {type: 'column'},
-    title: {text: 'Audios for 2024'},
-    xAxis: {categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']},
-    credits: {enabled: true},
-    plotOptions: {
-        column: {borderRadius: '25%'}
-    },
-    series: [
-        {name: 'Views',data: [5, 3, 4, 7, 2, 5, 3, 4, 7, 2, 1,1]},
-        {name: 'Downloads', data: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]}, 
-        {name: 'Shared',data: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]}
-    ]
-});
-</script>
 
 @endsection
 
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
-<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+@push('script')
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <script type="text/javascript">
+    Highcharts.chart('photos-container', {
+        chart: {type: 'column'},
+        title: {text: 'Photos for 2024'},
+        xAxis: {categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']},
+        credits: {enabled: true},
+        plotOptions: {
+            column: {borderRadius: '25%'}
+        },
+        series: [
+            {name: 'Views',data: [5, 3, 4, 7, 2, 5, 3, 4, 7, 2, 1,1]},
+            {name: 'Downloads', data: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]}, 
+            {name: 'Shares',data: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]}
+        ]
+    });
+    </script>
+
+    <script type="text/javascript">
+    Highcharts.chart('videos-container', {
+        chart: {type: 'column'},
+        title: {text: 'Videos for 2024'},
+        xAxis: {categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']},
+        credits: {enabled: true},
+        plotOptions: {
+            column: {borderRadius: '25%'}
+        },
+        series: [
+            {name: 'Views',data: [5, 3, 4, 7, 2, 5, 3, 4, 7, 2, 1,1]},
+            {name: 'Downloads', data: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]}, 
+            {name: 'Shared',data: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]}
+        ]
+    });
+    </script>
+
+    <script type="text/javascript">
+    Highcharts.chart('audios-container', {
+        chart: {type: 'column'},
+        title: {text: 'Audios for 2024'},
+        xAxis: {categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']},
+        credits: {enabled: true},
+        plotOptions: {
+            column: {borderRadius: '25%'}
+        },
+        series: [
+            {name: 'Views',data: [5, 3, 4, 7, 2, 5, 3, 4, 7, 2, 1,1]},
+            {name: 'Downloads', data: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]}, 
+            {name: 'Shared',data: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]}
+        ]
+    });
+    </script>
+
+    <script type="text/javascript">
+      function tabBtnIndex(tabIdIndex) {
+        var i;
+        var x = document.getElementsByClassName("tabClassIndex");
+        for (i = 0; i < x.length; i++) {x[i].style.display = "none";}
+        document.getElementById(tabIdIndex).style.display = "block";
+      }
+    </script>
+
+    <script type="text/javascript">
+      function tabBtnChart(tabIdChart) {
+        var i;
+        var x = document.getElementsByClassName("tabClassChart");
+        for (i = 0; i < x.length; i++) {x[i].style.display = "none";}
+        document.getElementById(tabIdChart).style.display = "block";
+      }
+    </script>
+
+    
+
+    
+@endpush
 
 

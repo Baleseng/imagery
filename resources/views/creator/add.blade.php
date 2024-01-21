@@ -17,8 +17,11 @@
                             
                             <form action="{{route('fileUpload')}}" method="post" enctype="multipart/form-data">
                                 @csrf
-                                <div class="row d-flex">
 
+                                <input type="hidden" value="{{ Auth::user()->id }}" name="creator_id"/>
+                                <input type="hidden" value="review" name="status"/>
+
+                                <div class="row d-flex">
                                     <div class="col-6">
                                         <h4 class="text-center mb-5">Upload Your File</h4>
                                         @if ($message = Session::get('success'))
@@ -36,17 +39,24 @@
 
                                         <div class="card">
                                             <div class="card-body">
-                                                <div id="drop-area" class="border rounded d-flex justify-content-center align-items-center" style="height: 200px; cursor: pointer;">
-                                                    <div class="text-center">
-                                                        <input type="file" name="file" class="custom-file-input form-control">
+                                                
+                                                <div id="drop-area" class="border rounded position-relative" style="min-height: 200px; cursor: pointer;">
+                                                    
+                                                    <div class="opacity-50 text-center position-absolute top-50 start-50 translate-middle">
+                                                        <label for="selectImage" class="custom-file-input form-control text-secondary ">
+                                                            <i class="fa-solid fa-cloud-arrow-up fs-1"></i>
+                                                            <div class="">upload file</div>
+                                                        </label>
+                                                        <input type="file" name="file" id="selectImage" hidden>
                                                     </div>
+
+                                                    <div class="img">
+                                                        <img id="preview" src="#" alt="your image" class="rounded-1" style="display:none; width: 100%; height:auto;" />
+                                                    </div>
+
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <input type="hidden" value="{{ Auth::user()->id }}" name="creator_id"/>
-                                    <input type="hidden" value="review" name="status"/>
-                                        
                                     </div>
 
                                     <div class="vr mx-4 p-0"></div>
@@ -94,7 +104,20 @@
                                         </div>
 
                                         <div class="mb-3 border p-2">
-                                            <span class="">Keywords Suggestion</span>
+                                            <div class="">Keywords Suggestion</div>
+
+                                            <div class="form-check-inline">
+                                                <input type="checkbox" class="btn-check" name="type" value="photo"  id="btnCheckBox1" autocomplete="off">
+                                                <label class="btn btn-outline-secondary" for="btnCheckBox">
+                                                    Photo <i class="fa-solid fa-plus"></i>
+                                                </label>
+
+                                                <input type="checkbox" class="btn-check" name="type" value="photo"  id="btnCheckBox1" autocomplete="off">
+                                                <label class="btn btn-outline-secondary" for="btnCheckBox">
+                                                    Photographer <i class="fa-solid fa-plus"></i>
+                                                </label>
+                                            </div>
+
                                         </div>
 
                                         <div class="form-floating mb-3">
@@ -210,3 +233,15 @@
     </div>
 </div>
 @endsection
+@push('script')
+    <script>
+        selectImage.onchange = evt => {
+            preview = document.getElementById('preview');
+            preview.style.display = 'block';
+            const [file] = selectImage.files
+            if (file) {
+                preview.src = URL.createObjectURL(file)
+            }
+        }
+    </script>
+@endpush

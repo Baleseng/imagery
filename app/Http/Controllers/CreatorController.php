@@ -48,20 +48,28 @@ class CreatorController extends Controller
         return view('creator/add');
     }
     public function store(Request $request){
+
         
-        $request->validate(['file' => 'required|mimes:pdf,jpg,jpeg,png|max:2048']);
+        $request->validate([
+            'file' => 'required|mimes:pdf,jpg,jpeg,png|max:2048',
+             'title' => 'required',
+            'description' => 'required',
+            'keywords' => 'required',
+            'category' => 'required',
+            'country' => 'required',
+        ]);
+
         $fileModel = new FileUpload;
 
         $fileModel->creator_id=$request->post('creator_id');
         $fileModel->status=$request->post('status');
         $fileModel->title=$request->post('title');
+        $fileModel->type=$request->post('type');
+        $fileModel->usage=$request->post('usage');
         $fileModel->description=$request->post('description');
         $fileModel->keywords=$request->post('keywords');
         $fileModel->category=$request->post('category');
         $fileModel->country=$request->post('country');
-        $fileModel->usage=$request->post('usage');
-        $fileModel->type=$request->post('type');
-
         
         if($request->file()) {
             $fileName = time().'_'.$request->file->getClientOriginalName();
@@ -85,6 +93,18 @@ class CreatorController extends Controller
     public function update(FileUpload $id, Request $request){
         $url = 'creator';
         FileUpload::find($id);
+        
+        if($request->file()) {
+            $fileName = time().'_'.$request->file->getClientOriginalName();
+            $filePath = $request->file('file')->storeAs('images', $fileName, 'public');
+            $id->name = time().'_'.$request->file->getClientOriginalName();
+            $id->file_path = '/storage/images/' . $filePath;    
+            $id->save();
+            return redirect('creator')
+            ->with('success','File has been uploaded.')
+            ->with('file', $fileName);
+        }
+
         $id->usage = $request->get('usage');
         $id->description = $request->get('description');
         $id->keywords = $request->get('keywords');
