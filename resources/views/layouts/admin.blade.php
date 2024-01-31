@@ -4,10 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta name="description" content="@yield('description')">
+    <meta name="keywords" content="@yield('keywords')">
+    <meta name="author" content="@yield('author')">
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
 
  
 
@@ -79,7 +83,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     
-                                    <a class="dropdown-item" href="{{ url('/creator/profile') }}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> <i class="fa fa-user"></i> 
+                                    <a class="dropdown-item" href="{{ url($url.'/profile') }}"> <i class="fa fa-user"></i> 
                                     {{ Auth::user()->name }}
                                     </a>
 
@@ -213,10 +217,35 @@
 
         <main class="py-4">
             @yield('content')
-        </main>
-    </div>
+             
+            <script type="text/javascript">
+                Highcharts.chart('photo-container', {
+                    chart: {type: 'column'},
+                    title: {text: 'Annual Perfomance'},
+                    xAxis: {categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']},
+                    credits: {enabled: true},
+                    plotOptions: {
+                        column: {borderRadius: '25%'}
+                    },
+                    series: [
+                        {name: 'Views',data: [2, 1, 4, 2, 2, 1, 3, 4, 1, 2, 1, 1]},
+                        {name: 'Downloads', data: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]}, 
+                        {name: 'Shared',data: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]}
+                    ]
+                });
+            </script>
 
-    @stack('script')
+        </main>
+        <script>
+        selectImage.onchange = evt => {
+            preview = document.getElementById('preview');
+            preview.style.display = 'block';
+            const [file] = selectImage.files
+            if (file) {
+                preview.src = URL.createObjectURL(file)
+            }
+        }
+    </script>    </div>
 
 </body>
 </html>

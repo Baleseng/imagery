@@ -14,35 +14,8 @@ use App\Models\Admin;
 use App\Models\User;
 use DB;
 
-
-class HomeController extends Controller
+class UserController extends Controller
 {
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function default(Request $request)
-    {
-         $url = 'user';
-        
-        $data = DB::table('file_uploads')
-        ->where('status','submit')->get();
-
-        return view('/home',compact('url','data'));
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function test()
-    {
-        return view('/tester');
-    }
-
     /**
      * Show the application dashboard.
      *
@@ -81,15 +54,15 @@ class HomeController extends Controller
     }
 
     /*|-------------------------------- ADD TAXI ----------------------------------|*/
-    public function add(sa $taxi, User $user){
-        $url = 'owner';
-        return view('owner.add', compact('url','taxi','owner'));
+    public function add(Request $request){
+        $url = 'user';
+        return view('/feed', compact('url','taxi','owner'));
     }
 
-    public function store(Taxi $taxi, Owner $owner, Request $request){
-        $url = 'owner';
-        Taxi::create(request(['model','registration','seater','status','driver','owner_id',]));
-        return redirect('owner');
+    public function store(Request $request){
+        $url = 'user';
+        Feed::create(request(['model','description','title','file_name','user_id',]));
+        return redirect('/feed');
     }
 
     /**
@@ -101,5 +74,4 @@ class HomeController extends Controller
     {
         return view('/proceed');
     }
-
 }

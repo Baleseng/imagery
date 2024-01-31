@@ -8,11 +8,15 @@
         <div class="col-2 text-bg-primary text-center ">Last Update</div>
         <div class="col-1 text-bg-primary text-center"></div>
     </div>
+
+    @if(!empty($content))
+    <div class="text-center my-3"> Currently there is no notification</div>
+    @else
+    
     @foreach ($reviews as $content)
     <div class="row">
 
 
-        @if($content->title)
         <div class="col-1 border text-center align-middle">
             <img src="{{ URL::asset('images/africa/' . $content->country .'.svg') }}" class=" img-thumbnail mx-auto border-0" style="width:40px;">
         </div>
@@ -34,6 +38,8 @@
                 <i class="fa-solid fa-ellipsis-vertical fs-3"></i>
             </span>
 
+        
+
             <div class="dropdown-menu dropdown-menu-end text-primary" ari py-4a-labelledby="navbarDropdown">
                 <a class="link-primary dropdown-item" href="{{ url($url.'/preview/'.$content->id . '-' . str_replace(' ', '-', $content->title)) }}"><i class="fa-solid fa-eye"></i> Preview</a>
                 <a class="link-primary dropdown-item" href="{{ url($url.'/edit/'.$content->id . '-' . str_replace(' ', '-', $content->title)) }}"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
@@ -42,9 +48,8 @@
             </div>
 
         </div>
-        @else
-        <p>No Information</p>
-        @endif
 
     </div>
     @endforeach
+
+    @endif

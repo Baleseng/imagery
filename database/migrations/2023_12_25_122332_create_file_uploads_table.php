@@ -17,10 +17,13 @@ return new class extends Migration
 
             /** ADD BY CREATOR **/
             $table->integer('creator_id');
+            $table->integer('admin_id')->nullable();
+            $table->integer('user_id')->nullable();
+
             $table->string('status');
             $table->string('title');
-            $table->string('name')->nullable();
-            $table->string('file_path')->nullable();
+            $table->string('file_name');
+            $table->string('file_path');
             $table->string('description');
             $table->string('keywords');
             $table->string('category');
@@ -28,15 +31,12 @@ return new class extends Migration
             $table->string('usage');
             $table->string('type');
             
-
-            /** ADD BY ADMIN **/
-            $table->integer('admin_id')->default('0');
-            $table->string('price')->default('0');
-
-            /** ADD BY USER **/
-            $table->integer('users_id')->default('0');
-
+            $table->string('views')->nullable();
+            $table->string('downloads')->nullable();
+            $table->string('feed')->nullable();
             
+            $table->string('price')->default('0');
+           
             $table->timestamps();
             
         });

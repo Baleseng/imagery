@@ -27,7 +27,7 @@
 
                 </div>
             </div>
-            <div id="demo-wrapper ">
+            <div id="demo-wrapper">
                 <div id="map-box">
                     
                     <div id="container"></div>
@@ -39,12 +39,11 @@
                         <select aria-label="Select a map to display" id="mapDropdown" class="ui-widget combobox"></select>
                         <button id="btn-next-map" class="prev-next" aria-label="Next map"><i class="fa fa-angle-right"></i></button>
                     </div>
-                    <div id="side-box">
-                        <input type="checkbox" id="chkDataLabels" checked='checked' />
-                        <label for="chkDataLabels">Data labels</label>
-                    </div>
                 </div>
-                
+                <div id="side-box">
+                    <input type="checkbox" id="chkDataLabels" checked='checked' />
+                    <label for="chkDataLabels">Data labels</label>
+                </div>
             </div>
 
         </div>

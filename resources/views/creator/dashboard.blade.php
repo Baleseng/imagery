@@ -1,5 +1,10 @@
 @extends('layouts.admin')
 
+@section('description', '')
+@section('keywords', '')
+
+@section('title',  '')
+
 @section('content')
 @if (session('status'))
     <div class="alert alert-success" role="alert">
@@ -136,18 +141,7 @@
     </div>
 </div>
 
-
-
-@endsection
-
-@push('script')
-
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-
-    <script type="text/javascript">
+<script type="text/javascript">
     Highcharts.chart('photos-container', {
         chart: {type: 'column'},
         title: {text: 'Photos for 2024'},
@@ -198,6 +192,16 @@
     });
     </script>
 
+@endsection
+
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    
+
     <script type="text/javascript">
       function tabBtnIndex(tabIdIndex) {
         var i;
@@ -215,10 +219,7 @@
         document.getElementById(tabIdChart).style.display = "block";
       }
     </script>
+  
 
-    
-
-    
-@endpush
 
 

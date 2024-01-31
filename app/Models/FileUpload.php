@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
 
 class FileUpload extends Model
 {
@@ -11,13 +13,13 @@ class FileUpload extends Model
 
     protected $fillable = [
         
+    'creator_id',
     'admin_id',
     'users_id',
-    'creator_id',
 
     'title',
     'type',
-    'name',
+    'file_name',
     'file_path',
     'usage',
     'description',
@@ -28,4 +30,15 @@ class FileUpload extends Model
     'price',
 
     ];
+
+
+    public function creator(){
+        return $this->belongsTo('App\Models\Creator');
+    }
+
+    public function admin(){
+        return $this->belongsTo('App\Models\Admin');
+    }
+
+
 }

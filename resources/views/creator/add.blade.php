@@ -1,5 +1,10 @@
 @extends('layouts.admin')
 
+@section('description', '')
+@section('keywords', '')
+
+@section('title',  '')
+
 @section('content')
 @if (session('status'))
     <div class="alert alert-success" role="alert">
@@ -19,6 +24,9 @@
                                 @csrf
 
                                 <input type="hidden" value="{{ Auth::user()->id }}" name="creator_id"/>
+                                <input type="hidden" value="{{ Auth::user()->name }}" name="creator_name"/>
+                                <input type="hidden" value="{{ Auth::user()->image }}" name="creator_img"/>
+
                                 <input type="hidden" value="review" name="status"/>
 
                                 <div class="row d-flex">
@@ -62,10 +70,7 @@
                                     <div class="vr mx-4 p-0"></div>
 
                                     <div class="col-5">
-                                        <div class="form-floating mb-3">
-                                            <input type="text" class="form-control border-bottom border-0" id="floatingInputKeywords" name="title" placeholder="Keywords">
-                                            <label for="floatingInput">File Name</label>
-                                        </div>
+                                        
 
                                         <div class="mb-3">
                                             <label for="imageTypeCheckboxInput" class="form-label fw-bold d-block">File Type</label>
@@ -98,6 +103,11 @@
                                         </div>
 
                                         <div class="form-floating mb-3">
+                                            <input type="text" class="form-control border-bottom border-0" id="floatingInputKeywords" name="title" placeholder="Keywords">
+                                            <label for="floatingInput">File Name</label>
+                                        </div>
+
+                                        <div class="form-floating mb-3">
                                             <input type="text" class="form-control border-bottom border-0" 
                                             name="keywords" value="" id="floatingInputKeywords" placeholder="Keywords">
                                             <label for="floatingInput">Keywords</label>
@@ -105,7 +115,6 @@
 
                                         <div class="mb-3 border p-2">
                                             <div class="">Keywords Suggestion</div>
-
                                             <div class="form-check-inline">
                                                 <input type="checkbox" class="btn-check" name="type" value="photo"  id="btnCheckBox1" autocomplete="off">
                                                 <label class="btn btn-outline-secondary" for="btnCheckBox">
@@ -116,8 +125,17 @@
                                                 <label class="btn btn-outline-secondary" for="btnCheckBox">
                                                     Photographer <i class="fa-solid fa-plus"></i>
                                                 </label>
-                                            </div>
 
+                                                <input type="checkbox" class="btn-check" name="type" value="photo"  id="btnCheckBox1" autocomplete="off">
+                                                <label class="btn btn-outline-secondary" for="btnCheckBox">
+                                                    People <i class="fa-solid fa-plus"></i>
+                                                </label>
+
+                                                <input type="checkbox" class="btn-check" name="type" value="photo"  id="btnCheckBox1" autocomplete="off">
+                                                <label class="btn btn-outline-secondary mt-1" for="btnCheckBox">
+                                                    Vacation <i class="fa-solid fa-plus"></i>
+                                                </label>
+                                            </div>
                                         </div>
 
                                         <div class="form-floating mb-3">
@@ -233,15 +251,4 @@
     </div>
 </div>
 @endsection
-@push('script')
-    <script>
-        selectImage.onchange = evt => {
-            preview = document.getElementById('preview');
-            preview.style.display = 'block';
-            const [file] = selectImage.files
-            if (file) {
-                preview.src = URL.createObjectURL(file)
-            }
-        }
-    </script>
-@endpush
+

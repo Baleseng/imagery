@@ -1,47 +1,46 @@
-<div class="btn mt-2 mx-auto col-12" role="group" aria-label="Basic outlined button group">
-                        <a href="{{ url($url.'/preview/'.$id->id . '-' . str_replace(' ', '-', $id->title)) }}" class="btn btn-primary"><i class="fa-solid fa-eye"></i> Preview</a>
-                        <a href="{{ url($url.'/region/'.$id->id . '-' . str_replace(' ', '-', $id->title)) }}" class="btn btn-primary"><i class="fa-solid fa-earth-africa"></i> Region</a>
-                        <a href="{{ url('/creator') }}" class="btn btn-primary"><i class="fa-solid fa-cubes-stacked"></i> Dashboard</a>
-                    </divs>
-                    <div class="card rounded-0">
-                        <div class="card-body">
-                            <form method="POST" action="{{ url('admin/'.$id->id) }}" id="reasonInput">
-                            {{ method_field('PATCH') }}
-                            {{ csrf_field() }}
-                                <div class="row d-flex">
+<div class="col-6">
+    <h4 class="text-center mb-5">Upload Your File</h4>
+    @if ($message = Session::get('success'))
+    <div class="alert alert-success"><strong>{{ $message }}</strong></div>
+    @endif
+    @if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
 
-                                    <div class="col-6">
-                                        <h4 class="text-center mb-5">Upload Your File</h4>
-                                        @if ($message = Session::get('success'))
-                                        <div class="alert alert-success"><strong>{{ $message }}</strong></div>
-                                        @endif
-                                        @if (count($errors) > 0)
-                                        <div class="alert alert-danger">
-                                            <ul>
-                                                @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                        @endif
+    <div class="card">
+        <div class="card-body">
 
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div id="drop-area" class="border rounded d-flex justify-content-center align-items-center" style="height: 200px; cursor: pointer;">
-                                                    <div class="text-center">
-                                                        <input type="file" name="file" value="{{ $id->name }}" class="custom-file-input form-control">
-                                                    </div>
-                                            </div>
-                                        </div>
-                                    </div>
+            <div id="drop-area" class="border rounded position-relative" style="min-height: 200px; cursor: pointer;">
+                
+                <div class="opacity-50 text-center position-absolute top-50 start-50 translate-middle">
+                    <label for="selectImage" class="custom-file-input form-control text-secondary ">
+                        <i class="fa-solid fa-cloud-arrow-up fs-1"></i>
+                        <div class="">upload file</div>
+                    </label>
+                    <input type="file" name="file" value="{{ $id->file_name }}" id="selectImage" hidden>
+                </div>
 
-                                    <input type="hidden" value="{{ Auth::user()->id }}" name="admin_id"/>
-                                        
-                                    </div>
+                <div class="img">
+                    <img id="preview" src="blob:https://imagery.test/{{ $id->file_name }}" alt="your image" class="rounded-1" style="display:none; width: 100%; height:auto;" />
+                </div>
 
-                                    <div class="vr mx-4 p-0"></div>
+            </div>
 
-                                    <div class="col-5">
+
+        </div>
+    </div>
+
+</div>
+
+<div class="vr mx-4 p-0"></div>
+
+<div class="col-5">
                                         <div class="form-floating mb-3">
                                             <input type="text" class="form-control border-bottom border-0" id="floatingInputKeywords" value="{{ $id->title }}" name="title" placeholder="Keywords">
                                             <label for="floatingInput">File Name</label>
@@ -183,12 +182,3 @@
                                             </select>
                                             <label for="floatingSelect">Region</label>
                                         </div>
-
-                                        <div class=" d-grid gap-2 my-3">
-                                            <button class="btn btn-primary">SUBMIT</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>

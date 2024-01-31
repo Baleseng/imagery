@@ -24,7 +24,7 @@ class AdminController extends Controller
     }
 
     /*|-------------------------------- INDEX PAPGE ----------------------------------|*/
-    public function index(Request $request){      
+    public function index(Admin $admin, Request $request){      
         
         $url = 'admin';
         
@@ -49,6 +49,8 @@ class AdminController extends Controller
     public function update(FileUpload $id, Request $request){
         $url = 'admin';
         FileUpload::find($id);
+
+        $id->admin_id = $request->get('admin_id');
         $id->description = $request->get('description');
         $id->keywords = $request->get('keywords');
         $id->category = $request->get('category');

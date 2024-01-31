@@ -3,14 +3,18 @@
 	
 		@guest
 			@if(Route::has('login'))
-			<a href="{{ url('/login') }}">
-				<img src="{{ URL::asset('images/temp-img.jpg') }}" class="border rounded-3" style="width:100%;">
-			</a>
+				
+				<a href="{{ url('/login') }}">
+					<img src="{{ url('storage/images/'.$content->file_name) }}" class="border rounded-3" style="width:100%;">
+				</a>
+
 			@endif
 			@else
-			<a href="{{ url('/file') }}">
-				<img src="{{ URL::asset('images/temp-img.jpg') }}" class="border rounded-3" style="width:100%;">
-			</a>
+				
+				<a class="link-primary dropdown-item" href="{{ url('/file/'.$content->id . '-' . str_replace(' ', '-', $content->title)) }}">
+					<img src="{{ url('storage/images/'.$content->file_name) }}" class="border rounded-3" style="width:100%;">
+				</a>
+				
 		@endguest
 
 	</div>

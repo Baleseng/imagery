@@ -20,10 +20,7 @@ use App\Http\Controllers\CreatorController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FileUploadController;
 
-
-Route::get('/', function () {
-    return view('default');
-});
+Route::get('/', [HomeController::class,'default']);
 
 Route::get('/pricing', function () {
     return view('pricing');
@@ -40,6 +37,8 @@ Route::get('/register/admin',[RegisterController::class,'showAdminRegisterForm']
 Route::get('/register/creator',[RegisterController::class,'showCreatorRegisterForm']);
 Route::post('/register/admin',[RegisterController::class,'createAdmin'])->name('admin.register');
 Route::post('/register/creator',[RegisterController::class,'createCreator'])->name('creator.register');
+
+Route::get('/home', [HomeController::class,'index']);
 
 /*
   |--------------------------------------------------------------------------
@@ -62,6 +61,8 @@ Route::patch('/admin/{id}', [AdminController::class,'update']);
 Route::get('/admin/preview/{id}', [AdminController::class,'files']);
 
 Route::get('/admin/region/{id}', [AdminController::class,'region']);
+
+Route::get('/admin/profile', [AdminController::class,'profile']);
 
 /*
   |--------------------------------------------------------------------------
@@ -93,8 +94,16 @@ Route::get('/creator/profile', [CreatorController::class,'profile']);
   |--------------------------------------------------------------------------
 */
 
-Route::get('/home', [HomeController::class,'index']);
-Route::get('/feed', [HomeController::class,'feed']);
-Route::get('/file', [HomeController::class,'files']);
+Route::get('/file/{id}', [HomeController::class,'files']);
+
 Route::get('/proceed', [HomeController::class,'proceeds']);
+
+Route::get('/feed', [HomeController::class, 'feed']);
+Route::post('/feed', [HomeController::class, 'store']);
+Route::post('/feed', [HomeController::class, 'create']);
+
+Route::get('/profile', [HomeController::class,'profile']);
+
 Route::get('/tester', [HomeController::class,'test']);
+
+

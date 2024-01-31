@@ -37,5 +37,15 @@ class Creator extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',];
+        'password' => 'hashed',
+    ];
+
+
+    public function file_creator(){
+
+        return $this->hasMany('App\Models\FileUpload');
+
+    }
+
+
 }

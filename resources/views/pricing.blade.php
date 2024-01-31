@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@section('description', '')
+@section('keywords', '')
+
+@section('title',  '')
+
 @section('content')
 
 <div class="container-fluid position-relative" style="top:7rem">

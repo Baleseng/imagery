@@ -1,58 +1,62 @@
 @extends('layouts.admin')
 
-<style>
-        .container {
-            max-width: 500px;
-        }
-        dl, ol, ul {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-    </style>
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
 @section('content')
 
-<div class="container mt-5">
-   <form action="{{route('fileUpload')}}" method="post" enctype="multipart/form-data">
-      <h3 class="text-center mb-5">Upload File in Laravel</h3>
-         @csrf
-         @if ($message = Session::get('success'))
-         <div class="alert alert-success">
-            <strong>{{ $message }}</strong>
-         </div>
-         @endif
-         @if (count($errors) > 0)
-            <div class="alert alert-danger">
-               <ul>
-                  @foreach ($errors->all() as $error)
-                  <li>{{ $error }}</li>
-                  @endforeach
-               </ul>
-            </div>
-         @endif
-         <div class="custom-file">
-            <input type="file" name="file" class="custom-file-input" id="chooseFile">
-            <label class="custom-file-label" for="chooseFile">Select file</label>
-         </div>
-      <button type="submit" name="submit" class="btn btn-primary btn-block mt-4">Upload Files</button>
+<div class="position-relative" style="top:50px">
+<div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-3 ">
+  <label for="subCategoryCode">TO :</label>
+  <div class="input-group">
+    
+    <input type="text" class="form-control" aria-label="Text input with dropdown button" name="To" id="To">
+    
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+      <ul class=" checkbox-menu allow-focus" aria-labelledby="">
 
-      <div class="card">
-        <div class="card-body">
-            <div id="drop-area" class="border rounded d-flex justify-content-center align-items-center"
-                style="height: 200px; cursor: pointer;">
-                <div class="text-center">
-                    <i class="bi bi-cloud-arrow-up-fill text-primary" style="font-size: 48px;"></i>
-                    <input type="file" name="file" class="custom-file-input" id="chooseFile">
-                    <p class="mt-3">Drag and drop your image here or click to select a file.</p>
-                </div>
-            </div>
-            <input type="file" id="fileElem" multiple accept="image/*" class="d-none">
-        </div>
-      </div>
+        <li><label> <input type="checkbox"
+                     value="draj.121@gmail.com"> Dheeraj
+               </label></li>
 
-   </form>
+        <li><label> <input type="checkbox"
+                     value="raju.45@gmail.com"> Raju
+               </label></li>
+
+        <li><label> <input type="checkbox"
+                     value="ravi456@gmail.com"> Ravi
+               </label></li>
+
+
+      </ul>
+    </div>
+  </div>
+</div>
 </div>
 
 
 @endsection
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.slim.js"
+  integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
+  crossorigin="anonymous"></script>
+  
+<script type="text/javascript">
+
+   $(".checkbox-menu").on("change", "input[type='checkbox']", function() {
+  $(this).closest("li").toggleClass("active", this.checked);
+   var sList = "";
+   $('input[type=checkbox]').each(function () {
+      if(this.checked) {
+         sList += $(this).val() + ","
+      }
+   });
+  
+  $("#To").val(sList.slice(0,-1));
+});
+
+$(document).on('click', '.allow-focus', function(e) {
+  e.stopPropagation();
+});
+   
+</script>

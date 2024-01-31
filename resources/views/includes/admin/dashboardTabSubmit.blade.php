@@ -8,11 +8,12 @@
         <div class="col-2 text-bg-primary text-center ">Last Update</div>
         <div class="col-1 text-bg-primary text-center"></div>
     </div>
+
+   
+
     @foreach ($submits as $content)
     <div class="row">
 
-
-        @if($content->title)
         <div class="col-1 border text-center align-middle">
             <img src="{{ URL::asset('images/africa/' . $content->country .'.svg') }}" class=" img-thumbnail mx-auto border-0" style="width:40px;">
         </div>
@@ -28,7 +29,7 @@
                     <!-- Modal body -->
                     <div class="modal-body">
                     
-                        <img src="{{ url('storage/images/'.$content->name) }}" class=" img-thumbnail mx-auto my-2">
+                        <img src="{{ url('storage/images/'.$content->file_name) }}" class=" img-thumbnail mx-auto my-2">
                         
                     </div>
 
@@ -58,9 +59,7 @@
             </div>
 
         </div>
-        @else
-        <p>No Information</p>
-        @endif
 
     </div>
     @endforeach
+  

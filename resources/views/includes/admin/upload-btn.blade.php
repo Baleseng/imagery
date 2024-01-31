@@ -1,7 +1,7 @@
 <div class="col-md-3">
   
 
-   <a href="{{ url('/creator/add') }}" class="btn btn-primary mb-2" data-bs-target="#upLoad" style="width:100%;"><i class="fa-solid fa-upload"></i> Upload</a>
+   <a href="{{ url('/creator/add') }}" class="btn btn-primary mb-2" data-bs-target="#upLoad" id="demo" style="width:100%;"><i class="fa-solid fa-upload"></i> Upload</a>
    <!-- The Modal -->
        <div class="modal" id="upLoad">
            <div class="modal-dialog">
@@ -71,16 +71,16 @@
            <div class="card-body">
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <a href="{{ url('/creator') }}" class=""><i class="fa-solid fa-cubes-stacked"></i> Dashboard</a>
+                        <a href="{{ url($url) }}" class=""><i class="fa-solid fa-chart-simple px-1"></i> Dashboard</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="{{ url('/creator/earnings') }}"><i class="fa-solid fa-arrow-trend-up"></i> Earnings</a>
+                        <a href="{{ url($url.'/earnings') }}"><i class="fa-solid fa-arrow-trend-up px-1"></i> Earnings</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="{{ url('/creator/portfolio') }}"><i class="fa-solid fa-briefcase"></i> Portfolio</a>
+                        <a href="{{ url($url.'/portfolio') }}"><i class="fa-solid fa-briefcase px-1"></i> Portfolio</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="{{ url('/creator/insight') }}"><i class="fa-solid fa-chart-simple"></i> Insight</a>
+                        <a href="{{ url($url.'/insight') }}"><i class="fa-solid fa-lightbulb px-1"></i> Insight</a>
                     </li>
                 </ul>
            </div>

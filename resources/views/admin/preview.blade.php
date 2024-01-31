@@ -12,27 +12,11 @@
         @include('includes.admin.upload-btn')
 
         @include('includes.admin.file-preview')
-
-        
+   
     </div>
 </div>
 
-<script type="text/javascript">
-Highcharts.chart('photo-container', {
-    chart: {type: 'column'},
-    title: {text: 'Annual Perfomance'},
-    xAxis: {categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']},
-    credits: {enabled: true},
-    plotOptions: {
-        column: {borderRadius: '25%'}
-    },
-    series: [
-        {name: 'Views',data: [2, 1, 4, 2, 2, 1, 3, 4, 1, 2, 1, 1]},
-        {name: 'Downloads', data: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]}, 
-        {name: 'Shared',data: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]}
-    ]
-});
-</script>
+@stack('scriptChart')
 
 @endsection
 

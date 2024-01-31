@@ -45,14 +45,15 @@ class CreatorController extends Controller
 
     /*|-------------------------------- ADD & EDIT ----------------------------------|*/
     public function add(){
-        return view('creator/add');
+        $url = 'admin';
+        return view('creator/add', compact('url'));
     }
     public function store(Request $request){
 
         
         $request->validate([
             'file' => 'required|mimes:pdf,jpg,jpeg,png|max:2048',
-             'title' => 'required',
+            'title' => 'required',
             'description' => 'required',
             'keywords' => 'required',
             'category' => 'required',
@@ -63,6 +64,7 @@ class CreatorController extends Controller
 
         $fileModel->creator_id=$request->post('creator_id');
         $fileModel->status=$request->post('status');
+
         $fileModel->title=$request->post('title');
         $fileModel->type=$request->post('type');
         $fileModel->usage=$request->post('usage');
@@ -74,7 +76,7 @@ class CreatorController extends Controller
         if($request->file()) {
             $fileName = time().'_'.$request->file->getClientOriginalName();
             $filePath = $request->file('file')->storeAs('images', $fileName, 'public');
-            $fileModel->name = time().'_'.$request->file->getClientOriginalName();
+            $fileModel->file_name = time().'_'.$request->file->getClientOriginalName();
             $fileModel->file_path = '/storage/images/' . $filePath;    
             $fileModel->save();
             return redirect('creator')

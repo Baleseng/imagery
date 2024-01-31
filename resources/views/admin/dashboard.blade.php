@@ -137,6 +137,13 @@
     </div>
 </div>
 
+<script>
+function {
+  const element = document.getElementById("demo");
+  element.remove();
+}
+</script>
+
 <script type="text/javascript">
   function tabBtnIndex(tabIdIndex) {
     var i;
