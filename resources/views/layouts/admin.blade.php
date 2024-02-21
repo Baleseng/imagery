@@ -22,10 +22,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-    <!-- Scripts -->
+     
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    
+    <!-- Scripts
+
+    <style>
+        {!! Vite::content('resources/sass/app.scss') !!}
+    </style>
+    <script>
+        {!! Vite::content('resources/js/app.js') !!}
+    </script>
+ 
+    -->
+
 </head>
-<body>
+<body class="roboto-regular">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm position-fixed top-0 z-3">
             <div class="container-fluid">
@@ -83,8 +95,8 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     
-                                    <a class="dropdown-item" href="{{ url($url.'/profile') }}"> <i class="fa fa-user"></i> 
-                                    {{ Auth::user()->name }}
+                                    <a class="dropdown-item" href="{{ url($url.'/profile/'.Auth::user()->id) }}"> 
+                                        <i class="fa fa-user"></i> {{ Auth::user()->name }}
                                     </a>
 
                                     <a class="dropdown-item" href=""><i class="fa fa-camera"></i> Upload Profile Picture</a>
@@ -245,7 +257,8 @@
                 preview.src = URL.createObjectURL(file)
             }
         }
-    </script>    </div>
+    </script>    
+</div>
 
 </body>
 </html>

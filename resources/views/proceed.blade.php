@@ -41,7 +41,7 @@
                       </div>
                     </div>
                   </th>
-                  <td class="border-0 align-middle"><strong>$79.00</strong></td>
+                  <td class="border-0 align-middle"><strong>R79.00</strong></td>
                   <td class="border-0 align-middle"><strong>3</strong></td>
                   <td class="border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>
                 </tr>
@@ -54,7 +54,7 @@
                       </div>
                     </div>
                   </th>
-                  <td class="align-middle"><strong>$79.00</strong></td>
+                  <td class="align-middle"><strong>R79.00</strong></td>
                   <td class="align-middle"><strong>3</strong></td>
                   <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
                   </td>
@@ -67,7 +67,7 @@
                         <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Gray Nike running shoe</a></h5><span class="text-muted font-weight-normal font-italic">Category: Fashion</span>
                       </div>
                     </div>
-                    <td class="align-middle"><strong>$79.00</strong></td>
+                    <td class="align-middle"><strong>R79.00</strong></td>
                     <td class="align-middle"><strong>3</strong></td>
                     <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
                     </td>
@@ -102,11 +102,11 @@
           <div class="p-4">
             <p class="font-italic mb-4">Shipping and additional costs are calculated based on values you have entered.</p>
             <ul class="list-unstyled mb-4">
-              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>$390.00</strong></li>
-              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and handling</strong><strong>$10.00</strong></li>
-              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>$0.00</strong></li>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>R390.00</strong></li>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and handling</strong><strong>R10.00</strong></li>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>R0.00</strong></li>
               <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
-                <h5 class="font-weight-bold">$400.00</h5>
+                <h5 class="font-weight-bold">R400.00</h5>
               </li>
             </ul><a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
           </div>

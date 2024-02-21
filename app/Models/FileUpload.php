@@ -2,10 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
 
 class FileUpload extends Model
 {
@@ -22,12 +21,13 @@ class FileUpload extends Model
     'file_name',
     'file_path',
     'usage',
-    'description',
+    
     'keywords',
     'category',
     'status',
     'country',
-    'price',
+    'description',
+    
 
     ];
 

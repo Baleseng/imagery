@@ -17,16 +17,28 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CreatorController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FileUploadController;
+use App\Http\Controllers\FeedController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\PaymentController;
 
 Route::get('/', [HomeController::class,'default']);
+
+
 
 Route::get('/pricing', function () {
     return view('pricing');
 });
 
+
+
 Auth::routes();
+
+Route::get('/add-watermark', [ProductController::class, 'addWatermark']);
 
 Route::get('/login/admin',[LoginController::class,'showAdminLoginForm']);
 Route::get('/login/creator',[LoginController::class,'showCreatorLoginForm']);
@@ -58,11 +70,11 @@ Route::get('/admin', [AdminController::class,'index']);
 Route::get('/admin/edit/{id}', [AdminController::class,'edit']);
 Route::patch('/admin/{id}', [AdminController::class,'update']);
 
-Route::get('/admin/preview/{id}', [AdminController::class,'files']);
+Route::get('/admin/preview/{id}', [AdminController::class,'preview']);
 
 Route::get('/admin/region/{id}', [AdminController::class,'region']);
 
-Route::get('/admin/profile', [AdminController::class,'profile']);
+Route::get('/admin/profile/{id}', [AdminController::class,'profile']);
 
 /*
   |--------------------------------------------------------------------------
@@ -85,7 +97,47 @@ Route::get('/creator/earnings', [CreatorController::class,'earning']);
 Route::get('/creator/portfolio', [CreatorController::class,'portfolio']);
 Route::get('/creator/insight', [CreatorController::class,'insight']);
 
-Route::get('/creator/profile', [CreatorController::class,'profile']);
+Route::get('/creator/profile/{id}', [CreatorController::class,'profile']);
+
+
+/*
+  |--------------------------------------------------------------------------
+  | User File Cart Route
+  |--------------------------------------------------------------------------
+*/
+Route::get('files', [ProductController::class, 'fileList'])->name('files.list');
+Route::get('products', [ProductController::class, 'productList'])->name('products.list');
+
+Route::get('file/{id}', [ProductController::class, 'file'])->name('file');
+
+Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
+Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
+
+Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
+Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');
+Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
+
+
+/*
+  |--------------------------------------------------------------------------
+  | User File Checkout Route
+  |--------------------------------------------------------------------------
+*/
+
+/**Route::post('/payment', [DownloadController::class, 'store']);
+Route::get('/payment/{id}', [DownloadController::class,'checkout'])->name('payment');**/
+
+Route::post('/payment', [PaymentController::class, 'store']);
+Route::get('/payment/{id}', [PaymentController::class,'checkout'])->name('payment');
+
+/*
+  |--------------------------------------------------------------------------
+  | User File Feed Route
+  |--------------------------------------------------------------------------
+*/
+Route::get( '/feed', [FeedController::class, 'post']);
+Route::post('/feed', [FeedController::class, 'store']);
+Route::post('/feed', [FeedController::class, 'create']);
 
 
 /*
@@ -93,17 +145,9 @@ Route::get('/creator/profile', [CreatorController::class,'profile']);
   | User Route
   |--------------------------------------------------------------------------
 */
-
-Route::get('/file/{id}', [HomeController::class,'files']);
-
-Route::get('/proceed', [HomeController::class,'proceeds']);
-
-Route::get('/feed', [HomeController::class, 'feed']);
-Route::post('/feed', [HomeController::class, 'store']);
-Route::post('/feed', [HomeController::class, 'create']);
-
-Route::get('/profile', [HomeController::class,'profile']);
-
+/*Route::get('/file/{id}', [UserController::class,'files']);*/
+Route::get('/proceed', [UserController::class,'proceeds']);
+Route::get('/profile', [UserController::class,'profile']);
 Route::get('/tester', [HomeController::class,'test']);
 
 

@@ -5,18 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Download extends Model
+class Product extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-        
-        'user_id',
-        'file_id',
-        'file',
         'title',
-        'description',
-        'quantity',
         'price',
-  
+        'file_name',
+        'description',
     ];
 }

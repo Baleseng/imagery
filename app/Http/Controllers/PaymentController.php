@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\FileUpload;
-use App\Models\Download;
+use App\Models\Payment;
 use App\Models\Admin;
 use App\Models\Save;
 use App\Models\Feed;
 use App\Models\User;
 use DB;
 
-class DownloadController extends Controller
+class PaymentController extends Controller
 {
     /**
     * Create a middleware instance.
@@ -30,12 +30,12 @@ class DownloadController extends Controller
 
 
 
-    public function checkout(Download $id,  Request $request){      
+    public function checkout(Payment $id,  Request $request){      
         
         $url = 'user';
-        Download::find($id);
+        Payment::find($id);
         
-        return view('/download', compact('url','id'));
+        return view('/payment', compact('url','id'));
     }
 
      /**
@@ -45,7 +45,7 @@ class DownloadController extends Controller
     */
     public function store(Request $request){
         
-        $ckeck = new Download();
+        $ckeck = new Payment();
 
         $ckeck->user_id = $request->user_id;
         $ckeck->file_id= $request->file_id;
@@ -53,10 +53,11 @@ class DownloadController extends Controller
         $ckeck->title = $request->title;
         $ckeck->description = $request->description;
         $ckeck->quantity = $request->quantity;
+        $ckeck->type = $request->type;
         $ckeck->price = $request->price;
 
         $ckeck->save();
-        return redirect()->route('download', $ckeck->id);
+        return redirect()->route('payment', $ckeck->id.'=?title'.$ckeck->title);
         //return response()->json(['success'=>'Data is successfully added']);
     }
 }

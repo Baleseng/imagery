@@ -80,26 +80,4 @@ class HomeController extends Controller
         return view('/feed');
     }
 
-    /*|-------------------------------- ADD TAXI ----------------------------------|*/
-    public function add(sa $taxi, User $user){
-        $url = 'owner';
-        return view('owner.add', compact('url','taxi','owner'));
-    }
-
-    public function store(Taxi $taxi, Owner $owner, Request $request){
-        $url = 'owner';
-        Taxi::create(request(['model','registration','seater','status','driver','owner_id',]));
-        return redirect('owner');
-    }
-
-    /**
-    * Show the application dashboard.
-    *
-    * @return \Illuminate\Contracts\Support\Renderable
-    */
-    public function proceeds()
-    {
-        return view('/proceed');
-    }
-
 }

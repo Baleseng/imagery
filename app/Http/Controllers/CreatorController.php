@@ -58,13 +58,13 @@ class CreatorController extends Controller
             'keywords' => 'required',
             'category' => 'required',
             'country' => 'required',
+            
         ]);
 
         $fileModel = new FileUpload;
 
         $fileModel->creator_id=$request->post('creator_id');
         $fileModel->status=$request->post('status');
-
         $fileModel->title=$request->post('title');
         $fileModel->type=$request->post('type');
         $fileModel->usage=$request->post('usage');
@@ -72,6 +72,7 @@ class CreatorController extends Controller
         $fileModel->keywords=$request->post('keywords');
         $fileModel->category=$request->post('category');
         $fileModel->country=$request->post('country');
+        
         
         if($request->file()) {
             $fileName = time().'_'.$request->file->getClientOriginalName();
@@ -116,14 +117,13 @@ class CreatorController extends Controller
         return redirect('creator');    
     }
 
-     /*|-------------------------------- PAPGE ----------------------------------|*/
-    public function files(FileUpload $id, Creator $creator, Request $request){      
+    /*|-------------------------------- PAPGE ----------------------------------|*/
+    public function files(FileUpload $id,  Request $request){      
         
         $url = 'creator';
         FileUpload::find($id);
-        $creator= Creator::first();
-
-        return view('/creator/preview', compact('url','id','creator'));
+        
+        return view('/creator/preview', compact('url','id'));
     }
 
     /*|-------------------------------- LOCATION ----------------------------------|*/
@@ -152,9 +152,12 @@ class CreatorController extends Controller
         return view('/creator/insight', compact('url'));
     }
     /*|-------------------------------- INSIGHT ----------------------------------|*/
-    public function profile(Request $request){      
+    public function profile(Creator $id, Request $request){      
+        
         $url = 'creator';
-        return view('/creator/profile', compact('url'));
+        Creator::find($id);
+        
+        return view('/admin/profile', compact('url','id'));
     }
 
 }

@@ -29,11 +29,22 @@
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
-    <!-- Scripts -->
+    <!-- Scripts
+    <style>
+        {!! Vite::content('resources/sass/app.scss') !!}
+    </style>
+    <script>
+        {!! Vite::content('resources/js/app.js') !!}
+    </script>
+    --> 
+
+
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     
+     
+
 </head>
-<body>
+<body class="roboto-regular">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm position-fixed top-0 z-3">
             <div class="container-fluid">
@@ -42,7 +53,7 @@
                     <a href="{{ url('/') }}"><img src="{{ URL::asset('images/logo.png') }}" style="width:50%;"></a>
                 </div>
                 
-                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-0">
+                <div class="col-xxl-5 col-xl-6 col-lg-6 col-md-6 col-0">
                     <form class="form-inline">
                         <input class="form-control" type="search" id="search_field"  placeholder="Search image" aria-label="Search">
                     </form>    
@@ -59,7 +70,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <div class="col-xxl-7 col-xl-6 col-lg-8 col-md-8 col-6 d-flex flex-row-reverse">
+                    <div class="col-xxl-8 col-xl-6 col-lg-8 col-md-8 col-6 d-flex flex-row-reverse">
                         
                         <!-- Authentication Links -->
                         @guest
@@ -72,13 +83,29 @@
                             @endif
                         @else
                         <ul class="nav fs-6 ">
-                            <li class="nav-item rounded-0 border-0">
+
+                            <!--<li class="nav-item rounded-0 border-0">
                                 <button type="button" class="nav-link link-secondary px-2" data-toggle="modal" data-target="#staticBackdrop">
                                     <i class="fa-solid fa-cart-shopping"></i>
                                     <span class="total-count"></span>
                                 </button>
+                            </li>-->
+
+                            <li class="nav-item text-secondary border border-1 px-2  mx-2">
+                                <a href="{{ url('pricing') }}" class="nav-link link-secondary px-2 ">
+                                    Pricing
+                                </a>
                             </li>
-                            
+
+                            <li class="nav-item rounded-0 border-0">     
+                                <a href="{{ route('cart.list') }}" class="nav-link link-secondary px-2">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                   <span class="text-gray-700">{{ Cart::getTotalQuantity()}}</span> 
+                                </a>
+                            </li>
+
+
+
                             <li class="nav-item text-secondary border-0">
                                 <a href="{{ url('/') }}" class="nav-link link-secondary px-2">
                                     <i class="fa-solid fa-bell"></i>
@@ -263,8 +290,20 @@
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://imagery.test:5173/resources/js/cart.js"></script>
 
+
+    
+
+    <!-- Scripts
+
+    <style>
+        <script src="https://imagery.test:5173/resources/js/cart.js"></script>
+
+        {!! Vite::content('resources/js/cart.js') !!}
+    </style> 
+
+
+    -->
 
 
 </body>

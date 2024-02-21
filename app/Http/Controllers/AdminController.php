@@ -61,7 +61,7 @@ class AdminController extends Controller
     }
 
      /*|-------------------------------- PAPGE ----------------------------------|*/
-    public function files(FileUpload $id, Admin $admin, Request $request){      
+    public function preview(FileUpload $id, Admin $admin, Request $request){      
         
         $url = 'admin';
         FileUpload::find($id);
@@ -75,8 +75,17 @@ class AdminController extends Controller
         
         $url = 'admin';
         FileUpload::find($id);
-        $creator= Admin::first();
+                $creator= Admin::first();
 
         return view('/admin/region', compact('url','id','admin'));
+    }
+
+    /*|-------------------------------- PAPGE ----------------------------------|*/
+    public function profile(Admin $id, Request $request){      
+        
+        $url = 'admin';
+        Admin::find($id);
+
+        return view('/admin/profile', compact('url','id'));
     }
 }

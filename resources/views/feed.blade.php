@@ -14,16 +14,20 @@
       <div class="bg-white border rounded p-2 my-2">Recent Content</div>
       <div class="bg-white border rounded p-2">Recent</div>
     </div>
-    <div class="col-lg-5">
-      <div class="card" style="max-width:600px">
+
+    
+    <div class="col-lg-4">
+
+      @foreach ($posts as $post)
+      <div class="card mb-3" style="max-width:600px">
         <div class="card-header">
           
           <div class="row">
             <div class="col-6 overflow-hidden" style="max-height:500;">
               <img class="img-thumbnail rounded-3" src="{{ URL::asset('images/temp-img.jpg') }}" alt="profile image" style="width:70px;">
               <span class="d-inline-block align-top">
-                <h6 class="mb-0">Stephen Mokgosi</h6>
-                <p class="card-text"><small class="text-muted ">Last updated 3 mins ago</small></p>
+                <h6 class="mb-0"></h6>
+                <p class="card-text"><small class="text-muted ">{{ $post->updated_at }}</small></p>
               </span>
             </div>
             <div class="col-6">
@@ -33,10 +37,14 @@
 
         </div>
         <a href="#" class="">
-          <img class="card-img-top img-fluid" src="{{ URL::asset('images/temp-img.jpg') }}" alt="Card image">
+          <img class="card-img rounded-0" src="{{ url('storage/images/'.$post->file_name) }}" alt="Card image">
         </a>
         <div class="card-body">
-          <p class="card-text">Some example text.</p>
+          <div class="card-text">
+            <h3>{{ $post->file_title }}</h3>
+            <p>{{ $post->file_description }}</p>
+
+          </div>
           <hr/>
           <div class="row">
             <div class="col-6 position-relative">
@@ -63,7 +71,10 @@
 
         </div>
       </div>
+      @endforeach
     </div>
+    
+
     <div class="col-lg-4">
       <div class="">
         <div class="">Sponsored</div>

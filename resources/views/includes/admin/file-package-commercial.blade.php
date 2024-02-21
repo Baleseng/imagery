@@ -4,7 +4,7 @@
    
       <ul class="list-group rounded-0">
         <li class="list-group-item my-0 border-0">
-          <input type="radio" class="btn-check disabled"  checked>
+          <input type="radio" class="btn-check disabled" value="" name="" checked>
           <label class="btn btn-outline-secondary col-12" for="btnRadio1">
             <div class="text-start fs-5">Standards licence </div>
             <span class="d-inline-block col-0"></span>
@@ -14,7 +14,7 @@
 
         </li>
         <li class="list-group-item my-0 border-0">
-          <input type="radio" class="btn-check" name="btnGroupRadio" id="btnRadio2" autocomplete="off">
+          <input type="radio" class="btn-check" value="" name="" id="btnRadio2" autocomplete="off">
           <label class="btn btn-outline-secondary col-12" for="btnRadio2">
             <div class="text-start fs-5">Enhanced license</div>
             <span class="d-inline-block col-0"></span>

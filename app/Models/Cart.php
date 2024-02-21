@@ -5,18 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Download extends Model
+class Cart extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-        
         'user_id',
+        'admin_id',
+        'creator_id',
+        
         'file_id',
-        'file',
-        'title',
-        'description',
-        'quantity',
-        'price',
-  
+        'file_title',
+        'file_name',
+        'file_quantity',
+        'file_price',
     ];
+    
 }

@@ -13,10 +13,22 @@
       <div class="btn mt-2 mx-auto col-12" role="group">
         
         <div class="btn btn-primary">
-          <form method="POST" action="">
-            {{ csrf_field() }}          
-            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-share"></i> Share</button>   
+
+          <form method="POST" action="{{url('/feed')}}" method="post" enctype="multipart/form-data">
+            @method('POST')
+            @csrf      
+
+            <input type="hidden" value="{{ Auth::user()->id }}" name="users_id"/>
+
+            <input type="hidden" value="{{ $id->id }}" name="file_id"/>
+            <input type="hidden" value="{{ $id->file_name }}" name="file_name"/>
+            <input type="hidden" value="{{ $id->title }}" name="file_title"/>
+            <input type="hidden" value="{{ $id->description }}" name="file_description"/>    
+            
+            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-share"></i> Share</button> 
+
           </form>
+
         </div>
 
         <div class="btn btn-primary">
@@ -31,7 +43,8 @@
             {{ csrf_field() }}          
             <button type="submit" class="btn btn-primary"><i class="fa-solid fa-download"></i> Try</button>   
           </form>
-          <i class=""></i> </div>
+          <i class=""></i>
+        </div>
 
       </div>
 

@@ -16,128 +16,116 @@
         
         @include('includes.admin.upload-btn')
 
-        <div class="col-md-9">
+        <div class="col-9">
             <div class="row">
-                <div class="col-md-6">
-                    <div class="card h-100 shadow-sm border-0 rounded-0">
-                        <div class="card-body d-inline-flex">
-                            <div class="col-5">
-                              <img src="{{ URL::asset('images/temp-img.jpg') }}" class="d-block mx-auto col-7">
-                              <p class="text-center py-3">{{ Auth::user()->name }}</p> 
+                
+                <div class="col-5">   
+                    <div class="card shadow-sm border-0 rounded-0">
+                        <div class="card-body">
+                            <div class="row">                                
+                                <div class="col-6">
+                                    <img src="{{ URL::asset('images/temp-img.jpg') }}" class="d-block mx-auto col-8">
+                                    <p class="text-center py-3">{{ Auth::user()->name }}</p>
+                                </div>
+
+                                <div class="col-6">
+                                    <h4>Unpaid Earnings</h4>
+                                    <h1>R0</h1>
+                                    <span>*Upload approximately every 15 minutes</span>
+                                </div>
                             </div>
 
-                           <div class="vr mx-3"></div>
+                            <hr class="border-3 border-primary">
 
-                            <div class="col-5">
-                                <h2>90% Profile Strength</h2>
-                                 <hr class="mx-3 border-3 border-primary">
-                                <p>Increase your discoverability with our social display.</p>
-                            </div>
-                      </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card h-100 shadow-sm border-0 rounded-0">
-                        <div class="card-body d-inline-flex">
-                            <div class="col-5">
-                                <h4>Unpaid Earnings</h4>
-                                <h1>R0</h1>
-                                <span>*Upload approximately every 15 minutes</span>
-
-                            </div>
-                            <div class="vr mx-3"></div>
-                            <div class="col-6">
+                            <div class="col-12 text-center">
                                 <p>Payment calculated at the end of every month for contributors who meet their minimum payout amount</p>
                                 <a href="">Learn more</a>
                             </div>
+                            
+                            <hr class="mx-3 border-3 border-primary">
+
+                            <div class="col-12 text-center">
+                                <h2>0% Profile Strength</h2>
+                                <p>Increase your discoverability with our social display.</p>
+                            </div>
+
                         </div>
-                    </div>
+                    </div> 
                 </div>
+
+                <div class="col-7">
+                    <div class="card shadow-sm border-0 rounded-0">
+                        <div class="card-header">
+                            
+                            @include('includes.admin.dashboardTabBtn')
+
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                    @include('includes.admin.dashboardTabArchive')
+                                </div>
+                                    
+                                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                    @include('includes.admin.dashboardTabSubmit')
+                                </div>
+                                    
+                                <div class="tab-pane fade show active" id="pills-disabled" role="tabpanel" aria-labelledby="pills-disabled-tab">
+                                    @include('includes.admin.dashboardTabReview')
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>      
             </div>
             
             <div class="row">
                 <div class="col-md-0 mt-4">
                     <div class="card shadow-sm border-0 rounded-0">
-                        <div class="card-header">Uploads
-                            <div class="float-end btn-group">
-                                <button class="btn btn-primary" onclick="tabBtnIndex('btnIndexReview')">Review</button>
-                                <button class="btn btn-primary" onclick="tabBtnIndex('btnIndexSubmit')">Submit</button>
-                                <button class="btn btn-primary" onclick="tabBtnIndex('btnIndexArchive')">Archive</button>
+                        <div class="card-header">
+
+                            <nav class="d-flex flex-row nav nav-pills " id="pills-tab" role="tablist">
+                                <span class="py-2 col-9">Overall Performance</span>
+                                
+                                <a class="rounded-0 nav-link active" id="pills-photo-tab" data-bs-toggle="pill" href="#pills-photo" role="tab" aria-controls="pills-photo" tabindex="-1" aria-audio="true">Photos</a>
+                                <a class="rounded-0 nav-link" id="pills-video-tab" data-bs-toggle="pill" href="#pills-video" role="tab" aria-controls="pills-video" aria-selected="false">Videos</a>
+                                <a class="rounded-0 nav-link" id="pills-audio-tab" data-bs-toggle="pill" href="#pills-audio" role="tab" aria-controls="pills-audio" aria-selected="true">Audio</a>
+
+                            </nav>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content" id="pills-tabContent">
+                                
+                                <div class="tab-pane fade show active" id="pills-photo" role="tabpanel" aria-labelledby="pills-photo-tab">
+                                    
+                                    <figure class="highcharts-figure">
+                                        <nav class="nav nav-tabs" id="nav-tab" role="tablist">
+                                            <a class="nav-link active" id="nav-2025-tab" data-bs-toggle="tab" href="#nav-2024" role="tab" aria-controls="nav-2024" aria-selected="true">2024</a>
+                                        </nav>
+
+                                        <div class="tab-content" id="nav-tabContent">
+                                            <div class="tab-pane fade show active" id="nav-2024" role="tabpanel" aria-labelledby="nav-2024-tab">
+                                                <div id="photos-container"></div>
+                                            <div>
+                                            <div class="tab-pane fade" id="nav-2025" role="tabpanel" aria-labelledby="nav-2025-tab"></div>
+                                            <div class="tab-pane fade" id="nav-2026" role="tabpanel" aria-labelledby="nav-2026-tab"></div>
+                                        </div>
+                                    </figure>
+
+                                </div>
+                                
+                                <div class="tab-pane fade" id="pills-video" role="tabpanel" aria-labelledby="pills-video-tab"> </div>
+                                
+                                <div class="tab-pane fade show active" id="pills-audio" role="tabpanel" aria-labelledby="pills-audio-tab"></div>
                             </div>
-                        </div>
-
-                        <div class="card-body tabClassIndex" id="btnIndexReview">
-                            @include('includes.admin.dashboardTabReview')
-                        </div>
-                        
-                        <div class="card-body tabClassIndex" id="btnIndexSubmit" style="display:none;">
-                            @include('includes.admin.dashboardTabSubmit')
-                        </div>
-
-                        <div class="card-body tabClassIndex" id="btnIndexArchive" style="display:none;">
-                            @include('includes.admin.dashboardTabArchive')
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-        
-            <div class="row">
-                <div class="col-md-0 mt-4">
-
-                    <div class="card shadow-sm border-0 rounded-0">
-                        <div class="card-header"><span>Overall Performance</span>
-                            <div class="float-end btn-group">
-                                <button class="btn btn-primary active" onclick="tabBtnChart('btnChartViews')">Photos</button>
-                                <button class="btn btn-primary" onclick="tabBtnChart('btnChartDownloads')">Videos</button>
-                                <button class="btn btn-primary" onclick="tabBtnChart('btnChartShared')">Audio</button>
-                            </div>
-                        </div>
-
-                        <div class="card-body tabClassChart" id="btnChartViews">
-                            
-                            <figure class="highcharts-figure">
-                                <nav class="nav nav-tabs" id="nav-tab" role="tablist">
-                                    <a class="nav-link active" id="nav-2025-tab" data-bs-toggle="tab" href="#nav-2024" role="tab" aria-controls="nav-2024" aria-selected="true">2024</a>
-                                    <a class="nav-link disabled" id="nav-2025-tab" data-bs-toggle="tab" href="#nav-2025" role="tab" aria-controls="nav-2025" aria-selected="false">2025</a>
-                                    <a class="nav-link disabled" id="nav-2026-tab" data-bs-toggle="tab" href="#nav-2026" role="tab" aria-controls="nav-2026" aria-selected="false">2026</a>
-                                </nav>
-
-                                <div class="tab-content" id="nav-tabContent">
-                                    <div class="tab-pane fade show active" id="nav-2024" role="tabpanel" aria-labelledby="nav-2024-tab">
-                                        <div id="photos-container"></div>
-                                    <div>
-                                    <div class="tab-pane fade" id="nav-2025" role="tabpanel" aria-labelledby="nav-2025-tab"></div>
-                                    <div class="tab-pane fade" id="nav-2026" role="tabpanel" aria-labelledby="nav-2026-tab"></div>
-                                </div>
-                               
-                            </figure>
-
-                        </div>
-
-
-
-                        <div class="card-body tabClassChart" id="btnChartDownloads" style="display:none;">
-                            <figure class="highcharts-figure">
-                                <div class="d-flex flex-row-reverse">
-                                  <button id='2020' class="btn btn-outline-primary">2024</button>
-                                </div>
-                                <div id="videos-container"></div>
-                            </figure>
-                        </div>
-                        <div class="card-body tabClassChart" id="btnChartShared" style="display:none;">
-                            <figure class="highcharts-figure">
-                                <div class="d-flex flex-row-reverse">
-                                  <button id='2020' class="btn btn-outline-primary">2024</button>
-                                </div>
-                                <div id="audios-container"></div>
-                            </figure>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+
     </div>
 </div>
 

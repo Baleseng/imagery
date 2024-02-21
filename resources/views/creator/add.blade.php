@@ -24,10 +24,12 @@
                                 @csrf
 
                                 <input type="hidden" value="{{ Auth::user()->id }}" name="creator_id"/>
-                                <input type="hidden" value="{{ Auth::user()->name }}" name="creator_name"/>
-                                <input type="hidden" value="{{ Auth::user()->image }}" name="creator_img"/>
-
+                            
                                 <input type="hidden" value="review" name="status"/>
+                                <input type="hidden" value="0" name="price"/>
+
+                                <!--<input type="hidden" name="file" value="https://cdn.pixabay.com/photo/2017/01/06/17/49/honey-1958464__340.jpg">-->
+
 
                                 <div class="row d-flex">
                                     <div class="col-6">
@@ -65,6 +67,7 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                     </div>
 
                                     <div class="vr mx-4 p-0"></div>
@@ -103,7 +106,7 @@
                                         </div>
 
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control border-bottom border-0" id="floatingInputKeywords" name="title" placeholder="Keywords">
+                                            <input type="text" class="form-control border-bottom border-0" id="floatingInput" name="title" placeholder="Keywords">
                                             <label for="floatingInput">File Name</label>
                                         </div>
 

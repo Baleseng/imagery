@@ -1,27 +1,7 @@
         <div class="col-9" >
-            <div class="btn mx-auto col-12" role="group" aria-label="Basic outlined button group">
-                    
-                @include('includes.admin.file-navEditPreviewbtn')
-                  
-            </div>
-            <div class="row">
-                <div class="col-lg-7 border">
-                    
-                    <div class="mx-auto my-3 col-9 border overflow-hidden" >
-                        <img src="{{ url('storage/images/'.$id->file_name) }}" class="object-fit-fill" style="width:100%;">
-                    </div>
-
-                </div>
-                <div class="col-lg-5">
-                    <div class="shadow-sm p-3 bg-white rounded">
-                        @include('includes.admin.file-package-'.$id->usage)
-                    </div>
-                </div>
-            </div>
-
             <div class="row">
                 <div class="card shadow-sm mt-4 p-0 border-0 rounded-0">
-                    <div class="card-header">Photo Detail </div>
+                    <div class="card-header">Admin Profile </div>
                     <div class="card-body d-flex flex-row">
                         <div class="col-lg-3">
                           <img src="{{ URL::asset('images/temp-img.jpg') }}" class="d-block mx-auto col-5 pb-3">
@@ -33,29 +13,24 @@
 
                         <div class="col-lg-4">
 
-                            <p class="text-secondary">Description: 
-                                <span class="d-block text-dark text-capitalize">{{ $id->description }}</span>
-                            </p>
-                            <p class="text-secondary">Used Keywords: 
-                                <span class="d-block text-dark text-capitalize">{{ $id->keywords }}</span>
-                            </p>
+                            <div class="text-secondary py-2">Email Address 
+                                <span class="d-block text-dark text-capitalize">{{ $id->email }}</span>
+                            </div>
+                            <div class="text-secondary py-2">Mobile: 
+                                <span class="d-block text-dark text-capitalize">{{ $id->mobile }}</span>
+                            </div>
 
-                            <p class="text-secondary">Created: 
-                                <span class="d-block text-dark text-capitalize">{{ $id->creator->name }}</span>
-                            </p>
+                
 
-                            <p class="text-secondary">Status: 
-                                <span class="d-block text-dark text-capitalize">{{ $id->status }}</span>
-                            </p>
-                            <p class="text-secondary">Used For: 
-                                <span class="d-block text-dark text-capitalize">{{ $id->usage }}</span>
-                            </p>
-                            <p class="text-secondary">Catergory: 
-                                <span class="d-block text-dark text-capitalize">{{ $id->category }}</span>
-                            </p>
-                            <p class="text-secondary">Last Updated: 
-                                <span class="d-block text-dark text-capitalize">{{ $id->updated_at }}</span>
-                            </p>
+                            <div class="text-secondary py-2">About: 
+                                <span class="d-block text-dark text-capitalize">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis dignissim sapien. Vestibulum non ante elit. Nulla luctus augue et lorem volutpat rutrum eget eget quam. Aliquam blandit diam urna, et congue est porta quis. Etiam a neque id felis posuere maximus sit amet nec felis. Morbi velit justo, ultrices bibendum quam et, finibus aliquet tortor. Pellentesque quam ipsum, auctor id pellentesque quis, feugiat molestie ipsum. Aliquam lacinia porta orci et convallis.</p>
+                                </span>
+                            </div>
+                           
+                            <div class="text-secondary py-2">Admin Since: 
+                                <span class="d-block text-dark text-capitalize">{{ $id->created_at }}</span>
+                            </div>
                             
                         </div>
 

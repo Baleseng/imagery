@@ -19,23 +19,16 @@ return new class extends Migration
             $table->integer('creator_id');
             $table->integer('admin_id')->nullable();
             $table->integer('user_id')->nullable();
-
             $table->string('status');
             $table->string('title');
             $table->string('file_name');
             $table->string('file_path');
-            $table->string('description');
+            $table->text('description');
             $table->string('keywords');
             $table->string('category');
             $table->string('country');
             $table->string('usage');
             $table->string('type');
-            
-            $table->string('views')->nullable();
-            $table->string('downloads')->nullable();
-            $table->string('feed')->nullable();
-            
-            $table->string('price')->default('0');
            
             $table->timestamps();
             

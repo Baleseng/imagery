@@ -2,17 +2,17 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Feed extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         
         'users_id',
-        'users_name',
-        'users_img',
 
         'file_id',
         'file_name',
@@ -23,5 +23,10 @@ class Feed extends Model
         'file_comment',
         'file_shared',
 
-    ]
+    ];
+
+    public function users(){
+        return $this->belongsTo('App\Models\User');
+    }
+
 }
