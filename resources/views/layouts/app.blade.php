@@ -92,7 +92,7 @@
                             </li>-->
 
                             <li class="nav-item text-secondary border border-1 px-2  mx-2">
-                                <a href="{{ url('pricing') }}" class="nav-link link-secondary px-2 ">
+                                <a href="{{ url('subscription') }}" class="nav-link link-secondary px-2 ">
                                     Pricing
                                 </a>
                             </li>

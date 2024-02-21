@@ -1,4 +1,4 @@
-<h5>Download image</h5>
+<h3 class="text-secondary">On-Demand Downloads</h3>
 
 <form action="{{url('/payment/')}}" method="POST" enctype="multipart/form-data" class="flex justify-end">
 
@@ -15,28 +15,55 @@
   <input type="hidden" value="download" name="type">
 
   <ul class="list-group rounded-0">
-    <li class="list-group-item my-0 border-0">
-      <input type="radio" class="btn-check" value="449" name="price" id="btnRadio1" autocomplete="on" checked>
-      <label class="btn btn-outline-secondary col-12" for="btnRadio1">
-        <span class="d-inline-block col-0"></span>
-        <span class="d-inline-block col-9 text-start">
-          <p class="fs-5 my-0 fw-bold">ZAR449 for this image</p>
-          <p class="my-0" style="font-size:11px;">5 images for ZAR449, download within a year</p>
-        </span>
-      </label>
+    <div class="border p-2">
+      <p class="fs-6 my-0 fw-bold text-secondary">Single Image Download</p>
+      
+      <li class="list-group-item my-0 border-0">
+        <input type="radio" class="btn-check" value="49" name="price" id="btnRadio1" autocomplete="on" checked>
+        <label class="btn btn-outline-secondary col-12" for="btnRadio1">
+          <div class="col-12 text-start fs-5 position-relative">
+            High-Resolution Image
+            <span class="position-absolute end-0 align-top fw-bold">ZAR 49</span>
+          </div>   
+        </label>
+      </li>
 
-    </li>
-    <li class="list-group-item my-0 border-0">
-      <input type="radio" class="btn-check" value="249" name="price" id="btnRadio2" autocomplete="off">
-      <label class="btn btn-outline-secondary col-12" for="btnRadio2">
-        <span class="d-inline-block col-0"></span>
-        <span class="d-inline-block col-9 text-start">
-          <p class="fs-5 my-0 fw-bold">ZAR249 for this image</p>
-          <p class=" my-0" style="font-size:11px;">10 images for ZAR249, download within a year</p>
-          <button class="link link-primary border-0 bg-light" style="font-size:10px;">Read Terms & Condition</button>
-        </span>
-      </label>
-    </li>
+      <li class="list-group-item my-0 border-0">
+        <input type="radio" class="btn-check" value="78" name="price" id="btnRadio2" autocomplete="off">
+        <label class="btn btn-outline-secondary col-12" for="btnRadio2">
+           <div class="col-12 text-start fs-5 position-relative">
+            Extended License
+            <span class="position-absolute end-0 align-top fw-bold">ZAR 29 </span>
+            <small class="fw-light">additional</small>
+          </div>
+        </label>
+      </li>
+    </div>
+
+    <div class="border p-2 my-3">
+      <p class="fs-6 my-0 fw-bold text-secondary">Pack of 5 Downloads:</p>
+
+      <li class="list-group-item my-0 border-0">
+        <input type="radio" class="btn-check" value="199" name="price" id="btnRadio3" autocomplete="off">
+        <label class="btn btn-outline-secondary col-12" for="btnRadio3">
+           <div class="col-12 text-start fs-5 position-relative">
+            High-Resolution Image
+            <span class="position-absolute end-0 align-top fw-bold">ZAR 199</span>
+          </div>
+        </label>
+      </li>
+
+      <li class="list-group-item my-0 border-0">
+        <input type="radio" class="btn-check" value="298" name="price" id="btnRadio4" autocomplete="off">
+        <label class="btn btn-outline-secondary col-12" for="btnRadio4">
+           <div class="col-12 text-start fs-5 position-relative">
+            Extended License
+            <span class="position-absolute end-0 align-top fw-bold">ZAR 99</span>
+          </div>
+        </label>
+      </li>
+    </div>
+
   </ul>
 
    <div class="d-grid gap-2 my-3" id="banner-message">

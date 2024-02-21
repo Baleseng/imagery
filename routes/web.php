@@ -30,9 +30,6 @@ Route::get('/', [HomeController::class,'default']);
 
 
 
-Route::get('/pricing', function () {
-    return view('pricing');
-});
 
 
 
@@ -102,13 +99,13 @@ Route::get('/creator/profile/{id}', [CreatorController::class,'profile']);
 
 /*
   |--------------------------------------------------------------------------
-  | User File Cart Route
+  | User File To Be Checkout Route
   |--------------------------------------------------------------------------
 */
-Route::get('files', [ProductController::class, 'fileList'])->name('files.list');
-Route::get('products', [ProductController::class, 'productList'])->name('products.list');
-
 Route::get('file/{id}', [ProductController::class, 'file'])->name('file');
+
+Route::get('subscription', [ProductController::class, 'subscription']);
+Route::get('commercial', [ProductController::class, 'commercial']);
 
 Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
 Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
@@ -120,7 +117,7 @@ Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear'
 
 /*
   |--------------------------------------------------------------------------
-  | User File Checkout Route
+  | User File Payment Route
   |--------------------------------------------------------------------------
 */
 
@@ -129,6 +126,7 @@ Route::get('/payment/{id}', [DownloadController::class,'checkout'])->name('payme
 
 Route::post('/payment', [PaymentController::class, 'store']);
 Route::get('/payment/{id}', [PaymentController::class,'checkout'])->name('payment');
+
 
 /*
   |--------------------------------------------------------------------------
@@ -145,9 +143,9 @@ Route::post('/feed', [FeedController::class, 'create']);
   | User Route
   |--------------------------------------------------------------------------
 */
-/*Route::get('/file/{id}', [UserController::class,'files']);*/
-Route::get('/proceed', [UserController::class,'proceeds']);
+
 Route::get('/profile', [UserController::class,'profile']);
 Route::get('/tester', [HomeController::class,'test']);
+Route::get('/test-proceed', [UserController::class,'proceeds']);
 
 

@@ -11,10 +11,15 @@ use Intervention\Image\Facades\Image;
 
 class ProductController extends Controller
 {
-    public function productList()
+
+    public function subscription()
     {
-        $products = Product::all();
-        return view('products', compact('products'));
+        return view('subscription');
+    }
+
+    public function commercial()
+    {
+        return view('commercial');
     }
 
     public function fileList()
@@ -43,3 +48,4 @@ class ProductController extends Controller
         return response()->file(public_path('images/watermarked.jpg'));
     }
 }
+

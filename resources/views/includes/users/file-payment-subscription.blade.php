@@ -8,7 +8,7 @@
       <ul class="list-group mb-3">
         
         <li class="list-group-item d-flex justify-content-between lh-condensed">
-          <span class="col-2"><img src="{{ url('storage/images/'.$id->file) }}" class="img-thumbnail"></span>
+          
           <div class="col-8">
             <h6 class="my-0 roboto-regular">{{ $id->title }}</h6>
             <small class="text-muted roboto-light">{{ date('d M Y', strtotime($id->created_at)) }}</small>

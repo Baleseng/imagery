@@ -43,18 +43,6 @@ class UserController extends Controller
         return view('/home',compact('url','data'));
     }
 
-     /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function files(FileUpload $id, User $user, Request $request){      
-
-        $url = DB::table('users')->select('users.*')->get();
-        
-        return view('/file',compact('url','id'));
-    }
-
     /**
      * Show the application dashboard.
      *
@@ -105,7 +93,7 @@ class UserController extends Controller
     public function proceeds()
     {
         $url = 'user';
-        return view('/proceed');
+        return view('/test-proceed');
     }
 
 }

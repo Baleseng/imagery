@@ -1,47 +1,77 @@
-<h5>Download image</h5>
+<div class="col-md-5 order-md-2 mb-4">
+      
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted roboto-bold">Order summery</span>
+        <span class="badge badge-secondary badge-pill">3</span>
+      </h4>
+      
+      <ul class="list-group mb-3">
+        
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <span class="col-2"><img src="{{ url('storage/images/'.$id->file) }}" class="img-thumbnail"></span>
+          <div class="col-8">
+            <h6 class="my-0 roboto-regular">{{ $id->title }}</h6>
+            <small class="text-muted roboto-light">{{ date('d M Y', strtotime($id->created_at)) }}</small>
+          </div>
+          <span class="roboto-medium text-muted">R {{ $id->price }}</span>
+        </li>
+        
+        <li class="list-group-item d-flex justify-content-between bg-light">
+          <div class="text-success">
+            <h6 class="my-0">Promo code</h6>
+            <small>EXAMPLECODE</small>
+          </div>
+          <span class="text-success">-R 0</span>
+        </li>
+        <li class="list-group-item list-group-item-action">      
+          <div class="d-flex w-100 justify-content-between">
+            <h6 class="mb-1">Total Amount Due (ZAR)</h6>
+            <strong class="roboto-bold text-danger fs-4">R {{ $id->price }}</strong>
+          </div>
+          <small class="text-center d-block"><i>By purchasing you agree to the <a href="#">Imagery License Agreement</a>, or a separate written agreement in effect with Shutterstock.</i></small> 
+        </li>
 
-<form action="{{url('/payment/')}}" method="POST" enctype="multipart/form-data" class="flex justify-end">
+      </ul>
 
-@csrf
+      <div class="list-group my-3">
+        <div class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h6 class="mb-1">365-day Subscription, Standard License with 10 Downloads p/m</h6>
+            <span class="roboto-medium text-muted">
+              R {{ $id->price }}
+            </span>
+          </div>
+          <small>
+            Standard License<br/>
 
-  <input type="hidden" value="{{ Auth::user()->id }}" name="user_id"/>
-  <input type="hidden" value="{{ $id->creator_id }}" name="creator_id"/>
-  <input type="hidden" value="{{ $id->id }}" name="file_id">
+            Annual commitment, billed monthly<br/>
 
-  <input type="hidden" value="{{ $id->title }}" name="title">
-  <input type="hidden" value="{{ $id->description }}" name="description">
-  <input type="hidden" value="{{ $id->file_name }}"  name="file">
-  <input type="hidden" value="1" name="quantity">
-  <input type="hidden" value="download" name="type">
+            1 credit will be immediately deducted from the plan
+          </small>
 
-  <ul class="list-group rounded-0">
-    <li class="list-group-item my-0 border-0">
-      <input type="radio" class="btn-check" value="449" name="price" id="btnRadio1" autocomplete="on" checked>
-      <label class="btn btn-outline-secondary col-12" for="btnRadio1">
-        <span class="d-inline-block col-0"></span>
-        <span class="d-inline-block col-9 text-start">
-          <p class="fs-5 my-0 fw-bold">ZAR449 for this image</p>
-          <p class="my-0" style="font-size:11px;">5 images for ZAR449, download within a year</p>
-        </span>
-      </label>
+          <hr class="mb-3">
+          <div class="d-flex w-100 justify-content-between">
+            <h6 class="mb-1">Subtotal</h6>
+            <strong class="roboto-bold fs-6">R {{ $id->price }}</strong>
+          </div>
+          <hr class="mb-2">
+        </div>
+      </div>
 
-    </li>
-    <li class="list-group-item my-0 border-0">
-      <input type="radio" class="btn-check" value="249" name="price" id="btnRadio2" autocomplete="off">
-      <label class="btn btn-outline-secondary col-12" for="btnRadio2">
-        <span class="d-inline-block col-0"></span>
-        <span class="d-inline-block col-9 text-start">
-          <p class="fs-5 my-0 fw-bold">ZAR249 for this image</p>
-          <p class=" my-0" style="font-size:11px;">10 images for ZAR249, download within a year</p>
-          <button class="link link-primary border-0 bg-light" style="font-size:10px;">Read Terms & Condition</button>
-        </span>
-      </label>
-    </li>
-  </ul>
+      <div class="list-group my-3">
+        <div class="list-group-item list-group-item-action">
+          <small><b>365-day Subscription, Standard License with 10 Downloads per Month.</b> We will bill you monthly for 1 year. After that, your plan will be renewed for another 1 year commitment.</small>
+          <small class="py-3 d-block">To cancel, please visit the <a href="#">Plans page.</a></small>
+        </div>
+      </div>
 
-   <div class="d-grid gap-2 my-3" id="banner-message">
-     <button class="py-3 text-white text-sm bg-primary border-0 rounded">Download</button>
-     <a href="{{ url('/pricing') }}" class="btn btn-light btn-outline-secondary" type="button">View plans and prices</a>
-   </div>
-              
-</form>
+      <form class="card p-2">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Promo code">
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-secondary">Redeem</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
