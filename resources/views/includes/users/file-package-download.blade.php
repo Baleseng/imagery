@@ -68,7 +68,7 @@
 
    <div class="d-grid gap-2 my-3" id="banner-message">
      <button class="py-3 text-white text-sm bg-primary border-0 rounded">Download</button>
-     <a href="{{ url('/pricing') }}" class="btn btn-light btn-outline-secondary" type="button">View plans and prices</a>
+     <a href="{{ url('subscription') }}" class="btn btn-light btn-outline-secondary" type="button">View plans and prices</a>
    </div>
               
 </form>

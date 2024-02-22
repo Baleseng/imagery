@@ -33,15 +33,7 @@ class HomeController extends Controller
         return view('/home',compact('url','data'));
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function test()
-    {
-        return view('/tester');
-    }
+
 
     /**
      * Show the application dashboard.

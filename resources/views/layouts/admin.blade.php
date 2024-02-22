@@ -22,19 +22,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
+
      
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     
-    <!-- Scripts
-
+   
+<!-- Scripts
     <style>
         {!! Vite::content('resources/sass/app.scss') !!}
     </style>
     <script>
         {!! Vite::content('resources/js/app.js') !!}
     </script>
- 
-    -->
+-->  
+
 
 </head>
 <body class="roboto-regular">

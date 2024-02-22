@@ -54,8 +54,15 @@ class AdminController extends Controller
         $id->description = $request->get('description');
         $id->keywords = $request->get('keywords');
         $id->category = $request->get('category');
-        $id->status = $request->get('status');
+
         $id->usage = $request->get('usage');
+        $id->standard = $request->get('standard');
+        $id->extended = $request->get('extended');
+        $id->enhance = $request->get('enhance');
+        $id->editorial = $request->get('editorial');
+
+        $id->status = $request->get('status');
+        
         $id->save(); 
         return redirect('admin');    
     }

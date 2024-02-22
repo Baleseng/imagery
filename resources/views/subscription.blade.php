@@ -40,7 +40,7 @@
                     <input type="hidden" value="" name="description">
                     <input type="hidden" value="subscription" name="type">
                     <input type="hidden" value="499" name="price">
-                    <button class="btn btn-outline-primary btn-lg" style="border-radius:30px">Get Unlimited Downloads</button>
+                    <button class="btn btn-outline-primary btn-lg" style="border-radius:30px">Subscribe
                   </form>
 
 
@@ -83,8 +83,8 @@
                     <input type="hidden" value="Small Business" name="title">
                     <input type="hidden" value="Some quick example text to build on the card title and make up the bulk of the card's content." name="description">
                     <input type="hidden" value="subscription" name="type">
-                    <input type="hidden" value="499" name="price">
-                    <button class="btn btn-outline-primary btn-lg" style="border-radius:30px">Get Team Access</button>
+                    <input type="hidden" value="999" name="price">
+                    <button class="btn btn-outline-primary btn-lg" style="border-radius:30px">Subscribe</button>
                   </form>
 
 
@@ -130,7 +130,7 @@
                     <input type="hidden" value="" name="description">
                     <input type="hidden" value="subscription" name="type">
                     <input type="hidden" value="999" name="price">
-                    <button class="btn btn-outline-primary btn-lg" style="border-radius:30px">Get Team + Access</button>
+                    <button class="btn btn-outline-primary btn-lg" style="border-radius:30px">Subscribe</button>
                   </form>
                   
 

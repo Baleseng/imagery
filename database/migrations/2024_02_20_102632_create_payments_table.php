@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
 
             $table->integer('user_id');
+            $table->integer('creator_id')->nullable();
             $table->integer('file_id')->nullable();
             $table->string('file')->nullable();
             $table->string('title')->nullable();

@@ -145,7 +145,6 @@ Route::post('/feed', [FeedController::class, 'create']);
 */
 
 Route::get('/profile', [UserController::class,'profile']);
-Route::get('/tester', [HomeController::class,'test']);
-Route::get('/test-proceed', [UserController::class,'proceeds']);
+Route::get('/tester', [UserController::class,'test']);
 
 

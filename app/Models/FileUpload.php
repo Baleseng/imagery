@@ -12,21 +12,30 @@ class FileUpload extends Model
 
     protected $fillable = [
         
-    'creator_id',
-    'admin_id',
-    'users_id',
+        'creator_id',
+        'admin_id',
+        'users_id',
 
-    'title',
-    'type',
-    'file_name',
-    'file_path',
-    'usage',
-    
-    'keywords',
-    'category',
-    'status',
-    'country',
-    'description',
+        'status',
+
+        'file_name',
+        'file_path',
+
+        'type',
+        
+        'usage',
+        'standard',
+        'extended',
+        'enhance',
+        'editorial',
+
+        'title',
+        
+        'category',
+        'country',
+
+        'keywords',
+        'description',
     
 
     ];

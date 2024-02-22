@@ -1,0 +1,73 @@
+
+
+.cl-custom-check {display: none;
+    + .cl-custom-check-label {
+        /* Unchecked License style  */
+        border: 1px solid #0d6efd;
+        color: #0d6efd;
+        padding: 5px 10px;
+        cursor: pointer;
+        user-select: none;
+        border-radius: 4px;
+        display: inline-block;
+        margin: 0 10px 10px 0;
+        backface-visibility: hidden;
+    }
+
+    &:checked {
+        + .cl-custom-check-label {
+            /* Checked License style  */
+            background-color: #0d6efd;
+            color: #ffffff;
+            backface-visibility: hidden;
+            
+        }
+    }
+}
+
+.choiceBox {
+    display: block;
+    width: 350px;
+    padding: 10px 0;
+    margin-bottom: 15px;
+    color: #333333;
+    font-size: 13px;
+    border-bottom: solid 1px #cccccc;
+    letter-spacing: .1em;
+    cursor: pointer;
+    text-transform: uppercase;
+    word-break: keep-all;
+    line-height: 1.5;
+}
+
+
+span.ttl {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #cccccc;
+}
+
+
+
+/*input custom*/
+input[type="checkbox"]{display: none;}
+
+input[type="checkbox"] + .labelCheck{
+    /* UnChecked Keywords style  */
+    border: 1px solid #0d6efd;
+    color: #0d6efd;
+    padding: 5px 10px;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 0 10px 10px 0;
+    backface-visibility: hidden;
+}
+
+input[type="checkbox"]:checked + .labelCheck{
+    /* Checked Keywords style  */
+    background-color: #0d6efd;
+    color: #ffffff;
+    backface-visibility: hidden;
+}

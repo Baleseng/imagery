@@ -55,7 +55,6 @@ class CreatorController extends Controller
             'file' => 'required|mimes:pdf,jpg,jpeg,png|max:2048',
             'title' => 'required',
             'description' => 'required',
-            'keywords' => 'required',
             'category' => 'required',
             'country' => 'required',
             
@@ -65,15 +64,17 @@ class CreatorController extends Controller
 
         $fileModel->creator_id=$request->post('creator_id');
         $fileModel->status=$request->post('status');
-        $fileModel->title=$request->post('title');
+        
+        
         $fileModel->type=$request->post('type');
         $fileModel->usage=$request->post('usage');
+
+        $fileModel->title=$request->post('title');
+        
         $fileModel->description=$request->post('description');
-        $fileModel->keywords=$request->post('keywords');
         $fileModel->category=$request->post('category');
         $fileModel->country=$request->post('country');
-        
-        
+
         if($request->file()) {
             $fileName = time().'_'.$request->file->getClientOriginalName();
             $filePath = $request->file('file')->storeAs('images', $fileName, 'public');
@@ -83,8 +84,7 @@ class CreatorController extends Controller
             return redirect('creator')
             ->with('success','File has been uploaded.')
             ->with('file', $fileName);
-        }
-
+        } 
     }
 
     public function edit(FileUpload $id, Creator $creator, Request $request){ 

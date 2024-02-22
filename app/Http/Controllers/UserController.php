@@ -28,6 +28,7 @@ class UserController extends Controller
     }
 
 
+
     /**
      * Show the application dashboard.
      *
@@ -56,7 +57,7 @@ class UserController extends Controller
     /*|-------------------------------- ADD FEED ----------------------------------|*/
     public function add(Request $request){
         $url = 'user';
-        return view('/feed', compact('url','taxi','owner'));
+        return view('/feed', compact('url'));
     }
 
     public function store(Request $request){
@@ -65,35 +66,17 @@ class UserController extends Controller
         return redirect('/feed');
     }
 
-    public function addToCart(FileUpload $id, User $user, Request $request)
-    {
-        $url = 'user';
-        
-        Cart::add([
-            'id' => $request->id,
-            'user_id' => $request->user_id,
-            'admin_id' => $request->admin_id,
-            'creator_id' => $request->creator_id,
 
-            'file_id' => $request->file_id,
-            'file_title' => $request->file_title,
-            'file_name' => $request->file_name,
-            'file_quantity' => $request->file_quantity,
-            'file_price' => $request->file_price,
-
-        ]);
-        return redirect('/cart', compact('url','id'));
-    }
 
     /**
     * Show the application dashboard.
     *
     * @return \Illuminate\Contracts\Support\Renderable
     */
-    public function proceeds()
+    public function test()
     {
         $url = 'user';
-        return view('/test-proceed');
+        return view('/tester', compact('url'));
     }
 
 }

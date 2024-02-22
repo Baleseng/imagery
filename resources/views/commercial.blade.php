@@ -36,9 +36,6 @@
 
                 </div>
 
-                <div class="text-center p-3">
-                  <span class="h2">R???</span>/month
-                </div>
 
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
@@ -85,10 +82,6 @@
                   </form>
 
 
-                </div>
-
-                <div class="text-center p-3">
-                  <span class="h2">R???</span>/month 
                 </div>
 
                 <ul class="list-group list-group-flush">

@@ -3,6 +3,7 @@
 @section('description', '')
 @section('keywords', '')
 
+
 @section('title',  '')
 
 @section('content')
@@ -31,7 +32,9 @@
                             {{ csrf_field() }}
                                 <div class="row d-flex">
 
-                                    @include('includes.admin.file-editform')
+                                    @include('includes.admin.file-editform-first')
+
+                                    @include('includes.admin.file-editform-second')
 
                                         <input type="hidden" value="{{ Auth::user()->id }}" name="creator_id"/>
                                         <input type="hidden" value="review" name="status"/>

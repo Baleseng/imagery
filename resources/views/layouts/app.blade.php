@@ -29,18 +29,18 @@
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
-    <!-- Scripts
+ <!-- Scripts   
     <style>
         {!! Vite::content('resources/sass/app.scss') !!}
     </style>
     <script>
         {!! Vite::content('resources/js/app.js') !!}
     </script>
-    --> 
+-->     
 
 
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    
+
      
 
 </head>
@@ -291,19 +291,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
-
-    
-
-    <!-- Scripts
-
-    <style>
-        <script src="https://imagery.test:5173/resources/js/cart.js"></script>
-
-        {!! Vite::content('resources/js/cart.js') !!}
-    </style> 
-
-
-    -->
 
 
 </body>

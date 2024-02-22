@@ -26,7 +26,7 @@
                                 <input type="hidden" value="{{ Auth::user()->id }}" name="creator_id"/>
                             
                                 <input type="hidden" value="review" name="status"/>
-                                <input type="hidden" value="0" name="price"/>
+                                
 
                                 <!--<input type="hidden" name="file" value="https://cdn.pixabay.com/photo/2017/01/06/17/49/honey-1958464__340.jpg">-->
 
@@ -108,37 +108,6 @@
                                         <div class="form-floating mb-3">
                                             <input type="text" class="form-control border-bottom border-0" id="floatingInput" name="title" placeholder="Keywords">
                                             <label for="floatingInput">File Name</label>
-                                        </div>
-
-                                        <div class="form-floating mb-3">
-                                            <input type="text" class="form-control border-bottom border-0" 
-                                            name="keywords" value="" id="floatingInputKeywords" placeholder="Keywords">
-                                            <label for="floatingInput">Keywords</label>
-                                        </div>
-
-                                        <div class="mb-3 border p-2">
-                                            <div class="">Keywords Suggestion</div>
-                                            <div class="form-check-inline">
-                                                <input type="checkbox" class="btn-check" name="type" value="photo"  id="btnCheckBox1" autocomplete="off">
-                                                <label class="btn btn-outline-secondary" for="btnCheckBox">
-                                                    Photo <i class="fa-solid fa-plus"></i>
-                                                </label>
-
-                                                <input type="checkbox" class="btn-check" name="type" value="photo"  id="btnCheckBox1" autocomplete="off">
-                                                <label class="btn btn-outline-secondary" for="btnCheckBox">
-                                                    Photographer <i class="fa-solid fa-plus"></i>
-                                                </label>
-
-                                                <input type="checkbox" class="btn-check" name="type" value="photo"  id="btnCheckBox1" autocomplete="off">
-                                                <label class="btn btn-outline-secondary" for="btnCheckBox">
-                                                    People <i class="fa-solid fa-plus"></i>
-                                                </label>
-
-                                                <input type="checkbox" class="btn-check" name="type" value="photo"  id="btnCheckBox1" autocomplete="off">
-                                                <label class="btn btn-outline-secondary mt-1" for="btnCheckBox">
-                                                    Vacation <i class="fa-solid fa-plus"></i>
-                                                </label>
-                                            </div>
                                         </div>
 
                                         <div class="form-floating mb-3">

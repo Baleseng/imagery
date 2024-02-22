@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('file_uploads', function (Blueprint $table) {
+        Schema::create('file_uploads', function (Blueprint $table) {    
             
             $table->id();
 
@@ -19,19 +19,30 @@ return new class extends Migration
             $table->integer('creator_id');
             $table->integer('admin_id')->nullable();
             $table->integer('user_id')->nullable();
+
             $table->string('status');
-            $table->string('title');
+
             $table->string('file_name');
             $table->string('file_path');
-            $table->text('description');
-            $table->string('keywords');
+
+            $table->string('type');
+            $table->string('usage');
+            
+            $table->string('standard')->nullable();
+            $table->string('extended')->nullable();
+            $table->string('enhance')->nullable();
+            $table->string('editorial')->nullable();
+
+            $table->string('title');
+
             $table->string('category');
             $table->string('country');
-            $table->string('usage');
-            $table->string('type');
+            
+            $table->string('keywords')->nullable();
+            $table->text('description');
            
             $table->timestamps();
-            
+
         });
     }
 
