@@ -1,5 +1,4 @@
 
-    <li class="list-group-item my-0 border-0">
       <input type="radio" class="btn-check" value="49" name="price" id="btnRadio1" autocomplete="on" checked>
       <label class="btn btn-outline-secondary col-12" for="btnRadio1">
         <div class="col-12 text-start fs-5 position-relative fw-bold">
@@ -11,6 +10,6 @@
           <p class="fw-bold lh-1">Not Permitted: <small class="fw-light">Resale or distribution of the image on its own, use in trademarks or logos.</small></p>
         </span> 
       </label>
-    </li>
+
 
    

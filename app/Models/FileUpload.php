@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use CyrildeWit\EloquentViewable\InteractsWithViews;
+use CyrildeWit\EloquentViewable\Contracts\Viewable;
 
-class FileUpload extends Model
+class FileUpload extends Model implements Viewable
 {
-    use HasFactory;
+    use InteractsWithViews;
 
     protected $fillable = [
         
@@ -22,6 +24,7 @@ class FileUpload extends Model
         'file_path',
 
         'type',
+        'orientation',
         
         'usage',
         'standard',
@@ -36,6 +39,7 @@ class FileUpload extends Model
 
         'keywords',
         'description',
+        'notes',
     
 
     ];

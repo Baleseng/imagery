@@ -5,15 +5,20 @@
 
 @section('title',  '')
 
+<div class="mt-5 border bg-black bg-gradient container-fluid">
+  @include('includes.users.file-search-field')
+</div>
+
 @section('content')
 
-<div class="container-fluid position-relative" style="top:3rem;">
-  <div class="row">
-    <div class="col-lg-8 border" style="max-width:80%;">
-      <div class="btn mt-2 mx-auto col-12" role="group">
-        
-        <div class="btn btn-primary">
 
+<div class="container-fluid position-relative">
+  <div class="row">
+    <div class="col-lg-8 border">
+      
+      <div class="mt-2 mx-auto col-3" role="group">  
+        
+        <div class="d-inline-block">
           <form method="POST" action="{{url('/feed')}}" method="post" enctype="multipart/form-data">
             @method('POST')
             @csrf      
@@ -26,19 +31,18 @@
             <input type="hidden" value="{{ $id->description }}" name="file_description"/>    
             
             <button type="submit" class="btn btn-primary"><i class="fa-solid fa-share"></i> Share</button> 
-
           </form>
 
         </div>
 
-        <div class="btn btn-primary">
+        <div class="d-inline-block">
           <form method="POST" action="">
             {{ csrf_field() }}          
             <button type="submit" class="btn btn-primary"><i class="fa-solid fa-heart"></i> Save</button>   
           </form>
         </div>
       
-        <div class="btn btn-primary">
+        <div class="d-inline-block">
           <form method="POST" action="">
             {{ csrf_field() }}          
             <button type="submit" class="btn btn-primary"><i class="fa-solid fa-download"></i> Try</button>   
@@ -48,8 +52,8 @@
 
       </div>
 
-      <div class="mx-auto my-3 col-9 overflow-hidden position-relative" style="height: 500px;">
-        <div class="position-absolute top-0 left-50">
+      <div class="mx-auto my-3 col-9 overflow-hidden position-relative">
+        <div class="">
           <img src="{{ url('storage/images/'.$id->file_name) }}" class="d-block mx-auto w-100">
         </div>
       </div>
@@ -79,6 +83,13 @@
         </div>
       </div>
     </div>
+
+    <div class="d-flex flex-row bd-highlight">
+      <div class="p-2 bd-highlight">Flex item 1</div>
+      <div class="p-2 bd-highlight">Flex item 2</div>
+      <div class="p-2 bd-highlight">Flex item 3</div>
+    </div>
+
   </div>
 </div>
 

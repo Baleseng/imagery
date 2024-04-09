@@ -53,10 +53,17 @@
                             <div class="d-grid gap-2 col-8 mx-auto">
                                 <button type="submit" class="btn btn-primary">{{ __('Login') }}</button>
                                 @if (Route::has('password.request'))
+                                
+                               
+                                <a class="btn border" href="#">{{ __('Register') }}</a>
+                            
+
                                 <a class="btn btn-link" href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a>
                                 @endif
+
+                                
                             </div>
-                        </div>
+                        </div>.
                     </form>
                     
                     <div class="col-7 mx-auto"><hr></div>

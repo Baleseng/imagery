@@ -12,6 +12,22 @@ use Intervention\Image\Facades\Image;
 class ProductController extends Controller
 {
 
+    /**
+    * Create a new controller instance.
+    *
+    * @return void
+    */
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
+    public function file(FileUpload $id, User $user, Request $request)
+    {
+        $url = DB::table('users')->select('users.*')->get();
+    
+        return view('/file', compact('url','id'));
+    }
+
     public function subscription()
     {
         return view('subscription');
@@ -26,12 +42,6 @@ class ProductController extends Controller
     {
         $files = FileUpload::all();
         return view('files', compact('files'));
-    }
-
-    public function file(FileUpload $id, User $user, Request $request)
-    {
-        $url = DB::table('users')->select('users.*')->get();
-        return view('/file', compact('url','id'));
     }
 
     public function addWatermark(){

@@ -7,7 +7,7 @@
 
 @section('content')
 
-<div class="container position-relative" style="top:2rem">
+<div class="container-fluid position-relative">
     <div class="mx-auto col-12">
       
       <div class="text-center py-5">
@@ -15,12 +15,11 @@
         <h4>Tailored licensing options for unique requirements.</h3>
         <h6>Cost: Custom pricing based on negotiation</h6>
       </div>
-      
 
       <div class="row">
         
-          <div class="col-lg-4 col-md-12 mb-4">
-            <div class="card h-100 shadow-lg">
+        <div class="col-lg-4 col-md-12 mb-4">
+          <div class="card h-100 shadow-lg">
               <div class="card-body">
                 <div class="text-center p-3">
                   <h5 class="card-title">Basic Plan</h5>
@@ -159,6 +158,6 @@
           </div>
 
       </div>    
-    </div>
+</div>
 
 @endsection

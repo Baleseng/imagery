@@ -13,8 +13,6 @@
 
     <title>@yield('title')</title>
 
- 
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
@@ -43,16 +41,16 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm position-fixed top-0 z-3">
             <div class="container-fluid">
                 <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-2 col-2">
-                    <a href="{{ url('/creator') }}"><img src="{{ URL::asset('images/logo.png') }}" style="width:50%;"></a>
+                    <a href="{{ url('/'.$url) }}"><img src="{{ URL::asset('images/logo.png') }}" style="width:50%;"></a>
                 </div>
                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-0">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search image">
-                        <div class="input-group-append">
+                        <!--<div class="input-group-append">
                             <button class="btn btn-secondary" type="button">
                             <i class="fa fa-search"></i>
                             </button>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -80,7 +78,7 @@
                         @else
                         <ul class="list-group list-group-horizontal">
                             <li class="list-group-item text-secondary border-0">
-                                <a href="{{ url('/creator') }}" class="text-secondary"><i class="fa fa-home"></i></a>
+                                <a href="{{ url('/'.$url) }}" class="text-secondary"><i class="fa fa-home"></i></a>
                             </li>
 
                             <li class="list-group-item text-secondary border-0">
@@ -260,6 +258,9 @@
         }
     </script>    
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

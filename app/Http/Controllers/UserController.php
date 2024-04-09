@@ -27,8 +27,6 @@ class UserController extends Controller
         $this->middleware('auth');
     }
 
-
-
     /**
      * Show the application dashboard.
      *
@@ -36,11 +34,10 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-         $url = 'user';
+        $url = 'user';
         
         $data = DB::table('file_uploads')
         ->where('status','submit')->get();
-
         return view('/home',compact('url','data'));
     }
 

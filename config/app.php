@@ -159,6 +159,7 @@ return [
         /*
          * Package Service Providers...
          */
+        CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
         
         Darryldecode\Cart\CartServiceProvider::class,
 

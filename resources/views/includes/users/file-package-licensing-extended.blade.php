@@ -1,4 +1,4 @@
-    <li class="list-group-item my-0 border-0">
+
       <input type="radio" class="btn-check" value="99" name="price" id="btnRadio2" autocomplete="off">
       <label class="btn btn-outline-secondary col-12" for="btnRadio2">
         <div class="col-12 text-start fs-5 position-relative fw-bold">
@@ -10,6 +10,5 @@
           <p class="fw-bold lh-1">Not Permitted: <small class="fw-light">Use in products for resale where the main value is the image itself.</small></p>
         </span>
       </label>
-    </li>
 
    

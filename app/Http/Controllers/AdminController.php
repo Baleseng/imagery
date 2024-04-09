@@ -56,10 +56,12 @@ class AdminController extends Controller
         $id->category = $request->get('category');
 
         $id->usage = $request->get('usage');
+        $id->orientation = $request->get('orientation');
+
         $id->standard = $request->get('standard');
         $id->extended = $request->get('extended');
-        $id->enhance = $request->get('enhance');
-        $id->editorial = $request->get('editorial');
+
+     
 
         $id->status = $request->get('status');
         
@@ -67,6 +69,9 @@ class AdminController extends Controller
         return redirect('admin');    
     }
 
+
+    /*|-------------------------------- PAPGE ----------------------------------|*/
+   
      /*|-------------------------------- PAPGE ----------------------------------|*/
     public function preview(FileUpload $id, Admin $admin, Request $request){      
         

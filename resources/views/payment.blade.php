@@ -5,10 +5,13 @@
 
 @section('title',  '')
 
+<div class="mt-5 border bg-black bg-gradient container-fluid">
+  
+</div>
+
 @section('content')
 
-
-<div class="container" style="position: relative; top:3rem;">
+<div class="container-fluid position-relative">
   
   <div class="row">
     
@@ -16,7 +19,7 @@
 
     <div class="col-md-7 order-md-1 py-3 border border-1">
       
-      <span class="py-1 col-2"><h4 class="roboto-bold">Payment</h4></span>
+      <span class="py-1 col-2"><h4 class="text-muted roboto-bold">Payment</h4></span>
 
       <nav class="d-flex flex-row nav nav-pills nav-outline-primary" id="pills-tab" role="tablist">  
         <a class="col-6 rounded-0 nav-link active fs-5" id="pills-credit-tab" data-bs-toggle="pill" href="#pills-credit" role="tab" aria-controls="pills-credit" tabindex="-1" aria-credit="true">Credit card</a>
@@ -34,9 +37,18 @@
           <div class="invalid-feedback">Name on card is required</div>
         </div>
       
-        <div class="form-floating mb-3">
+        <div class="form-floating mb-3 position-relative">
           <input type="text" class="form-control border-bottom border-0 rounded-0" id="cc-number" placeholder="Credit card number"required="">
           <label for="cc-number">Credit card number</label>
+          <div class="position-absolute top-50 end-0 fs-5 text-black-50 mx-1">
+              <i class="fa-brands fa-cc-visa"></i>
+              <i class="fa-brands fa-cc-mastercard"></i>
+              <i class="fa-brands fa-cc-discover"></i>
+              <i class="fa-brands fa-cc-diners-club"></i>
+              <i class="fa-brands fa-cc-apple-pay"></i>
+              <i class="fa-brands fa-cc-amex"></i>
+              <i class="fa-brands fa-cc-amazon-pay"></i>
+            </div>
           <div class="invalid-feedback">Credit card number is required</div>
         </div>
         
@@ -44,21 +56,24 @@
           <div class="form-floating col-md-6 mb-3">
             <input type="text" class="form-control border-bottom border-0 rounded-0" id="cc-expiration" placeholder="Expiration" required="">
             <label for="cc-expiration">Expiration</label>
+
+            
+
             <div class="invalid-feedback">Expiration date required</div>
           </div>
 
           <div class="form-floating col-md-6 mb-3 position-relative">
             <input type="text" class="form-control border-bottom border-0 rounded-0" id="cc-cvv" placeholder="cvv" required="">
-            <!--<div class="position-absolute top-50 end-25">
-              <i class="fa-solid fa-credit-card"></i>
-            </div>-->
             <label for="cc-cvv">cvv</label>
+            <div class="position-absolute top-50 end-0 fs-5 text-black-50 mx-3">
+              <i class="fa-solid fa-credit-card"></i>
+            </div>
 
             <div class="invalid-feedback">Security code required</div>
           </div>
         </div>
         
-        <h4 class="mb-3 roboto-bold">Billing address</h4>
+        <h4 class="mb-3 text-muted roboto-bold">Billing address</h4>
 
         <div class="form-floating mb-3">
           <input type="text" class="form-control border-bottom border-0 rounded-0" id="address" placeholder="Address" required="">
@@ -145,7 +160,8 @@
           </div>
         </div>
         <hr class="mb-4">
-        <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+        <!--<button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>-->
+        <a href="https://imagery.test/download/5" class="btn btn-primary btn-lg btn-block">Continue to checkout</a>
         </form>
       </div>
       <div class="tab-pane fade" id="pills-paypal" role="tabpanel" aria-labelledby="pills-paypal-tab">paypal</div>

@@ -19,21 +19,23 @@
         <div class="col-9">
             <div class="row">
                 
-                <div class="col-5">   
+                <div class="col-3">   
                     <div class="card shadow-sm border-0 rounded-0">
                         <div class="card-body">
-                            <div class="row">                                
-                                <div class="col-6">
-                                    <img src="{{ URL::asset('images/temp-img.jpg') }}" class="d-block mx-auto col-8">
-                                    <p class="text-center py-3">{{ Auth::user()->name }}</p>
-                                </div>
-
-                                <div class="col-6">
-                                    <h4>Unpaid Earnings</h4>
-                                    <h1>R0</h1>
-                                    <span>*Upload approximately every 15 minutes</span>
-                                </div>
+                                                           
+                            <div class="col-12">
+                                <img src="{{ URL::asset('images/temp-img.jpg') }}" class="d-block mx-auto col-8">
+                                <p class="text-center py-3">{{ Auth::user()->name }}</p>
                             </div>
+
+                            <hr class="border-3 border-primary">
+
+                            <div class="col-12 text-center">
+                                <h4>Unpaid Earnings</h4>
+                                <h1>R0</h1>
+                                <span>*Upload approximately every 15 minutes</span>
+                            </div>
+                            
 
                             <hr class="border-3 border-primary">
 
@@ -53,7 +55,7 @@
                     </div> 
                 </div>
 
-                <div class="col-7">
+                <div class="col-9">
                     <div class="card shadow-sm border-0 rounded-0">
                         <div class="card-header">
                             
@@ -71,7 +73,9 @@
                                 </div>
                                     
                                 <div class="tab-pane fade show active" id="pills-disabled" role="tabpanel" aria-labelledby="pills-disabled-tab">
+
                                     @include('includes.admin.dashboardTabReview')
+                                    
                                 </div>
                             </div>
                         </div>

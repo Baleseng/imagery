@@ -1,7 +1,6 @@
 <h5>Licensing image</h5>
 
 
-   
       <ul class="list-group rounded-0">
         <li class="list-group-item my-0 border-0">
           <input type="radio" class="btn-check disabled" value="" name="" checked>

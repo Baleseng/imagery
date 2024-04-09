@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\FileUpload;
 use App\Models\Download;
+use App\Models\Payment;
 use App\Models\Admin;
 use App\Models\Save;
 use App\Models\Feed;
@@ -30,10 +31,10 @@ class DownloadController extends Controller
 
 
 
-    public function checkout(Download $id,  Request $request){      
+    public function checkout(FileUpload $id,  Request $request){      
         
         $url = 'user';
-        Download::find($id);
+        FileUpload::find($id);
         
         return view('/download', compact('url','id'));
     }

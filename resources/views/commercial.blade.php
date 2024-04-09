@@ -7,7 +7,7 @@
 
 @section('content')
 
-<div class="container-fluid position-relative" style="top:2rem">
+
     <div class="mx-auto col-9">
       
       <div class="text-center py-5">
@@ -120,6 +120,5 @@
           </div>
 
       </div>    
-    </div>
 
 @endsection

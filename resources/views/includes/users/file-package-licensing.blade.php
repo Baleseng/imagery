@@ -5,10 +5,18 @@
 @csrf 
      
   <ul class="list-group rounded-0">
-    @include('includes.users.file-package-commercial-standard')
-    @include('includes.users.file-package-commercial-extended')
-    @include('includes.users.file-package-commercial-enhanced')
-    @include('includes.users.file-package-commercial-editorial')
+    <li class="list-group-item my-0 border-0" style="display:{{ $id->standard }};">
+      @include('includes.users.file-package-licensing-standard')
+    </li>
+    <li class="list-group-item my-0 border-0" style="display:{{ $id->extended }};">
+      @include('includes.users.file-package-licensing-extended')
+    </li>
+    <li class="list-group-item my-0 border-0" style="display:{{ $id->enhance }};">
+      @include('includes.users.file-package-licensing-enhanced')
+    </li>
+    <li class="list-group-item my-0 border-0" style="display:{{ $id->editorial }};">
+      @include('includes.users.file-package-licensing-editorial')
+    </li>
   </ul>
 
   <input type="hidden" value="{{ $id->id }}" name="id">
@@ -23,7 +31,5 @@
     <a href="{{ url('/commercial') }}" class="btn btn-light btn-outline-danger fs-5 fw-bold" type="button">Custom Licensing</a>
   </div>
 </form>
-
-
 
 <p class="my-0" style="font-size:11px;">Offset images aren't included in image subscriptions or on-demand packs. You can license and pay for them separately.</p>

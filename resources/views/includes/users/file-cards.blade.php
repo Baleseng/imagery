@@ -1,37 +1,67 @@
-<div class="col-xxl-3 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3 mx-0">
-	<div class="card border-0">
+
+	
 	
 		@guest
 			@if(Route::has('login'))
 				
-				<a href="{{ url('/login') }}" style="
-					color:#fff;
-  					text-align:center;
-  					background-image:url('{{ url('storage/images/'.$content->file_name) }}'); /* only thing changed was this line */
-  					background-size:cover;
-  					background-position:center;
-  					padding-top:100px;
-  					padding-bottom:100px;
-  				">
-					<!--<img src="{{ url('storage/images/'.$content->file_name) }}" class="border rounded-3" style="width:100%;">-->
-				</a>
+            <a href="{{ url('/login') }}" class="text-light w-100">
+             	<div class="col-12 position-relative overflow-hidden hover my-2">
+             		<img src="{{ url('storage/images/'.$content->file_name) }}" class="col-12 images" />
+
+             		<div class="position-absolute top-0 start-0 w-100 h-100  middle">
+             			<div class="bg-black"><h6 class="w-75 mb-1 p-2 text-truncate ">{{ $content->title }}</h6></div>
+             			
+             			<div class="bg-black">
+             			<div class="position-absolute bottom-0 start-0">
+						<a href="" class="p-3 fs-5 text-light text-decoration-none"> 
+							<i class="fa-solid fa-layer-group"></i> Similar
+						</a>
+					</div>
+					
+					<div class="position-absolute bottom-0 end-0" id="demo">	
+						<a href="#" class="p-3 fs-4 text-light">
+							<i class="fa-solid fa-{{ $content->usage }}"></i>
+						</a>
+					</div>
+					</div>
+
+             		</div>
+             		
+             	</div>
+            </a>
 
 			@endif
 			@else
 				
-				<a class="link-primary dropdown-item" href="{{ url('/file/'.$content->id . '-' . str_replace(' ', '-', $content->title)) }}" style="
-					color:#fff;
-  					text-align:center;
-  					background-image:url('{{ url('storage/images/'.$content->file_name) }}'); /* only thing changed was this line */
-  					background-size:cover;
-  					background-position:top;
-  					padding-top:100px;
-  					padding-bottom:100px;
-  					">
-					<!--<img src="{{ url('storage/images/'.$content->file_name) }}" class="border rounded-3" style="width:100%;">-->
-				</a>
-				
+		<div class="text-light w-100 text-decoration-none">
+             	<div class="col-12 position-relative overflow-hidden hover my-2">
+             		
+             		<img src="{{ url('storage/images/'.$content->file_name) }}" class="col-12 images" />
+
+             		<div class="middle">
+
+	             		<a href="{{ url('/file/'.$content->id) }}" class="position-absolute top p-3 top-0 start-0 w-100 h-100 text-decoration-none text-light">
+	             			
+	             		
+	             			<h5 class="w-75 mb-1 p-2 text-truncate roboto-light">{{ $content->title }}</h5>
+	             			
+						
+	             		</a>
+
+	             		<div class="position-absolute z-3 bottom-0 start-0 bottom py-3 w-100">
+						<a href="https://www.google.com/" class="p-3 fs-6 text-light text-decoration-none"> 
+							<i class="fa-solid fa-layer-group"></i> Similar
+						</a>
+					</div>
+
+             		</div>
+             		
+             	</div>
+          </div>
+
 		@endguest
 
-	</div>
-</div>
+		
+
+
+

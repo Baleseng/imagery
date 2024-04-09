@@ -23,16 +23,32 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function default(Request $request)
+    public function default(FileUpload $id, Request $request)
     {
-         $url = 'user';
+        $url = 'user';
         
-        $data = DB::table('file_uploads')
-        ->where('status','submit')->get();
+        $subs = DB::table('file_uploads')
+        ->where('status','submit')
+        ->where('usage','licensing')
+        ->orderBy('updated_at', 'desc')
+         ->get();
 
-        return view('/home',compact('url','data'));
+        $free = DB::table('file_uploads')
+        ->where('status','submit')
+        ->where('usage','freedownload')
+        ->orderBy('updated_at', 'desc')->get();
+
+         $paid = DB::table('file_uploads')
+        ->where('status','submit')
+        ->where('usage','paiddownload')
+        ->orderBy('updated_at', 'desc')->get();
+        
+        $atc = DB::table('file_uploads');
+
+        $holidays = DB::table('file_uploads')->where('category','Holidays')->get();
+        
+        return view('/home',compact('url','subs','free','paid','atc','holidays'));
     }
-
 
 
     /**
@@ -42,12 +58,27 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-         $url = 'user';
+        $url = 'user';
         
-        $data = DB::table('file_uploads')
-        ->where('status','submit')->get();
+       $subs = DB::table('file_uploads')
+        ->where('status','submit')
+        ->where('usage','licensing')
+        ->orderBy('updated_at', 'desc')
+         ->get();
 
-        return view('/home',compact('url','data'));
+        $free = DB::table('file_uploads')
+        ->where('status','submit')
+        ->where('usage','freedownload')
+        ->orderBy('updated_at', 'desc')->get();
+
+         $paid = DB::table('file_uploads')
+        ->where('status','submit')
+        ->where('usage','paiddownload')
+        ->orderBy('updated_at', 'desc')->get();
+       
+    
+
+        return view('/home',compact('url','subs','free','paid'));
     }
 
      /**
@@ -58,6 +89,8 @@ class HomeController extends Controller
     public function files(FileUpload $id, User $user, Request $request){      
 
         $url = DB::table('users')->select('users.*')->get();
+
+        views($id)->record();
         
         return view('/file',compact('url','id'));
     }

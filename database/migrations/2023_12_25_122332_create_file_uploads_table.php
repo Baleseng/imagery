@@ -27,11 +27,13 @@ return new class extends Migration
 
             $table->string('type');
             $table->string('usage');
+            $table->string('orientation')->nullable();
+            $table->string('column')->nullable();
             
-            $table->string('standard')->nullable();
-            $table->string('extended')->nullable();
-            $table->string('enhance')->nullable();
-            $table->string('editorial')->nullable();
+            $table->string('standard')->default('none');
+            $table->string('extended')->default('none');
+            $table->string('enhance')->default('none');
+            $table->string('editorial')->default('none');
 
             $table->string('title');
 
@@ -40,6 +42,8 @@ return new class extends Migration
             
             $table->string('keywords')->nullable();
             $table->text('description');
+
+            $table->text('notes')->nullable();
            
             $table->timestamps();
 

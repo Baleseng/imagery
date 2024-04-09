@@ -1,4 +1,4 @@
-    <li class="list-group-item my-0 border-0">
+  
       <input type="radio" class="btn-check" value="299" name="price" id="btnRadio4" autocomplete="off">
       <label class="btn btn-outline-secondary col-12" for="btnRadio4">
         <div class="col-12 text-start fs-5 position-relative fw-bold">
@@ -10,6 +10,6 @@
           <p class="fw-bold lh-1">Not Permitted: <small class="fw-light">Commercial use, including advertising and promotional materials.</small></p>
         </span>
       </label>
-    </li>
+
 
    

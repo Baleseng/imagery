@@ -2,9 +2,6 @@
 
 @section('content')
 
-    
-
-<div class="container position-relative" style="top:3rem;">
 
     @if ($message = Session::get('success'))
     <div class="p-4 mb-3 bg-blue-400 rounded">
@@ -64,7 +61,7 @@
 
                         <input type="hidden" value="{{ Auth::user()->id }}" name="user_id"/>
                         <input type="hidden" value="{{ Cart::getTotal() }}" name="price">
-                        <input type="hidden" value="commercial" name="type">
+                        <input type="hidden" value="licensing" name="type">
                         <input type="hidden" value="1" name="quantity">
                         
                         <ul class="list-unstyled mb-4">
@@ -80,7 +77,6 @@
             </div>
         </div>
     </div>
-</div>
 
 
 @endsection

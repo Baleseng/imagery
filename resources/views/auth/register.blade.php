@@ -7,7 +7,7 @@
         <div class="container-fluid d-flex justify-content-center align-items-center" style="height:100vh; overflow:hidden;">
             <div class="card col-5 text-center d-flex align-items-center" style="overflow:hidden;">
 
-                <div class="card-header col-12 fs-2 text-center"> {{ isset($url) ? ucwords($url) : ""}} {{ __('Register') }}</div>
+                <div class="card-header col-12 fs-2 text-center"> {{ isset($url) ? ucwords($url) : "" }} {{ __('Register') }}</div>
 
                 <div class="card-body col-12">
                 @isset($url)

@@ -25,13 +25,9 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\CatergoryController;
 
 Route::get('/', [HomeController::class,'default']);
-
-
-
-
-
 
 Auth::routes();
 
@@ -67,6 +63,8 @@ Route::get('/admin', [AdminController::class,'index']);
 Route::get('/admin/edit/{id}', [AdminController::class,'edit']);
 Route::patch('/admin/{id}', [AdminController::class,'update']);
 
+
+
 Route::get('/admin/preview/{id}', [AdminController::class,'preview']);
 
 Route::get('/admin/region/{id}', [AdminController::class,'region']);
@@ -86,6 +84,8 @@ Route::post('/creator', [CreatorController::class, 'store'])->name('fileUpload')
 
 Route::get('/creator/edit/{id}', [CreatorController::class,'edit']);
 Route::patch('/creator/{id}', [CreatorController::class,'update']);
+
+
 
 Route::get('/creator/preview/{id}', [CreatorController::class,'files']);
 Route::get('/creator/region/{id}', [CreatorController::class,'region']);
@@ -114,6 +114,12 @@ Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.up
 Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');
 Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
 
+/*
+  |--------------------------------------------------------------------------
+  | User File Catergory Route
+  |--------------------------------------------------------------------------
+*/
+  Route::get( '/catergories/{category}', [CatergoryController::class, 'index'])->name('catergories');
 
 /*
   |--------------------------------------------------------------------------
@@ -127,6 +133,15 @@ Route::get('/payment/{id}', [DownloadController::class,'checkout'])->name('payme
 Route::post('/payment', [PaymentController::class, 'store']);
 Route::get('/payment/{id}', [PaymentController::class,'checkout'])->name('payment');
 
+/*
+  |--------------------------------------------------------------------------
+  | User File Download Route
+  |--------------------------------------------------------------------------
+*/
+
+Route::get('/download/{id}', [DownloadController::class,'checkout'])->name('download');
+Route::post('/download', [DownloadController::class, 'store']);
+
 
 /*
   |--------------------------------------------------------------------------
@@ -136,6 +151,7 @@ Route::get('/payment/{id}', [PaymentController::class,'checkout'])->name('paymen
 Route::get( '/feed', [FeedController::class, 'post']);
 Route::post('/feed', [FeedController::class, 'store']);
 Route::post('/feed', [FeedController::class, 'create']);
+
 
 
 /*

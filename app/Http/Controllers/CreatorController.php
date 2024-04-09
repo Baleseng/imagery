@@ -52,7 +52,7 @@ class CreatorController extends Controller
 
         
         $request->validate([
-            'file' => 'required|mimes:pdf,jpg,jpeg,png|max:2048',
+            'file' => 'required|mimes:pdf,jpg,jpeg,png|max:5000',
             'title' => 'required',
             'description' => 'required',
             'category' => 'required',

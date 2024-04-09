@@ -5,9 +5,14 @@
 
 @section('title',  '')
 
+<div class="mt-5 border bg-black bg-gradient container-fluid">
+  
+</div>
+
 @section('content')
 
-<div class="container-fluid position-relative" style="top:3rem;">
+
+<div class="container-fluid position-relative">
   <div class="row">
     <div class="col-lg-3">
       <div class="bg-white border rounded p-2">Your Profile</div>
