@@ -60,8 +60,8 @@ class AdminController extends Controller
 
         $id->standard = $request->get('standard');
         $id->extended = $request->get('extended');
-
-     
+        $id->enhance = $request->get('enhance');
+        $id->editorial = $request->get('editorial');
 
         $id->status = $request->get('status');
         

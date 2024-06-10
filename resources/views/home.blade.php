@@ -11,13 +11,11 @@
 
 @section('content')
 
-<div class="container-fluid md-auto position-relative">
+<div class="container md-auto position-relative">
     
     <!-- Main Section -->
     <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-12 bg-light mt-lg-0 mt-3 mx-auto">
         
-        
-
         <div class="col-xxl-12 my-3 bg-white p-3 ">
             <div class="bg-white text-mute text-center my-3"> 
                 
@@ -25,16 +23,16 @@
                 <small>Unique hand-picked photos, affordable HD and 4K video clips, editable vectors—and much, much more. You'll find it all, right here.</small>
                    
                 <div class="row">
-                    <div class="col-xxl-3 col-xl-12 col-lg-7 col-md-7 col-17 my-3 overflow-hidden" style="height:325px">
+                    <div class="col-xxl-3 col-xl-12 col-lg-7 col-md-7 col-17 my-3 overflow-hidden" style="height:290px">
                         <img class="col-12 border" src="{{ url('storage/images/1708595005_InstagramCapture_11611916-a9c7-42b8-8510-e89e6f4c06e2.jpg') }}"/>
                     </div>
-                    <div class="col-xxl-3 col-xl-12 col-lg-7 col-md-7 col-17 my-3 overflow-hidden" style="height:325px">
+                    <div class="col-xxl-3 col-xl-12 col-lg-7 col-md-7 col-17 my-3 overflow-hidden" style="height:290px">
                         <img class="col-12 border" src="{{ url('storage/images/1709221080_-MG-6967.jpg') }}"/>
                     </div>
-                    <div class="col-xxl-3 col-xl-12 col-lg-7 col-md-7 col-17 my-3 overflow-hidden" style="height:325px">
+                    <div class="col-xxl-3 col-xl-12 col-lg-7 col-md-7 col-17 my-3 overflow-hidden" style="height:290px">
                         <img class="col-12 border" src="{{ url('storage/images/1708593630_InstagramCapture_0afd206c-51de-4ca8-a137-6f5e8ac86daf.jpg') }}"/>
                     </div>
-                    <div class="col-xxl-3 col-xl-12 col-lg-7 col-md-7 col-17 my-3 overflow-hidden" style="height:325px">
+                    <div class="col-xxl-3 col-xl-12 col-lg-7 col-md-7 col-17 my-3 overflow-hidden" style="height:290px">
                         <img class="col-12 border" src="{{ url('storage/images/1708694269_InstagramCapture_c419fbb4-83c7-40a4-b72d-8eec0aab3827.jpg') }}"/>
                     </div>
                 </div>        
@@ -150,7 +148,7 @@
 
             </div>
         </div>
-
+        
         <div class="col-xxl-12">
             <div class="bg-light text-mute text-center mb-3"> 
                 <h1>Latest Feature</h1>

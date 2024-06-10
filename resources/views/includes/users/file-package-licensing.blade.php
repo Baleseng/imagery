@@ -5,16 +5,16 @@
 @csrf 
      
   <ul class="list-group rounded-0">
-    <li class="list-group-item my-0 border-0" style="display:{{ $id->standard }};">
+    <li class="list-group-item my-0 border-0">
       @include('includes.users.file-package-licensing-standard')
     </li>
-    <li class="list-group-item my-0 border-0" style="display:{{ $id->extended }};">
+    <li class="list-group-item my-0 border-0">
       @include('includes.users.file-package-licensing-extended')
     </li>
-    <li class="list-group-item my-0 border-0" style="display:{{ $id->enhance }};">
+    <li class="list-group-item my-0 border-0">
       @include('includes.users.file-package-licensing-enhanced')
     </li>
-    <li class="list-group-item my-0 border-0" style="display:{{ $id->editorial }};">
+    <li class="list-group-item my-0 border-0">
       @include('includes.users.file-package-licensing-editorial')
     </li>
   </ul>

@@ -7,6 +7,12 @@
     </div>
 @endif
 
+<div class="mt-5 border bg-black bg-gradient container-fluid">
+    @include('includes.users.file-search-field')
+</div>
+
+@section('content')
+
 
 <div class="container-fluid position-relative">
     

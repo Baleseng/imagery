@@ -16,7 +16,7 @@ class FileUploadController extends Controller
     }
     public function fileUpload(Request $request){
         
-        $request->validate(['file' => 'required|mimes:pdf,jpg,jpeg,png|max:4000']);
+        $request->validate(['file' => 'required|mimes:pdf,jpg,jpeg,png|max:20000']);
         $fileModel = new FileUpload;
 
         $fileModel->creator_id=$request->post('creator_id');
