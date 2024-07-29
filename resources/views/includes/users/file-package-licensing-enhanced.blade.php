@@ -1,5 +1,5 @@
 <input type="radio" class="btn-check" value="199" name="price" id="btnRadio3" autocomplete="off">
-<label class="btn btn-outline-success col-12" for="btnRadio3">
+<label class="btn btn-outline-secondary col-12" for="btnRadio3">
   <div class="col-12 text-start fs-5 position-relative fw-bold">
     Enhanced License
     <span class="position-absolute end-0 align-top fw-bold">R199 <small class="fw-light">per image</small></span>

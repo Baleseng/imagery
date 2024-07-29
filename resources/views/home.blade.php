@@ -3,6 +3,15 @@
 @section('description', '')
 @section('keywords', '')
 
+<style type="text/css">
+.filterDiv {
+  display: none;
+}
+.show {
+  display: block;
+}
+</style>
+
 @section('title',  '')
       
 <div class="mt-5 border bg-black bg-gradient container-fluid">
@@ -16,7 +25,7 @@
     <!-- Main Section -->
     <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-12 bg-light mt-lg-0 mt-3 mx-auto">
         
-        <div class="col-xxl-12 my-3 bg-white p-3 ">
+        <!--<div class="col-xxl-12 my-3 bg-white p-3 ">
             <div class="bg-white text-mute text-center my-3"> 
                 
                 <h1>Popular visual content </h1>
@@ -38,7 +47,7 @@
                 </div>        
                     
             </div>
-        </div>
+        </div>-->
 
         <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-12 my-3 p-3 bg-light">
             <div class="text-mute text-center mb-3"> 
@@ -88,71 +97,43 @@
             <div class="bg-light text-mute text-center mb-3"> 
                 <h1>Browse Catergories</h1>
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12" id="myBtnContainer">
+                        <button class="m-1 btn btn-outline-primary" onclick="filterSelection('all')"> Show all</button>
+                        <!-- <button class="m-1 btn btn-outline-primary" onclick="filterSelection('Abstract')">Abstract</button> -->
+                        <button class="m-1 btn btn-outline-primary" onclick="filterSelection('Animals&Wildlife')">Animals and Wildlife</button>
+                        <button class="m-1 btn btn-outline-primary" onclick="filterSelection('Arts')">Arts</button>
+                        <!-- <button class="m-1 btn btn-outline-primary" onclick="filterSelection('Backgrounds/Textures')">Backgrounds and Textures</button> -->
+                        <button class="m-1 btn btn-outline-primary" onclick="filterSelection('Beauty&Fashion')">Beauty and Fashion</button>
+                        <button class="m-1 btn btn-outline-primary" onclick="filterSelection('Buildings&Landmarks')">Buildings and Landmarks</button>
+                        <!-- <button class="m-1 btn btn-outline-primary" onclick="filterSelection('Business&Finance')">Business and Finance</button> -->
+                        <button class="m-1 btn btn-outline-primary" onclick="filterSelection('Celebrities')">Celebrities</button>
+                        <button class="m-1 btn btn-outline-primary" onclick="filterSelection('Education')">Education</button>
+                        <button class="m-1 btn btn-outline-primary" onclick="filterSelection('Food&drink')">Food and drink</button>
+                        <button class="m-1 btn btn-outline-primary" onclick="filterSelection('Healthcare&Medical')">Healthcare and Medical</button>
+                        <button class="m-1 btn btn-outline-primary" onclick="filterSelection('Holidays')">Holidays</button>
+                        <button class="m-1 btn btn-outline-primary" onclick="filterSelection('Industrial')">Industrial</button>
+                        <!-- <button class="m-1 btn btn-outline-primary" onclick="filterSelection('Interiors')">Interiors</button> -->
+                        <!-- <button class="m-1 btn btn-outline-primary" onclick="filterSelection('Miscellaneous')">Miscellaneous</button> -->
+                        <button class="m-1 btn btn-outline-primary" onclick="filterSelection('Nature')">Nature</button>
+                        <!-- <button class="m-1 btn btn-outline-primary" onclick="filterSelection('Objects')">Objects</button> -->
+                        <button class="m-1 btn btn-outline-primary" onclick="filterSelection('Parks&Outdoor')">Parks and Outdoor</button>
+                        <button class="m-1 btn btn-outline-primary" onclick="filterSelection('People')">People</button>
+                        <button class="m-1 btn btn-outline-primary" onclick="filterSelection('Religion')">Religion</button>
+                        <button class="m-1 btn btn-outline-primary" onclick="filterSelection('Science')">Science</button>
+                        <!-- <button class="m-1 btn btn-outline-primary" onclick="filterSelection('Signs&Symbols')">Signs and Symbols</button> -->
+                        <button class="m-1 btn btn-outline-primary" onclick="filterSelection('Sports&Recreation')">Sports and Recreation</button>
+                        <button class="m-1 btn btn-outline-primary" onclick="filterSelection('Technology')">Technology</button>
+                        <button class="m-1 btn btn-outline-primary" onclick="filterSelection('Transportation')">Transportation</button>
+                        <button class="m-1 btn btn-outline-primary" onclick="filterSelection('Vintage')">Vintage</button>
                             
-                        <a href="{{ url('/catergories/abstract') }}" class="m-1 btn btn-outline-primary">Abstract</a>
-                   
-                        <a href="{{ url('/catergories/animals&wildlife') }}" class="m-1 btn btn-outline-primary">Animals and Wildlife</a>
-                    
-                        <a href="{{ url('/catergories/') }}" class="m-1 btn btn-outline-primary">Arts</a>
-                    
-                        <a href="{{ url('/catergories/backgrounds&textures') }}" class="m-1 btn btn-outline-primary">Backgrounds and Textures</a>
-                   
-                        <a href="{{ url('/catergories/beauty&fashion') }}" class="m-1 btn btn-outline-primary">Beauty and Fashion</a>
-                    
-                        <a href="{{ url('/catergories/buildings&landmarks') }}" class="m-1 btn btn-outline-primary">Buildings and Landmarks</a>
-                   
-                        <a href="{{ url('/catergories/business&finance') }}" class="m-1 btn btn-outline-primary">Business and Finance</a>
-
-                        <a href="{{ url('/catergories/celebrities') }}" class="m-1 btn btn-outline-primary">Celebrities</a>
-                   
-                        <a href="{{ url('/catergories/education') }}" class="m-1 btn btn-outline-primary">Education</a>
-                   
-                        <a href="{{ url('/catergories/food&drink') }}" class="m-1 btn btn-outline-primary">Food and drink</a>
-                    
-                        <a href="{{ url('/catergories/healthcare&medical') }}" class="m-1 btn btn-outline-primary">Healthcare and Medical</a>
-                    
-                        <a href="{{ url('/catergories/holidays') }}" class="m-1 btn btn-outline-primary">Holidays</a>
-                    
-                        <a href="{{ url('/catergories/industrial') }}" class="m-1 btn btn-outline-primary">Industrial</a>
-                    
-                        <a href="{{ url('/catergories/interiors') }}" class="m-1 btn btn-outline-primary">Interiors</a>
-                   
-                        <a href="{{ url('/catergories/miscellaneous') }}" class="m-1 btn btn-outline-primary">Miscellaneous</a>
-                    
-                        <a href="{{ url('/catergories/nature') }}" class="m-1 btn btn-outline-primary">Nature</a>
-                    
-                        <a href="{{ url('/catergories/objects') }}" class="m-1 btn btn-outline-primary">Objects</a>
-                    
-                        <a href="{{ url('/catergories/parks&outdoor') }}" class="m-1 btn btn-outline-primary">Parks and Outdoor</a>
-                    
-                        <a href="{{ url('/catergories/people') }}" class="m-1 btn btn-outline-primary">People</a>
-                    
-                        <a href="{{ url('/catergories/religion') }}" class="m-1 btn btn-outline-primary">Religion</a>
-                    
-                        <a href="{{ url('/catergories/science') }}" class="m-1 btn btn-outline-primary">Science</a>
-                    
-                        <a href="{{ url('/catergories/signs&symbols') }}" class="m-1 btn btn-outline-primary">Signs and Symbols</a>
-                    
-                        <a href="{{ url('/catergories/sports&recreation') }}" class="m-1 btn btn-outline-primary">Sports and Recreation</a>
-                    
-                        <a href="{{ url('/catergories/technology') }}" class="m-1 btn btn-outline-primary">Technology</a>
-                    
-                        <a href="{{ url('/catergories/transportation') }}" class="m-1 btn btn-outline-primary">Transportation</a>
-                    
-                        <a href="{{ url('/catergories/vintage') }}" class="m-1 btn btn-outline-primary">Vintage</a>
-                            
-                    </div>
-                    
+                    </div>    
                 </div>
 
             </div>
         </div>
         
         <div class="col-xxl-12">
-            <div class="bg-light text-mute text-center mb-3"> 
-                <h1>Latest Feature</h1>
-            </div>
+        
             <div class="row">
 
                 <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-4 px-1">
@@ -185,6 +166,51 @@
 
 
 <script>
-        let text = document.getElementById("demo").innerHTML; 
-        document.getElementById("demo").innerHTML = text.replace("commercial", "cart-shopping");
-        </script>
+    let text = document.getElementById("demo").innerHTML; 
+    document.getElementById("demo").innerHTML = text.replace("commercial", "cart-shopping");
+</script>
+
+<script>
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("filterDiv");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>

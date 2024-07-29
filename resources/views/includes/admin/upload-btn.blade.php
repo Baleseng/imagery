@@ -1,8 +1,6 @@
-<div class="col-md-3">
-   
-   <div class="card shadow-sm border-0 rounded-0 position-sticky" style="top:4em;">
+
     
-        <a href="{{ url('/creator/add') }}" class="btn btn-primary mb-2" data-bs-target="#upLoad" id="demo" style="width:100%;"><i class="fa-solid fa-upload"></i> Upload</a>
+    
         <div class="card-body">
             <ul class="list-group">
                 <li class="list-group-item">
@@ -21,6 +19,3 @@
         </div>
 
         
-   </div>
-  
-</div>

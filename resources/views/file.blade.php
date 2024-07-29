@@ -63,6 +63,14 @@
       <div class="shadow-sm p-3 bg-white rounded">
         @include('includes.users.file-package-'.$id->usage)
         <div class="my-3">
+
+          <p class="text-secondary">Title: 
+              <h3 class="d-block text-dark text-capitalize">{{ $id->title }}</h3>
+          </p>
+
+          <p class="text-secondary">Description : 
+              <span class="d-block text-dark text-capitalize">{{ $id->description}}</span>
+          </p>
           
           <p class="text-secondary">Credit: 
               <span class="d-block text-dark text-capitalize">{{ $id->creator->name }}</span>

@@ -13,7 +13,14 @@
 @endif
 <div class="container-fluid" style="position: relative; top:3rem;">
     <div class="row justify-content-center">
-        @include('includes.admin.upload-btn')
+        
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0 rounded-0 position-sticky" style="top:4em;">
+                <a href="{{ url('/creator/add') }}" class="btn btn-primary mb-2" data-bs-target="#upLoad" id="demo" style="width:100%;"><i class="fa-solid fa-upload"></i> Upload</a>
+                @include('includes.admin.upload-btn')
+           </div>
+        </div>
+
         <div class="col-9">
             <div class="row d-flex">
                 <div class="col-12 overflow-auto">
@@ -90,19 +97,6 @@
                                             </div>
                                         </div> 
 
-                                        <div class="mb-3">
-                                            <label for="usageCheckboxInput" class="form-label fw-bold d-block">Usage</label>
-                                            
-                                            <div class="btn-group" role="group">
-                                                
-                                                <input type="radio" class="btn-check" name="usage" value="licensing" id="option3" autocomplete="off" checked>
-                                                <label class="btn btn-outline-primary" for="option3">License</label>
-
-                                                <input type="radio" class="btn-check" name="usage" value="freedownload" id="option4" autocomplete="off">
-                                                <label class="btn btn-outline-primary" for="option4">Download</label>
-
-                                            </div>  
-                                        </div>
 
                                         <div class="form-floating mb-3">
                                             <input type="text" class="form-control border-bottom border-0" id="floatingInput" name="title" placeholder="Keywords">

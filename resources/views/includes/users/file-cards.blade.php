@@ -4,7 +4,7 @@
 		@guest
 			@if(Route::has('login'))
 				
-            <a href="{{ url('/login') }}" class="text-light w-100">
+            <a href="{{ url('/login') }}" class=" filterDiv {{ $content->category }} text-light w-100 show">
              	<div class="col-12 position-relative overflow-hidden hover my-2">
              		<img src="{{ url('storage/images/'.$content->file_name) }}" class="col-12 images" />
 
@@ -33,7 +33,7 @@
 			@endif
 			@else
 				
-		<div class="text-light w-100 text-decoration-none">
+		<div class="filterDiv {{ $content->category }} text-light w-100 text-decoration-none show">
              	<div class="col-12 position-relative overflow-hidden hover my-2">
              		
              		<img src="{{ url('storage/images/'.$content->file_name) }}" class="col-12 images" />

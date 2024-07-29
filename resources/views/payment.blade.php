@@ -28,17 +28,19 @@
 
       <div class="tab-content" id="pills-tabContent">
       <div class="tab-pane fade show active" id="pills-credit" role="tabpanel" aria-labelledby="pills-credit-tab">
-      <form class="needs-validation" novalidate="">
-
+    
+      <form action="{{route('payment')}}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate="">
+        @csrf
+        
         <div class="form-floating mb-3">
-          <input type="text" class="form-control border-bottom border-0 rounded-0" id="cc-name" placeholder="Name on card" required="">
+          <input type="text" name="cardholdername" class="form-control border-bottom border-0 rounded-0" id="cc-name" placeholder="Name on card" required="">
           <label for="cc-name">Name on card</label>
           <small class="text-muted">Full name as displayed on card</small>
           <div class="invalid-feedback">Name on card is required</div>
         </div>
       
         <div class="form-floating mb-3 position-relative">
-          <input type="text" class="form-control border-bottom border-0 rounded-0" id="cc-number" placeholder="Credit card number"required="">
+          <input type="text" name="cardholdernumber" class="form-control border-bottom border-0 rounded-0" id="cc-number" placeholder="Credit card number"required="">
           <label for="cc-number">Credit card number</label>
           <div class="position-absolute top-50 end-0 fs-5 text-black-50 mx-1">
               <i class="fa-brands fa-cc-visa"></i>
@@ -54,7 +56,7 @@
         
         <div class="row">
           <div class="form-floating col-md-6 mb-3">
-            <input type="text" class="form-control border-bottom border-0 rounded-0" id="cc-expiration" placeholder="Expiration" required="">
+            <input type="text" name="cardholderexpire" class="form-control border-bottom border-0 rounded-0" id="cc-expiration" placeholder="Expiration" required="">
             <label for="cc-expiration">Expiration</label>
 
             
@@ -63,12 +65,11 @@
           </div>
 
           <div class="form-floating col-md-6 mb-3 position-relative">
-            <input type="text" class="form-control border-bottom border-0 rounded-0" id="cc-cvv" placeholder="cvv" required="">
+            <input type="text" name="cardholdercvv" class="form-control border-bottom border-0 rounded-0" id="cc-cvv" placeholder="cvv" required="">
             <label for="cc-cvv">cvv</label>
             <div class="position-absolute top-50 end-0 fs-5 text-black-50 mx-3">
               <i class="fa-solid fa-credit-card"></i>
             </div>
-
             <div class="invalid-feedback">Security code required</div>
           </div>
         </div>
@@ -76,19 +77,19 @@
         <h4 class="mb-3 text-muted roboto-bold">Billing address</h4>
 
         <div class="form-floating mb-3">
-          <input type="text" class="form-control border-bottom border-0 rounded-0" id="address" placeholder="Address" required="">
+          <input type="text" name="cardholderaddress" class="form-control border-bottom border-0 rounded-0" id="address" placeholder="Address" required="">
           <label for="address">Address</label>
           <div class="invalid-feedback">Please enter your shipping address.</div>
         </div>
 
         <div class="form-floating mb-3">
-          <input type="text" class="form-control border-bottom border-0 rounded-0" id="address2" placeholder="Apartment or suite">
+          <input type="text" name="cardholderaddressopt" class="form-control border-bottom border-0 rounded-0" id="address2" placeholder="Apartment or suite">
           <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
         </div>
 
         <div class="row">
           <div class="form-floating col-md-5 mb-3">
-            <select name="country" class="form-select border-bottom border-0 rounded-0" id="floatingSelect" aria-label="Country" required="">
+            <select name="cardholdercountry" class="form-select border-bottom border-0 rounded-0" id="floatingSelect" aria-label="Country" required="">
                 <option value="">Select Country</option>
                 <option value="al">Algeria</option>
                 <option value="ao">Angola</option>
@@ -148,20 +149,20 @@
           </div>
 
           <div class="form-floating col-md-5 mb-3">
-            <input type="text" class="form-control border-bottom border-0 rounded-0" id="province" placeholder="State/Province" required="">
+            <input type="text" name="cardholderprovince" class="form-control border-bottom border-0 rounded-0" id="province" placeholder="State/Province" required="">
             <label for="province">State/Province</label>
             <div class="invalid-feedback">Please provide a valid state.</div>
           </div>
 
           <div class="form-floating col-md-2 mb-3">
-            <input type="text" class="form-control border-bottom border-0 rounded-0" id="zip" placeholder="Zip" required="">
+            <input type="text" name="cardholderzip" class="form-control border-bottom border-0 rounded-0" id="zip" placeholder="Zip" required="">
             <label for="zip">Zip</label>
             <div class="invalid-feedback">Zip code required.</div>
           </div>
         </div>
         <hr class="mb-4">
-        <!--<button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>-->
-        <a href="https://imagery.test/download/5" class="btn btn-primary btn-lg btn-block">Continue to checkout</a>
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+        <!--<a href="https://imagery.test/download/.$id->id" class="btn btn-primary btn-lg btn-block">Continue to checkout</a>-->
         </form>
       </div>
       <div class="tab-pane fade" id="pills-paypal" role="tabpanel" aria-labelledby="pills-paypal-tab">paypal</div>

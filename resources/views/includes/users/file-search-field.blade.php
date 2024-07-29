@@ -1,4 +1,4 @@
-<div class="row d-flex justify-content-center">
+<div class="row d-flex justify-content-center container mx-auto">
   <div class="col-md-11">
     <div class="card p-3 py-4 border-0 bg-black bg-gradient text-light">
       

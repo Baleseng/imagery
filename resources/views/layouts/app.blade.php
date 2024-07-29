@@ -73,8 +73,29 @@
                           
 
                     @else
-                    <ul class="list-group list-group-horizontal-md d-flex flex-row-reverse">
-                        
+                    <ul class="list-group list-group-horizontal-md d-flex flex-row">
+
+                    
+                        <li class="list-group-item border-0 bg-white" style="width:3.75em;">     
+                            <a href="{{ route('cart.list') }}" class="position-positive text-secondary">
+                                <i class="fa-solid fa-cart-shopping"></i> 
+                                <span class="position-absolute px-1" style="bottom:5px;">{{ Cart::getTotalQuantity()}}</span>
+                            </a>
+                        </li>
+
+                        <li class="list-group-item border-0 bg-white" style="width:3.75em;">
+                            <a href="{{ url('/') }}"  class="position-positive text-secondary">
+                                <i class="fa-solid fa-bell"></i>
+                                <span class="position-absolute px-1" style="bottom:5px;">0</span>
+                            </a>
+                        </li> 
+
+                        <li class="list-group-item border-0 bg-white">
+                            <a href="{{ url('/feed') }}" class="text-secondary">
+                                <i class="fa-solid fa-share-from-square"></i>
+                            </a>
+                        </li>
+
                         <li class="list-group-item dropdown border-0 bg-white">
                             <a id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre class="text-secondary">
                                 <i class="fa-solid fa-user"></i>
@@ -82,7 +103,7 @@
 
                             <div class="dropdown-menu dropdown-menu-end text-secondary" aria-labelledby="navbarDropdown">
                                 
-                                <a class="dropdown-item link-secondary" href="{{ url('/creator/profile') }}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> <i class="fa fa-user"></i> 
+                                <a class="dropdown-item link-secondary" href="{{ url('/profile') }}"> <i class="fa fa-user"></i> 
                                 {{ Auth::user()->name }}
                                 </a>
 
@@ -109,33 +130,17 @@
                             </div>
                         </li>
 
-                        <li class="list-group-item border-0 bg-white">
-                            <a href="{{ url('/feed') }}" class="text-secondary">
-                                <i class="fa-solid fa-share-from-square"></i>
+                        <li class="list-group-item rounded-0 border py-1 mx-2 bg-white">
+                            <a href="{{ url('subscription') }}" class="text-secondary text-decoration-none">
+                                <i class="fa-solid fa-credit-card"></i> Pricing
                             </a>
                         </li>
 
                         <li class="list-group-item rounded-0 border py-1 mx-2 bg-white">
                             <a href="{{ url('subscription') }}" class="text-secondary text-decoration-none">
-                                Pricing
+                                 <i class="fa-solid fa-wand-magic-sparkles"></i> AI Generate
                             </a>
-                        </li>
-
-                        <li class="list-group-item border-0 px-1 bg-white" style="width:3.75em;">     
-                            <a href="{{ route('cart.list') }}" class="position-positive text-secondary">
-                                <i class="fa-solid fa-cart-shopping"></i> 
-                                <span class="position-absolute px-1" style="bottom:5px;">{{ Cart::getTotalQuantity()}}</span>
-                            </a>
-                        </li>
-
-                        <li class="list-group-item border-0 px-1 bg-white" style="width:3.75em;">
-                            <a href="{{ url('/') }}"  class="position-positive text-secondary">
-                                <i class="fa-solid fa-bell"></i>
-                                <span class="position-absolute px-1" style="bottom:5px;">0</span>
-                            </a>
-                        </li>
-
-                        
+                        </li>                       
                          
                     </ul>
                     @endguest
@@ -292,8 +297,5 @@
     
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
 </body>
 </html>

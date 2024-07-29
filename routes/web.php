@@ -130,7 +130,7 @@ Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear'
 /**Route::post('/payment', [DownloadController::class, 'store']);
 Route::get('/payment/{id}', [DownloadController::class,'checkout'])->name('payment');**/
 
-Route::post('/payment', [PaymentController::class, 'store']);
+Route::post('/payment', [PaymentController::class, 'store'])->name('payment');
 Route::get('/payment/{id}', [PaymentController::class,'checkout'])->name('payment');
 
 /*
@@ -151,7 +151,6 @@ Route::post('/download', [DownloadController::class, 'store']);
 Route::get( '/feed', [FeedController::class, 'post']);
 Route::post('/feed', [FeedController::class, 'store']);
 Route::post('/feed', [FeedController::class, 'create']);
-
 
 
 /*

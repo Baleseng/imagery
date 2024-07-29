@@ -15,7 +15,13 @@
 @endif
 <div class="container-fluid" style="position: relative; top:3rem;">
     <div class="row justify-content-center">
-        @include('includes.admin.upload-btn')
+        
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0 rounded-0 position-sticky" style="top:4em;">
+                @include('includes.admin.upload-btn')
+           </div>
+        </div>
+
         <div class="col-9">
             <div class="row d-flex">
 
@@ -66,6 +72,20 @@
                                     </div>
 
                                     @include('includes.admin.file-editform-first')
+
+                                    <div class="mb-3">
+                                        <label for="usageCheckboxInput" class="form-label fw-bold d-block">Usage</label>
+                                        <div class="btn-group" role="group">
+                                            <input type="radio" class="btn-check" name="usage" value="licensing" id="option3" autocomplete="off" checked onclick="showCommercial2()">
+                                            <label class="btn btn-outline-primary" for="option3">Licensing</label>
+
+                                            <input type="radio" class="btn-check" name="usage" value="paiddownload" id="option4" autocomplete="off" onclick="showCommercial1()">
+                                            <label class="btn btn-outline-primary" for="option4">Pay-to-Download</label>
+
+                                            <input type="radio" class="btn-check" name="usage" value="freedownload" id="option5" autocomplete="off" onclick="showCommercial0()">
+                                            <label class="btn btn-outline-primary" for="option5">Free-Download</label>
+                                        </div>  
+                                    </div>
 
                                     <div id="divCommercial" class="mb-3 border p-2">
                                         

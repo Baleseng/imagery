@@ -9,7 +9,11 @@
 <div class="container-fluid" style="position: relative; top:3rem;">
     <div class="row justify-content-center">
         
-        @include('includes.admin.upload-btn')
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0 rounded-0 position-sticky" style="top:4em;">
+                @include('includes.admin.upload-btn')
+           </div>
+        </div>
 
         @include('includes.admin.file-preview')
    

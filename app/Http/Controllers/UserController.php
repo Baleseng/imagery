@@ -73,7 +73,37 @@ class UserController extends Controller
     public function test()
     {
         $url = 'user';
-        return view('/tester', compact('url'));
+
+
+        $subs = DB::table('file_uploads')
+        ->where('status','submit')
+        ->where('usage','licensing')
+        ->orderBy('updated_at', 'desc')
+         ->get();
+
+        $free = DB::table('file_uploads')
+        ->where('status','submit')
+        ->where('usage','freedownload')
+        ->orderBy('updated_at', 'desc')->get();
+
+         $paid = DB::table('file_uploads')
+        ->where('status','submit')
+        ->where('usage','paiddownload')
+        ->orderBy('updated_at', 'desc')->get();
+
+        return view('/tester', compact('url','subs','free','paid',));
+    }
+
+        /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function profile(Request $request)
+    {
+        $url = 'user';
+        
+        return view('/profile',compact('url'));
     }
 
 }

@@ -67,7 +67,6 @@ class CreatorController extends Controller
         
         
         $fileModel->type=$request->post('type');
-        $fileModel->usage=$request->post('usage');
 
         $fileModel->title=$request->post('title');
         
