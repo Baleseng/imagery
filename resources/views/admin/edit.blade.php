@@ -18,7 +18,7 @@
         
         <div class="col-md-3">
             <div class="card shadow-sm border-0 rounded-0 position-sticky" style="top:4em;">
-                @include('includes.admin.upload-btn')
+                @include('includes.admin.file-navPagesbtn')
            </div>
         </div>
 
@@ -29,13 +29,12 @@
                     <div class="btn mt-2 mx-auto col-12" role="group" aria-label="Basic outlined button group">
                         
                         @include('includes.admin.file-navEditPreviewbtn')
+                        @include('includes.admin.file-navArchivebtn')
 
                     </div>
                     <div class="card rounded-0">
                         <div class="card-body">
-                            
-                            
-
+                        
                             <form method="POST" action="{{ url('admin/'.$id->id) }}" id="reasonInput">
                                 {{ method_field('PATCH') }}
                                 {{ csrf_field() }}
@@ -91,16 +90,16 @@
                                         
                                         <label class="form-label fw-bold d-block">License</label>
                                         
-                                        <input class="cl-custom-check" type="checkbox" id="standard" name="standard" value="block"/>
+                                        <input class="cl-custom-check" type="checkbox" id="standard" name="standard" value="show"/>
                                         <label class="cl-custom-check-label" for="standard">Standard</label>
                                         
-                                        <input class="cl-custom-check" type="checkbox" id="extended" name="extended" value="block"/>
+                                        <input class="cl-custom-check" type="checkbox" id="extended" name="extended" value="show"/>
                                         <label class="cl-custom-check-label" for="extended">Extended</label>
 
-                                        <input class="cl-custom-check" type="checkbox" id="enhance" name="enhance" value="block" />
+                                        <input class="cl-custom-check" type="checkbox" id="enhance" name="enhance" value="show" />
                                         <label class="cl-custom-check-label" for="enhance">Enhance</label>
 
-                                        <input class="cl-custom-check" type="checkbox" id="editorial" name="editorial" value="block"/>
+                                        <input class="cl-custom-check" type="checkbox" id="editorial" name="editorial" value="show"/>
                                         <label class="cl-custom-check-label" for="editorial">Editorial</label>
                                         
                                     </div>
@@ -155,6 +154,8 @@
                                             <label class="btn btn-outline-primary" for="submitOption2">Submit With Correction</label>
                                         </div> 
                                         <input type="hidden" value="{{ Auth::user()->id }}" name="admin_id"/> 
+                                        <input type="hidden" value="{{ $id->creator_id }}" name="creator_id">
+                                        <input type="hidden" value="{{ $id->file_name }}" name="file_name">
                                     </div>
 
                                     <div class=" d-grid gap-2 my-3">
@@ -163,7 +164,7 @@
                                     </div>
                                     </form>
 
-                                    <div id="divCorrection" class="mb-3 border p-2 form-group position-relative bg-light" style="display:none; bottom:600px;">
+                                    <div id="divCorrection" class="mb-3 border p-2 form-group position-relative bg-light" style="display:none; z-index:1; bottom:55px;">
                                         <label for="comment">Notes:</label>
                                         <textarea class="form-control" rows="5" id="comment"></textarea>
                                         <button class="btn btn-danger my-2">Send</button>

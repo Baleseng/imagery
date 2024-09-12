@@ -106,21 +106,11 @@
                                 <a class="dropdown-item link-secondary" href="{{ url('/profile') }}"> <i class="fa fa-user"></i> 
                                 {{ Auth::user()->name }}
                                 </a>
-
-                                <a class="dropdown-item link-secondary" href=""><i class="fa fa-camera"></i> Upload Profile Picture</a>
-                                <a class="dropdown-item link-secondary" href=""><i class="fa fa-file-text"></i> Create / Manage Page</a>
-                                <a class="dropdown-item link-secondary" href=""><i class="fa fa-expeditedssl"></i> Security / Privacy</a>
-                                <a class="dropdown-item link-secondary" href=""><i class="fa fa-connectdevelop"></i> Setting A.I</a>
-                                <a class="dropdown-item link-secondary" href=""><i class="fa fa-bell-o"></i> Setting Notification</a>
-                                <a class="dropdown-item link-secondary" href=""><i class="fa fa-envelope-open-o"></i> Setting Message</a>
-                                <a class="dropdown-item link-secondary" href=""><i class="fa-solid fa-gear"></i> Setting Requests</a>
-                                <a class="dropdown-item link-secondary" href=""><i class="fa fa-sitemap"></i> Sitemap</a>
-                                <a class="dropdown-item link-secondary" href=""><i class="fa fa-dashcube"></i> Feedback</a>
-                                <a class="dropdown-item link-secondary" href=""><i class="fa fa-question-circle-o"></i> Help</a>
-                                
+                            
                                 <a class="dropdown-item link-secondary" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
+                                                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
                                     {{ __('Logout') }}
                                 </a>
 
@@ -137,7 +127,7 @@
                         </li>
 
                         <li class="list-group-item rounded-0 border py-1 mx-2 bg-white">
-                            <a href="{{ url('subscription') }}" class="text-secondary text-decoration-none">
+                            <a href="{{ url('ai-img-gen') }}" class="text-secondary text-decoration-none">
                                  <i class="fa-solid fa-wand-magic-sparkles"></i> AI Generate
                             </a>
                         </li>                       
@@ -150,8 +140,6 @@
         </nav>
 
         <!-- The Modal -->
-
-
 
         <div class="modal fade" id="myLogin">
             <div class="modal-dialog modal-dialog-centered">

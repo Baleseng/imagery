@@ -29,7 +29,7 @@
       <div class="tab-content" id="pills-tabContent">
       <div class="tab-pane fade show active" id="pills-credit" role="tabpanel" aria-labelledby="pills-credit-tab">
     
-      <form action="{{route('payment')}}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate="">
+      <form action="" method="post" enctype="multipart/form-data" class="needs-validation" novalidate="">
         @csrf
         
         <div class="form-floating mb-3">

@@ -9,7 +9,7 @@
 <div class="container-fluid" style="position: relative; top:3rem;">
     <div class="row justify-content-center">
         
-        @include('includes.admin.upload-btn')
+        @include('includes.admin.navigation-btn')
 
         @include('includes.admin.file-preview')
    

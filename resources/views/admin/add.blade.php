@@ -13,7 +13,7 @@
 @endif
 <div class="container-fluid" style="position: relative; top:3rem;">
     <div class="row justify-content-center">
-        @include('includes.admin.upload-btn')
+        @include('includes.admin.file-navPagesbtn')
         <div class="col-9">
             <div class="row d-flex">
                 <div class="col-12 overflow-auto">
@@ -26,6 +26,7 @@
                                 <input type="hidden" value="{{ Auth::user()->id }}" name="creator_id"/>
                             
                                 <input type="hidden" value="review" name="status"/>
+                                <input type="hidden" value="freedownload" name="usage"/>
                                 
 
                                 <!--<input type="hidden" name="file" value="https://cdn.pixabay.com/photo/2017/01/06/17/49/honey-1958464__340.jpg">-->

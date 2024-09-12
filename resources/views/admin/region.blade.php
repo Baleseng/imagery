@@ -19,7 +19,7 @@
         
         <div class="col-md-3">
             <div class="card shadow-sm border-0 rounded-0 position-sticky" style="top:4em;">
-                @include('includes.admin.upload-btn')
+                @include('includes.admin.file-navPagesbtn')
            </div>
         </div>
 
@@ -28,6 +28,7 @@
                 <div class="btn mt-2 mx-auto col-12" role="group" aria-label="Basic outlined button group">
                     
                     @include('includes.admin.file-navEditPreviewbtn')
+                    @include('includes.admin.file-navArchivebtn')
 
                 </div>
             </div>

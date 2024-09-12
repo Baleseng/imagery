@@ -18,6 +18,15 @@ class Payment extends Model
         'quantity',
         'type',
         'price',
-  
+
+        'cardholdername',
+        'cardholdernumber',
+        'cardholderexpire',
+        'cardholdercvv',
+        'cardholderaddress',
+        'cardholderaddressopt',
+        'cardholdercountry',
+        'cardholderprovince',
+        'cardholderzip',
     ];
 }

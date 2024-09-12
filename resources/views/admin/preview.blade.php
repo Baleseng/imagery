@@ -11,11 +11,18 @@
         
         <div class="col-md-3">
             <div class="card shadow-sm border-0 rounded-0 position-sticky" style="top:4em;">
-                @include('includes.admin.upload-btn')
+                @include('includes.admin.file-navPagesbtn')
            </div>
         </div>
 
-        @include('includes.admin.file-preview')
+        <div class="col-9" >
+            
+            <div class="btn mx-auto col-12" role="group" aria-label="Basic outlined button group">        
+                @include('includes.admin.file-navEditPreviewbtn')
+                @include('includes.admin.file-navArchivebtn')
+
+            </div>
+            @include('includes.admin.file-preview')
    
     </div>
 </div>

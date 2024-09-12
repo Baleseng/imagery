@@ -48,6 +48,7 @@ class UserController extends Controller
      */
     public function feed()
     {
+        $url = 'user';
         return view('/feed');
     }
 
@@ -56,6 +57,13 @@ class UserController extends Controller
         $url = 'user';
         return view('/feed', compact('url'));
     }
+
+        /*|-------------------------------- AI Generate ----------------------------------|*/
+    public function ai(){
+        $url = 'user';
+        return view('/ai-img-gen', compact('url'));
+    }
+
 
     public function store(Request $request){
         $url = 'user';
@@ -74,6 +82,10 @@ class UserController extends Controller
     {
         $url = 'user';
 
+        $live = DB::table('file_uploads')
+        ->where('status','submit')
+        ->orderBy('updated_at', 'desc')
+         ->get();
 
         $subs = DB::table('file_uploads')
         ->where('status','submit')
@@ -91,7 +103,7 @@ class UserController extends Controller
         ->where('usage','paiddownload')
         ->orderBy('updated_at', 'desc')->get();
 
-        return view('/tester', compact('url','subs','free','paid',));
+        return view('/tester/stackcards', compact('url','subs','free','paid','live',));
     }
 
         /**

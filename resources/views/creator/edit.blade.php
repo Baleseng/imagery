@@ -17,7 +17,7 @@
         <div class="col-md-3">
             <div class="card shadow-sm border-0 rounded-0 position-sticky" style="top:4em;">
                 <a href="{{ url('/creator/add') }}" class="btn btn-primary mb-2" data-bs-target="#upLoad" id="demo" style="width:100%;"><i class="fa-solid fa-upload"></i> Upload</a>
-                @include('includes.admin.upload-btn')
+                @include('includes.admin.file-navPagesbtn')
            </div>
         </div>
         <div class="col-9">
@@ -77,6 +77,21 @@
                                     </div>
 
                                     @include('includes.admin.file-editform-first')
+
+                                    <div class="mb-3">
+                                            <label for="usageCheckboxInput" class="form-label fw-bold d-block">Usage</label>
+                                            <div class="btn-group" role="group">
+                                                <input type="radio" class="btn-check" name="usage" value="licensing" id="option3" autocomplete="off" checked onclick="showCommercial2()">
+                                                <label class="btn btn-outline-primary" for="option3">Licensing</label>
+
+                                                <input type="radio" class="btn-check" name="usage" value="paiddownload" id="option4" autocomplete="off" onclick="showCommercial1()">
+                                                <label class="btn btn-outline-primary" for="option4">Pay-to-Download</label>
+
+                                                <input type="radio" class="btn-check" name="usage" value="freedownload" id="option5" autocomplete="off" onclick="showCommercial0()">
+                                                <label class="btn btn-outline-primary" for="option5">Free-Download</label>
+                                            </div>
+                                            <div>*Subject to administrator approval</div>
+                                        </div>
 
                                     @include('includes.admin.file-editform-second')
 

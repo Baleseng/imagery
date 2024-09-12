@@ -9,4 +9,14 @@ class Cart extends Model
 {
     use HasFactory;
 
+    'user_id',
+    'file_id',
+    'creator_id',
+    'file',
+    'title',
+    'description',
+    'quantity',
+    'type',
+    'price',
+
 }

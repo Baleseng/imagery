@@ -45,14 +45,14 @@ class CreatorController extends Controller
 
     /*|-------------------------------- ADD & EDIT ----------------------------------|*/
     public function add(){
-        $url = 'admin';
+        $url = 'creator';
         return view('creator/add', compact('url'));
     }
     public function store(Request $request){
 
-        
         $request->validate([
             'file' => 'required|mimes:pdf,jpg,jpeg,png|max:20000',
+            'usage' => 'required',
             'title' => 'required',
             'description' => 'required',
             'category' => 'required',
@@ -65,11 +65,9 @@ class CreatorController extends Controller
         $fileModel->creator_id=$request->post('creator_id');
         $fileModel->status=$request->post('status');
         
-        
         $fileModel->type=$request->post('type');
-
         $fileModel->title=$request->post('title');
-        
+        $fileModel->usage=$request->post('usage');
         $fileModel->description=$request->post('description');
         $fileModel->category=$request->post('category');
         $fileModel->country=$request->post('country');
@@ -115,6 +113,7 @@ class CreatorController extends Controller
         $id->save(); 
         return redirect('creator');    
     }
+
 
     /*|-------------------------------- PAPGE ----------------------------------|*/
     public function files(FileUpload $id,  Request $request){      

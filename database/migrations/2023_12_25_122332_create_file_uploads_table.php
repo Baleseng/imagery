@@ -26,14 +26,14 @@ return new class extends Migration
             $table->string('file_path');
 
             $table->string('type');
-            $table->string('usage');
+            $table->string('usage')->nullable();;
             $table->string('orientation')->nullable();
             $table->string('column')->nullable();
-            
-            $table->string('standard')->default('none');
-            $table->string('extended')->default('none');
-            $table->string('enhance')->default('none');
-            $table->string('editorial')->default('none');
+        
+            $table->text('standard')->nullable();
+            $table->text('extended')->nullable();
+            $table->text('enhance')->nullable();
+            $table->text('editorial')->nullable();
 
             $table->string('title');
 
@@ -43,7 +43,7 @@ return new class extends Migration
             $table->string('keywords')->nullable();
             $table->text('description');
 
-            $table->text('notes')->nullable();
+            $table->string('notes')->nullable();
            
             $table->timestamps();
 

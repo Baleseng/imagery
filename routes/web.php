@@ -63,11 +63,15 @@ Route::get('/admin', [AdminController::class,'index']);
 Route::get('/admin/edit/{id}', [AdminController::class,'edit']);
 Route::patch('/admin/{id}', [AdminController::class,'update']);
 
-
+Route::patch('/admin/{id}', [AdminController::class,'archived']);
 
 Route::get('/admin/preview/{id}', [AdminController::class,'preview']);
 
 Route::get('/admin/region/{id}', [AdminController::class,'region']);
+
+Route::get('/admin/earnings', [AdminController::class,'earning']);
+Route::get('/admin/portfolio', [AdminController::class,'portfolio']);
+Route::get('/admin/insight', [AdminController::class,'insight']);
 
 Route::get('/admin/profile/{id}', [AdminController::class,'profile']);
 
@@ -160,6 +164,7 @@ Route::post('/feed', [FeedController::class, 'create']);
 */
 
 Route::get('/profile', [UserController::class,'profile']);
-Route::get('/tester', [UserController::class,'test']);
+Route::get('/ai-img-gen', [UserController::class,'ai']);
+Route::get('/tester/stackcards', [UserController::class,'test']);
 
 

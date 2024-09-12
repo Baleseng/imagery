@@ -1,5 +1,7 @@
 <h5 class="text-secondary">Licensing image</h5>
 
+<span>Choose suitable licensing package below</span> 
+
 <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data" class="flex justify-end">
 
 @csrf 
@@ -8,13 +10,13 @@
     <li class="list-group-item my-0 border-0">
       @include('includes.users.file-package-licensing-standard')
     </li>
-    <li class="list-group-item my-0 border-0">
+    <li class="list-group-item my-0 border-0" id="{{ $id->extended }}block">
       @include('includes.users.file-package-licensing-extended')
     </li>
-    <li class="list-group-item my-0 border-0">
+    <li class="list-group-item my-0 border-0" id="{{ $id->enhance }}block">
       @include('includes.users.file-package-licensing-enhanced')
     </li>
-    <li class="list-group-item my-0 border-0">
+    <li class="list-group-item my-0 border-0" id="{{ $id->editorial }}block">
       @include('includes.users.file-package-licensing-editorial')
     </li>
   </ul>

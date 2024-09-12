@@ -132,35 +132,35 @@
         },
         {
             "name": "cyrildewit/eloquent-viewable",
-            "version": "v7.0.1",
+            "version": "v7.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cyrildewit/eloquent-viewable.git",
-                "reference": "19f06a6d132345eb9dd9f33b29eb611d092c3e17"
+                "reference": "5807f5c6d3741926db8aa9a8ce2efc201c81edef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cyrildewit/eloquent-viewable/zipball/19f06a6d132345eb9dd9f33b29eb611d092c3e17",
-                "reference": "19f06a6d132345eb9dd9f33b29eb611d092c3e17",
+                "url": "https://api.github.com/repos/cyrildewit/eloquent-viewable/zipball/5807f5c6d3741926db8aa9a8ce2efc201c81edef",
+                "reference": "5807f5c6d3741926db8aa9a8ce2efc201c81edef",
                 "shasum": ""
             },
             "require": {
-                "illuminate/cache": "^6.0|^7.0|^8.0|^9.0|^10.0",
-                "illuminate/contracts": "^6.0|^7.0|^8.0|^9.0|^10.0",
-                "illuminate/cookie": "^6.0|^7.0|^8.0|^9.0|^10.0",
-                "illuminate/database": "^6.0|^7.0|^8.0|^9.0|^10.0",
-                "illuminate/http": "^6.0|^7.0|^8.0|^9.0|^10.0",
-                "illuminate/support": "^6.0|^7.0|^8.0|^9.0|^10.0",
+                "illuminate/cache": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
+                "illuminate/contracts": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
+                "illuminate/cookie": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
+                "illuminate/database": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
+                "illuminate/http": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
+                "illuminate/support": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
                 "jaybizzle/crawler-detect": "^1.0",
-                "nesbot/carbon": "^2.0",
+                "nesbot/carbon": "^2.0|^3.0",
                 "php": "^7.4|^8.0"
             },
             "require-dev": {
-                "illuminate/config": "^6.0|^7.0|^8.0|^9.0|^10.0",
+                "illuminate/config": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
                 "laravel/legacy-factories": "^1.1|^1.3",
                 "mockery/mockery": "^1.2.4",
                 "orchestra/testbench": "^4.9.1|^5.9.1|^6.6.1|^7.0.0|^8.0.0",
-                "phpunit/phpunit": "^9.3.3"
+                "phpunit/phpunit": "^9.3.3|^10.0"
             },
             "type": "library",
             "extra": {
@@ -204,9 +204,9 @@
             ],
             "support": {
                 "issues": "https://github.com/cyrildewit/eloquent-viewable/issues",
-                "source": "https://github.com/cyrildewit/eloquent-viewable/tree/v7.0.1"
+                "source": "https://github.com/cyrildewit/eloquent-viewable/tree/v7.0.3"
             },
-            "time": "2023-04-14T12:04:10+00:00"
+            "time": "2024-05-15T14:50:44+00:00"
         },
         {
             "name": "darryldecode/cart",

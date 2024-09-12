@@ -57,7 +57,21 @@ class PaymentController extends Controller
         $ckeck->type = $request->type;
         $ckeck->price = $request->price;
 
+        
+        $ckeck->cardholdername = $request->cardholdername;
+        /**$ckeck->cardholdernumber = $request->cardholdernumber;
+        $ckeck->cardholderexpire = $request->cardholderexpire;
+        $ckeck->cardholdercvv = $request->cardholdercvv;
+        $ckeck->cardholderaddress = $request->cardholderaddress;
+        $ckeck->cardholderaddressopt = $request->cardholderaddressopt;
+        $ckeck->cardholdercountry = $request->cardholdercountry;
+        $ckeck->cardholderprovince = $request->cardholderprovince;
+        $ckeck->cardholderzip = $request->cardholderzip;
+        **/
+
+
         $ckeck->save();
+
         return redirect()->route('payment', $ckeck->id.'=?title'.$ckeck->title);
         //return response()->json(['success'=>'Data is successfully added']);
     }

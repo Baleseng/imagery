@@ -1,9 +1,4 @@
-        <div class="col-9" >
-            <div class="btn mx-auto col-12" role="group" aria-label="Basic outlined button group">
-                    
-                @include('includes.admin.file-navEditPreviewbtn')
-                  
-            </div>
+        
             <div class="row">
                 <div class="col-lg-7 border">
                     

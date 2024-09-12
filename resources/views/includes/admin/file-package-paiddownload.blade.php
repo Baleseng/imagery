@@ -27,7 +27,7 @@
   </ul>
 
    <div class="d-grid gap-2 my-3" id="banner-message">
-     <button type="button disabled" data-name="Oxford" data-price="59" class="default-btn border-radius-5 disabled">Download</button>
+     <button type="button disabled" data-name="Oxford" data-price="59" class=" btn btn-secondary default-btn border-radius-5 disabled">Download</button>
      <a href="#" class="btn btn-light btn-outline-secondary disabled"  type="button">View plans and prices</a>
    </div>
                 

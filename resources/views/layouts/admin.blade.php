@@ -98,16 +98,7 @@
                                         <i class="fa fa-user"></i> {{ Auth::user()->name }}
                                     </a>
 
-                                    <a class="dropdown-item" href=""><i class="fa fa-camera"></i> Upload Profile Picture</a>
-                                    <a class="dropdown-item" href=""><i class="fa fa-file-text"></i> Create / Manage Page</a>
-                                    <a class="dropdown-item" href=""><i class="fa fa-expeditedssl"></i> Security / Privacy</a>
-                                    <a class="dropdown-item" href=""><i class="fa fa-connectdevelop"></i> Setting A.I</a>
-                                    <a class="dropdown-item" href=""><i class="fa fa-bell-o"></i> Setting Notification</a>
-                                    <a class="dropdown-item" href=""><i class="fa fa-envelope-open-o"></i> Setting Message</a>
-                                    <a class="dropdown-item" href=""><i class="fa fa-user-plus"></i> Setting Requests</a>
-                                    <a class="dropdown-item" href=""><i class="fa fa-sitemap"></i> Sitemap</a>
-                                    <a class="dropdown-item" href=""><i class="fa fa-dashcube"></i> Feedback</a>
-                                    <a class="dropdown-item" href=""><i class="fa fa-question-circle-o"></i> Help</a>
+                                    
                                     
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

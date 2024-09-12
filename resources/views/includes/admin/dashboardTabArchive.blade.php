@@ -35,8 +35,8 @@
                 <a class="link-primary dropdown-item" href="{{ url($url.'/edit/'.$content->id . '-' . str_replace(' ', '-', $content->title)) }}"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
                 <a class="link-primary dropdown-item" href="{{ url($url.'/region/'.$content->id . '-' . str_replace(' ', '-', $content->title)) }}"><i class="fa-solid fa-earth-africa"></i> Region</a>
                 
-                <span class="dropdown-item"><i class="fa-solid fa-folder-closed"></i> {{ $content->type }}</span>
-                <span class="dropdown-item"><i class="fa-solid fa-folder-closed"></i> {{ date('d M Y', strtotime($content->created_at)) }}</span>
+                <span class="dropdown-item text-capitalize"><i class="fa-solid fa-folder-closed"></i> {{ $content->type }}</span>
+                <span class="dropdown-item"><i class="fa-regular fa-calendar"></i> {{ date('d M Y', strtotime($content->created_at)) }}</span>
             </div>
         </div>
     </div>

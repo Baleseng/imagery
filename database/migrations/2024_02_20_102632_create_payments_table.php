@@ -25,7 +25,15 @@ return new class extends Migration
             $table->string('type');
             $table->string('price');
 
-                       
+            $table->string('cardholdername')->nullable();
+            $table->integer('cardholdernumber')->nullable();
+            $table->string('cardholderexpire')->nullable();
+            $table->integer('cardholdercvv')->nullable();
+            $table->string('cardholderaddress')->nullable();
+            $table->string('cardholderaddressopt')->nullable();
+            $table->string('cardholdercountry')->nullable();
+            $table->string('cardholderprovince')->nullable();
+            $table->string('cardholderzip')->nullable(); 
 
             $table->timestamps();
         });
