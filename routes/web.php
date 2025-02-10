@@ -43,7 +43,7 @@ Route::get('/register/creator',[RegisterController::class,'showCreatorRegisterFo
 Route::post('/register/admin',[RegisterController::class,'createAdmin'])->name('admin.register');
 Route::post('/register/creator',[RegisterController::class,'createCreator'])->name('creator.register');
 
-Route::get('/home', [HomeController::class,'index']);
+Route::get('/', [HomeController::class,'index']);
 
 /*
   |--------------------------------------------------------------------------

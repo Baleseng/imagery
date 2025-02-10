@@ -84,7 +84,7 @@
                                             <label for="imageTypeCheckboxInput" class="form-label fw-bold d-block">File Type</label>
                                             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                                                 
-                                                <input type="radio" class="btn-check" name="type" value="photo"  id="btnRadio1" autocomplete="off" checked>
+                                                <input type="radio" class="btn-check" name="type" value="image"  id="btnRadio1" autocomplete="off" checked>
                                                 <label class="btn btn-outline-primary" for="btnRadio1">Photo</label>
 
                                                 <input type="radio" class="btn-check" name="type" value="video" id="btnRadio2" autocomplete="off">

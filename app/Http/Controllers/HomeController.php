@@ -17,7 +17,6 @@ use DB;
 
 class HomeController extends Controller
 {
-
     /**
      * Show the application dashboard.
      *
@@ -45,22 +44,16 @@ class HomeController extends Controller
         
         $atc = DB::table('file_uploads');
 
-        $holidays = DB::table('file_uploads')->where('category','Holidays')->get();
+        $categories = DB::table('file_uploads')->select('category')->get();
         
-        return view('/home',compact('url','subs','free','paid','atc','holidays'));
+        return view('/home',compact('url','subs','free','paid','atc','categories'));
     }
 
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index(Request $request)
+    public function index(FileUpload $id, Request $request)
     {
         $url = 'user';
         
-       $subs = DB::table('file_uploads')
+        $subs = DB::table('file_uploads')
         ->where('status','submit')
         ->where('usage','licensing')
         ->orderBy('updated_at', 'desc')
@@ -75,34 +68,11 @@ class HomeController extends Controller
         ->where('status','submit')
         ->where('usage','paiddownload')
         ->orderBy('updated_at', 'desc')->get();
-       
-    
-
-        return view('/home',compact('url','subs','free','paid'));
-    }
-
-     /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function files(FileUpload $id, User $user, Request $request){      
-
-        $url = DB::table('users')->select('users.*')->get();
-
-        views($id)->record();
         
-        return view('/file',compact('url','id'));
-    }
+        $atc = DB::table('file_uploads');
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function feed()
-    {
-        return view('/feed');
+        $categories = DB::table('file_uploads')->select('category')->get();
+        
+        return view('/home',compact('url','subs','free','paid','atc','categories'));
     }
-
 }

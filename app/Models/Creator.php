@@ -17,7 +17,6 @@ class Creator extends Authenticatable
         'email',
         'mobile',
         'password',
-        'image',
     ];
 
     /**

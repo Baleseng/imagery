@@ -5,9 +5,6 @@
 
 @section('title',  '')
 
-<div class="mt-5 border bg-black bg-gradient container-fluid">
-  
-</div>
 
 @section('content')
 
@@ -19,7 +16,6 @@
       <div class="bg-white border rounded p-2 my-2">Recent Content</div>
       <div class="bg-white border rounded p-2">Recent</div>
     </div>
-
     
     <div class="col-lg-4">
 

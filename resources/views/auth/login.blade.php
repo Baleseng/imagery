@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
 
         <div class="container-fluid d-flex justify-content-center align-items-center" style="height:100vh; overflow:hidden;">
-            <div class="card col-5 text-center d-flex align-items-center" style="overflow:hidden;">
+            <div class="card col-xxl-5 col-xl-5 col-lg-5 col-md-5 col-12 text-center d-flex align-items-center" style="overflow:hidden;">
 
                 <div class="card-header col-12 fs-2 text-center">{{ isset($url) ? ucwords($url) : ""}} {{ __('Login') }}</div>
 
@@ -18,7 +18,7 @@
                     @endisset
                     @csrf
 
-                        <div class="row d-grid gap-2 col-8 mx-auto">
+                        <div class="row d-grid gap-2 col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-12 mx-auto">
 
                             <div class="col-0">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Email Address" required autocomplete="email" autofocus>
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="row my-3">
-                            <div class="col-6 offset-md-4">
+                            <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-12 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 
                                     'checked' : '' }}>
@@ -50,7 +50,7 @@
                         </div>
 
                         <div class="row ">
-                            <div class="d-grid gap-2 col-8 mx-auto">
+                            <div class="d-grid gap-2 col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-12 mx-auto">
                                 <button type="submit" class="btn btn-primary">{{ __('Login') }}</button>
                                 @if (Route::has('password.request'))
                                 
@@ -66,9 +66,9 @@
                         </div>.
                     </form>
                     
-                    <div class="col-7 mx-auto"><hr></div>
+                    <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-12 mx-auto"><hr></div>
 
-                    <div class="d-grid gap-2 col-8 mx-auto">
+                    <div class="d-grid gap-2 col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-12 mx-auto">
                         <button type="button" class="btn btn-block btn-lg btn-outline-secondary">
                             <i class="fa-brands fa-google"></i> Continue with Google
                         </button>
