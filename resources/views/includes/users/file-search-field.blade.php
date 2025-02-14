@@ -1,12 +1,12 @@
 <div class="d-flex justify-content-center container-fluid">
   <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12">
-    <div class="card p-3 py-4 border-0 bg-black bg-gradient text-light">
+    <div class="card bg-black bg-gradient text-light">
       
       <h3 class="text-center roboto-black my-1">Stunning free-download images & free-download stock</h3>
 
       <div class="row">
         
-        <div class="col-xxl-2 col-xl-12 col-lg-12 col-md-2 col-sm-2 mb-3">
+        <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 col-5 mb-3">
           <div class="dropdown">
             <button class="col-12 btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">Any Status</button>
             <ul class="col-12 dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -20,11 +20,11 @@
           </div>
         </div>
         
-        <div class="col-xxl-8 col-xl-12 col-lg-12 col-md-8 col-sm-5 p-0 mb-3">
+        <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-7 col-sm-5 col-7 mb-3">
           <input type="text" class="form-control" placeholder="">
         </div>
         
-        <div class="col-xxl-2 col-xl-12 col-lg-12 col-md-2 col-sm-2">
+        <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-3 col-sm-2 col-12">
           <button class="col-12 btn btn-primary btn-block">Search Results</button>
         </div>
 

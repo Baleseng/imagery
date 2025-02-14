@@ -8,7 +8,7 @@
       
 @section('content')
 
-<div class="iafri-bb border bg-black bg-gradient container-fluid">
+<div class="search-container border bg-black bg-gradient container-fluid py-3">
   @include('includes.users.file-search-field')
 </div>
 
@@ -24,16 +24,17 @@
                 <small>Unique hand-picked photos, affordable HD and 4K video clips, editable vectors—and much, much more. You'll find it all, right here.</small>
                    
                 <div class="row">
-
-                    @foreach ($popu as $content)
-                    <div class="col-xxl-3 col-xl-12 col-lg-7 col-md-7 col-17 my-3 overflow-hidden" style="height:290px">
-                        <img class="col-12 border" src="{{ url('storage/images/1708595005_InstagramCapture_11611916-a9c7-42b8-8510-e89e6f4c06e2.jpg') }}"/>
-                    </div>
-                    @endforeach
-
-                </div>        
                     
+                        @foreach ($popu as $content)
+                        <div class="col-xxl-3 col-xl-12 col-lg-7 col-md-7 col-17 my-3 overflow-hidden" style="height:290px">
+                            <img class="col-12 border" src="{{ url('storage/images/1708595005_InstagramCapture_11611916-a9c7-42b8-8510-e89e6f4c06e2.jpg') }}"/>
+                        </div>
+                        @endforeach
+
+                
+                </div>           
             </div>
+
         </div>
 
         <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-12 my-3 p-3 bg-light">

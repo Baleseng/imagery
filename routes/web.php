@@ -165,6 +165,6 @@ Route::post('/feed', [FeedController::class, 'create']);
 
 Route::get('/profile', [UserController::class,'profile']);
 Route::get('/ai-img-gen', [UserController::class,'ai']);
-Route::get('/tester/tilt', [UserController::class,'test']);
+Route::get('/tester/carousel', [UserController::class,'test']);
 
 
