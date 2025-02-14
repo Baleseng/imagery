@@ -22,6 +22,8 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+     /**
     public function default(FileUpload $id, Request $request)
     {
         $url = 'user';
@@ -37,7 +39,12 @@ class HomeController extends Controller
         ->where('usage','freedownload')
         ->orderBy('updated_at', 'desc')->get();
 
-         $paid = DB::table('file_uploads')
+        $paid = DB::table('file_uploads')
+        ->where('status','submit')
+        ->where('usage','paiddownload')
+        ->orderBy('updated_at', 'desc')->get();
+
+        $popu = DB::table('file_uploads')
         ->where('status','submit')
         ->where('usage','paiddownload')
         ->orderBy('updated_at', 'desc')->get();
@@ -46,9 +53,10 @@ class HomeController extends Controller
 
         $categories = DB::table('file_uploads')->select('category')->get();
         
-        return view('/home',compact('url','subs','free','paid','atc','categories'));
+        return view('/home',compact('url','subs','free','paid','popu','atc','categories'));
     }
-
+    **/
+    
     public function index(FileUpload $id, Request $request)
     {
         $url = 'user';
@@ -68,11 +76,16 @@ class HomeController extends Controller
         ->where('status','submit')
         ->where('usage','paiddownload')
         ->orderBy('updated_at', 'desc')->get();
+
+        $popu = DB::table('file_uploads')
+        ->where('status','submit')
+        ->where('usage','paiddownload')
+        ->orderBy('updated_at', 'desc')->get();
         
         $atc = DB::table('file_uploads');
 
         $categories = DB::table('file_uploads')->select('category')->get();
         
-        return view('/home',compact('url','subs','free','paid','atc','categories'));
+        return view('/home',compact('url','subs','free','paid','popu','atc','categories'));
     }
 }

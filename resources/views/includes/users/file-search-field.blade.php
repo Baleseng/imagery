@@ -2,7 +2,7 @@
   <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12">
     <div class="card p-3 py-4 border-0 bg-black bg-gradient text-light">
       
-      <h3 class="text-center roboto-black my-4">Stunning free-download images & free-download stock</h3>
+      <h3 class="text-center roboto-black my-1">Stunning free-download images & free-download stock</h3>
 
       <div class="row">
         

@@ -29,103 +29,109 @@
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
- <!-- Scripts   
-    <style>
+  
+    <!-- <style>
         {!! Vite::content('resources/sass/app.scss') !!}
     </style>
     <script>
         {!! Vite::content('resources/js/app.js') !!}
-    </script>
--->     
+    </script> -->
 
 
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+     @vite(['resources/sass/app.scss', 'resources/js/app.js']) 
 
 </head>
 <body class="roboto-regular">
     <div id="app">
 
         <nav class="navbar flex-row position-fixed top-0 z-3 navbar-light bg-white shadow-sm px-3">
-            <div class="col-xxl-2 col-6 my-xxl-0 my-xl-0 my-lg-0 my-md-0 my-3 mx-xxl-0 mx-xl-0 mx-lg-0 mx-md-0 mx-auto">
-                <a href="{{ url('/') }}"><img src="{{ URL::asset('images/logo.png') }}" class="col-12"></a>
-            </div>
             
-            <!-- Right Side Of Navbar -->
-            <div class="col-xxl-3 col-12">
-                <!-- Authentication Links -->
-                @guest
-                    @if (Route::has('login'))
-                    <button type="button" class="btn bg-light" data-bs-toggle="modal" data-bs-target="#mySignup">Sign up</button>
-                    @endif
-                    @if (Route::has('register'))
-                    <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#myLogin">Login</button>
-                    @endif
-                    <a href="{{ url('login/creator') }}" class="btn border">Submit a photo</a>      
-                @else
-                <div class="d-flex flex-wrap">
-                    <div class="col-xxl-3 col-12">
-                        <ul class="list-group list-group-horizontal">  
-                            
-                            <li class="list-group-item border-0 bg-light col-xxl-0 col-xl-0 col-lg-0 col-md-0 col-3">     
-                                <a href="{{ route('cart.list') }}" class="position-positive text-secondary">
-                                    <i class="fa-solid fa-cart-shopping"></i> 
-                                    <span class="position-absolute px-1">{{ Cart::getTotalQuantity()}}00k</span>
+                <div class="col-xxl-2 col-5 my-xxl-0 my-xl-0 my-lg-0 my-md-0 my-3 mx-xxl-0 mx-xl-0 mx-lg-0 mx-md-0 mx-1">
+                    <a href="{{ url('/') }}"><img src="{{ URL::asset('images/logo.png') }}" class="col-12"></a>
+                </div>
+                
+                <div class="col-xxl-7 col-6">
+                    <div class="d-flex flex-row-reverse">
+                        <div class="col-xxl-2 col-6 mx-2">
+                            <div class="text-center py-xxl-2 py-xl-0 py-lg-0 py-md-0 py-1 bg-primary">
+                                <a href="{{ url('subscription') }}" class="text-light text-decoration-none">
+                                    <i class="fa-solid fa-credit-card"></i> Price
                                 </a>
-                            </li>
-
-                            <li class="list-group-item border-0 bg-light col-xxl-0 col-xl-0 col-lg-0 col-md-0 col-3">
-                                <a href="{{ url('/') }}"  class="position-positive text-secondary">
-                                    <i class="fa-solid fa-bell"></i>
-                                    <span class="position-absolute px-1">000k</span>
-                                </a>
-                            </li> 
-
-                            <li class="list-group-item border-0 bg-light col-xxl-0 col-xl-0 col-lg-0 col-md-0 col-3">
-                                <a href="{{ url('/feed') }}" class="text-secondary text-center" style="display:block;">
-                                    <i class="fa-solid fa-share-from-square"></i>
-                                </a>
-                            </li>
-
-                            <li class="list-group-item dropdown border-0 bg-light text-center col-xxl-0 col-xl-0 col-lg-0 col-md-0 col-3">
-                                <a id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre class="text-secondary">
-                                    <i class="fa-solid fa-user"></i><i class="fa-solid fa-angle-down"></i>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end text-secondary" aria-labelledby="navbarDropdown">
-                                    
-                                    <a class="dropdown-item link-secondary" href="{{ url('/profile') }}"> <i class="fa fa-user"></i> 
-                                    {{ Auth::user()->name }}
-                                    </a>
                                 
-                                    <a class="dropdown-item link-secondary" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="text-center py-xxl-0 py-xl-0 py-lg-0 py-md-0 py-2 w-50 bg-primary">
-                        <a href="{{ url('subscription') }}" class="text-light text-decoration-none">
-                            <i class="fa-solid fa-credit-card"></i> Price
-                        </a>
-                        
-                    </div>
-                    <div class="text-center py-xxl-0 py-xl-0 py-lg-0 py-md-0 py-2 w-50 bg-primary">
-                        <a href="{{ url('ai-img-gen') }}" class="text-light text-decoration-none">
-                            <i class="fa-solid fa-wand-magic-sparkles"></i> AI-Gen
-                        </a>
+                            </div>
+                        </div>
+                        <div class="col-xxl-2 col-6">
+                            <div class="text-center py-xxl-2 py-xl-0 py-lg-0 py-md-0 py-1 bg-primary">
+                                <a href="{{ url('ai-img-gen') }}" class="text-light text-decoration-none">
+                                    <i class="fa-solid fa-wand-magic-sparkles"></i> AI-Gen
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            @endguest
+                
+                <!-- Right Side Of Navbar -->
+                <div class="col-xxl-3 col-12">
+                    <!-- Authentication Links -->
+                    @guest
+                        @if (Route::has('login'))
+                        <button type="button" class="btn bg-light" data-bs-toggle="modal" data-bs-target="#mySignup">Sign up</button>
+                        @endif
+                        @if (Route::has('register'))
+                        <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#myLogin">Login</button>
+                        @endif
+                        <a href="{{ url('login/creator') }}" class="btn border">Submit a photo</a>      
+                    @else
+                    <div class="d-flex flex-wrap">
+                        <div class="col-xxl-3 col-12">
+                            <ul class="list-group list-group-horizontal">  
+                                
+                                <li class="list-group-item border-0 bg-light col-xxl-12 col-3">     
+                                    <a href="{{ route('cart.list') }}" class="position-positive text-secondary">
+                                        <i class="fa-solid fa-cart-shopping"></i> 
+                                        <span class="position-absolute px-1">{{ Cart::getTotalQuantity()}}</span>
+                                    </a>
+                                </li>
+                                <li class="list-group-item border-0 bg-light col-xxl-12 col-3">
+                                    <a href="{{ url('/') }}"  class="position-positive text-secondary">
+                                        <i class="fa-solid fa-bell"></i>
+                                        <span class="position-absolute px-1">0</span>
+                                    </a>
+                                </li> 
+                                <li class="list-group-item border-0 bg-light col-xxl-12 col-3">
+                                    <a href="{{ url('/feed') }}" class="text-secondary text-center" style="display:block;">
+                                        <i class="fa-solid fa-share-from-square"></i>
+                                    </a>
+                                </li>
+                                <li class="list-group-item dropdown border-0 bg-light text-center col-xxl-12 col-3">
+                                    <a id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre class="text-secondary">
+                                        <i class="fa-solid fa-user"></i><i class="fa-solid fa-angle-down"></i>
+                                    </a>
+
+                                    <div class="dropdown-menu dropdown-menu-end text-secondary" aria-labelledby="navbarDropdown">
+                                        
+                                        <a class="dropdown-item link-secondary" href="{{ url('/profile') }}"> <i class="fa fa-user"></i> 
+                                        {{ Auth::user()->name }}
+                                        </a>
+                                    
+                                        <a class="dropdown-item link-secondary" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                                         <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                            {{ __('Logout') }}
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                @endguest
+        
         </nav>
 
         <!-- The Modal -->
@@ -165,9 +171,6 @@
             </div>
         </div>
         
-
-
-
         <!-- The Modal -->
         <div class="modal fade" id="mySignup">
             <div class="modal-dialog modal-dialog-centered">

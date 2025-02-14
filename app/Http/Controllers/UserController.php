@@ -103,7 +103,7 @@ class UserController extends Controller
         ->where('usage','paiddownload')
         ->orderBy('updated_at', 'desc')->get();
 
-        return view('/tester/stackcards', compact('url','subs','free','paid','live',));
+        return view('/tester/tilt', compact('url','subs','free','paid','live',));
     }
 
         /**
