@@ -27,7 +27,6 @@
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
-  
     <!-- <style>
         {!! Vite::content('resources/sass/app.scss') !!}
     </style>
@@ -35,8 +34,7 @@
         {!! Vite::content('resources/js/app.js') !!}
     </script> -->
 
-
-     @vite(['resources/sass/app.scss', 'resources/js/app.js']) 
+    @vite(['resources/sass/app.scss', 'resources/js/app.js']) 
 
 </head>
 <body class="roboto-regular">

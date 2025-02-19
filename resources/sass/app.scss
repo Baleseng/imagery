@@ -18,8 +18,10 @@
 
 //Customize Responsive CSS
 @import 'responsive-desktop';
-@import 'responsive-tablet';
-@import 'responsive-mobile';
+@import 'responsive-tablet-landscape';
+@import 'responsive-tablet-portrait';
+@import 'responsive-mobile-landscape';
+@import 'responsive-mobile-portrait';
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';

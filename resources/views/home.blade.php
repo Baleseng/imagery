@@ -20,18 +20,20 @@
         <div class="col-xxl-12 my-3 bg-white p-3 ">
             <div class="bg-white text-mute text-center my-3"> 
                 
-                <h1>Popular visual content </h1>
+                <h1>Top 6 PopularContent </h1>
                 <small>Unique hand-picked photos, affordable HD and 4K video clips, editable vectors—and much, much more. You'll find it all, right here.</small>
                    
-                <div class="row">
-                    
-                        
-                        <div class="col-xxl-3 col-xl-12 col-lg-7 col-md-7 col-17 my-3 overflow-hidden" style="height:290px">
-                            <img class="col-12 border" src="{{ url('storage/images/1708595005_InstagramCapture_11611916-a9c7-42b8-8510-e89e6f4c06e2.jpg') }}"/>
-                        </div>
-                        
+                <div class="row my-4"> 
 
-                
+                    <div id="carouselMobile" class="carousel slide d-xxl-none d-xl-none d-lg-none d-md-grid d-grid" data-bs-ride="carousel">   
+                        @include('includes.users.file-carousel-mobile-card')
+                    </div>
+
+                    
+                    <div id="CarouselDesktop" class="carousel slide d-xxl-grid d-xl-grid d-lg-grid d-md-none d-none" data-bs-ride="carousel">
+                        @include('includes.users.file-carousel-desktop-card')
+                    </div>
+
                 </div>           
             </div>
 
