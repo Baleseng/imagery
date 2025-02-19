@@ -9,12 +9,12 @@
 @section('content')
 
 
-<div class="container-fluid position-relative">
+<div class="container-fluid position-relative mt-xxl-5 mt-xl-5 mt-lg-5 mt-md-5 mt-sm-5 feed-container">
   <div class="row">
-    <div class="col-lg-3">
-      <div class="bg-white border rounded p-2">Your Profile</div>
-      <div class="bg-white border rounded p-2 my-2">Recent Content</div>
-      <div class="bg-white border rounded p-2">Recent</div>
+    <div class="col-lg-3 mb-xxl-0 mb-xl-0 mb-lg-0 mb-md-0 mb-3">
+      <div class="bg-white border rounded p-3"><a href="">Your Profile</a></div>
+      <div class="bg-white border rounded p-3 my-2"><a href="">Recent Content</a></div>
+      <div class="bg-white border rounded p-3"><a href="">Recent</a></div>
     </div>
     
     <div class="col-lg-4">

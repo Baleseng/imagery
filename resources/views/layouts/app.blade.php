@@ -50,14 +50,15 @@
                 
             <div class="col-xxl-7 col-xl-6 col-lg-7 col-md-4 col-6">
                 <div class="d-flex flex-row-reverse">
+                    
                     <div class="col-xxl-2 col-xl-3 col-lg-3 col-md-4 col-6 mx-2">
                         <div class="text-center py-xxl-2 py-xl-2 py-lg-2 py-md-2 py-2 bg-primary border-0 rounded-2">
                             <a href="{{ url('subscription') }}" class="text-light text-decoration-none">
                                 <i class="fa-solid fa-credit-card"></i> Price
                             </a>
-                            
                         </div>
                     </div>
+
                     <div class="col-xxl-2 col-xl-3 col-lg-3 col-md-4 col-6">
                         <div class="text-center py-xxl-2 py-xl-2 py-lg-2 py-md-2 py-2 bg-primary border-0 rounded-2">
                             <a href="{{ url('ai-img-gen') }}" class="text-light text-decoration-none">
@@ -65,6 +66,7 @@
                             </a>
                         </div>
                     </div>
+
                 </div>
             </div>
                 
@@ -149,15 +151,15 @@
                         <div class="container">
                             <div class="mx-auto col-12" role="group">
 
-                                <a href="{{ url('login/') }}" class="btn btn-outline-primary col-3 py-4">
+                                <a href="{{ url('login/') }}" class="btn btn-outline-primary col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-12">
                                     <i class="fa fa-user"></i><br/>
                                     <span class="">User</span>
                                 </a>
-                                <a href="{{ url('login/creator') }}" class="btn btn-outline-primary col-3 mx-5 py-4">
+                                <a href="{{ url('login/creator') }}" class="btn btn-outline-primary col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-12 m-xxl-5 m-xl-5 m-lg-5 m-md-5 m-sm-5">
                                     <i class="fa fa-user"></i><br/>
                                     <span class="">Contributor</span>
                                 </a>
-                                <a href="{{ url('login/admin') }}" class=" btn btn-outline-primary col-3 py-4">
+                                <a href="{{ url('login/admin') }}" class=" btn btn-outline-primary col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-12">
                                     <i class="fa fa-user"></i><br/>
                                     <span class="">Admin</span>
                                 </a>

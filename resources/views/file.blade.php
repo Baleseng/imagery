@@ -9,7 +9,7 @@
 
 @section('content')
 
-<div class="mt-5 border bg-black bg-gradient container-fluid">
+<div class="search-container border bg-black bg-gradient container-fluid py-3">
   @include('includes.users.file-search-field')
 </div>
 
@@ -17,7 +17,7 @@
   <div class="row">
     <div class="col-lg-8 border">
       
-      <div class="mt-2 mx-auto col-3" role="group">  
+      <div class="mt-2 mx-auto col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-10" role="group">  
         
         <div class="d-inline-block">
           <form method="POST" action="{{url('/feed')}}" method="post" enctype="multipart/form-data">
@@ -46,7 +46,7 @@
         <div class="d-inline-block">
           <form method="POST" action="">
             {{ csrf_field() }}          
-            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-download"></i> Try</button>   
+            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-download"></i> Mockup</button>   
           </form>
           <i class=""></i>
         </div>
