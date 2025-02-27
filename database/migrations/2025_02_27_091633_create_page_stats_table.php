@@ -11,27 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('carts', function (Blueprint $table) {
-            
+        Schema::create('page_stats', function (Blueprint $table) {
             $table->id();
-
-            $table->integer('users_id');
-            $table->integer('admin_id');
-            $table->integer('creator_id');
-
-            $table->string('file_id');
-            $table->string('file_quantity');
-            $table->string('file_price');
-
+            $table->string('page_url')->unique(); // Unique URL of the page
+            $table->unsignedBigInteger('view_count')->default(0); // Total views
+            $table->unsignedBigInteger('click_count')->default(0); // Total clicks
             $table->timestamps();
-            
         });
     }
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('carts');
+        Schema::dropIfExists('page_stats');
     }
 };

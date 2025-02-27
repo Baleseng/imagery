@@ -5,18 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Download extends Model
+class PageStat extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-        
-        'user_id',
-        'file_id',
-        'file',
-        'file_title',
-        'file_description',
-        'quantity',
-        'price',
-  
+        'page_url',
+        'view_count',
+        'click_count',
     ];
 }

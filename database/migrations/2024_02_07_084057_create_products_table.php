@@ -15,12 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->double('price');
-            $table->string('file_name');
-            $table->text('description');
+            $table->string('file_id');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      */

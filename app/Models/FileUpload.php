@@ -12,37 +12,38 @@ class FileUpload extends Model implements Viewable
 {
     use InteractsWithViews;
 
-    protected $fillable = [
-        
+    protected $fillable = [    
         'creator_id',
         'admin_id',
         'users_id',
 
-        'status',
+        'file_status',
 
         'file_name',
         'file_path',
 
-        'type',
-        'orientation',
+        'file_type',
+        'file_orientation',
         
-        'usage',
-        'standard',
-        'extended',
-        'enhance',
-        'editorial',
+        'file_usage',
+        'file_standard',
+        'file_extended',
+        'file_enhance',
+        'file_editorial',
 
-        'title',
+        'file_title',
         
-        'category',
-        'country',
+        'file_category',
+        'file_country',
 
-        'keywords',
-        'description',
-        'notes',
-    
-
+        'file_keywords',
+        'file_description',
+        'file_notes',
     ];
+
+    public function feed(){
+        return $this->hasMany('App\Models\Feed');
+    }
 
 
     public function creator(){
@@ -51,6 +52,12 @@ class FileUpload extends Model implements Viewable
 
     public function admin(){
         return $this->belongsTo('App\Models\Admin');
+    }
+
+    
+
+    public function popular(){
+        return $this->belongsTo('App\Models\Popular');
     }
 
 

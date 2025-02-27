@@ -37,7 +37,7 @@ class UserController extends Controller
         $url = 'user';
         
         $data = DB::table('file_uploads')
-        ->where('status','submit')->get();
+        ->where('file_status','submit')->get();
         return view('/home',compact('url','data'));
     }
 
@@ -83,27 +83,27 @@ class UserController extends Controller
         $url = 'user';
 
         $live = DB::table('file_uploads')
-        ->where('status','submit')
+        ->where('file_status','submit')
         ->orderBy('updated_at', 'desc')
          ->get();
 
         $subs = DB::table('file_uploads')
-        ->where('status','submit')
-        ->where('usage','licensing')
+        ->where('file_status','submit')
+        ->where('file_usage','licensing')
         ->orderBy('updated_at', 'desc')
          ->get();
 
         $free = DB::table('file_uploads')
-        ->where('status','submit')
-        ->where('usage','freedownload')
+        ->where('file_status','submit')
+        ->where('file_usage','freedownload')
         ->orderBy('updated_at', 'desc')->get();
 
          $paid = DB::table('file_uploads')
-        ->where('status','submit')
-        ->where('usage','paiddownload')
+        ->where('file_status','submit')
+        ->where('file_usage','paiddownload')
         ->orderBy('updated_at', 'desc')->get();
 
-        return view('/tester/carousel', compact('url','subs','free','paid','live',));
+        return view('/tester/tiltrobertson', compact('url','subs','free','paid','live',));
     }
 
         /**
@@ -116,6 +116,18 @@ class UserController extends Controller
         $url = 'user';
         
         return view('/profile',compact('url'));
+    }
+
+       /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function tilt(Request $request)
+    {
+        $url = 'user';
+        
+        return view('/tester/tiltrobertson',compact('url'));
     }
 
 }

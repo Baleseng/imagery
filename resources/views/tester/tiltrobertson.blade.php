@@ -33,18 +33,17 @@
         }
 
         .ball {
-            width: 40px;
-            height: 40px;
-            background-color: red;
-            border-radius: 50%;
+            width: 300px;
+            height: 6000px;
+            background-image: url("{{ url('storage/images/robertson/tiltspice.png') }}");
+            background-repeat: no-repeat;
             position: absolute;
-            top: 50%;
-            left: 50%;
+            top: 0;
             transform: translate(-50%, -50%);
             transition: transform 0.1s ease-out;
         }
 
-        .info {font-size: 18px; color: #fff;}
+        .info {font-size: 12px; color: #000000; position: relative; bottom:1rem;}
         .info p {margin: 5px 0;}
     </style>
     
@@ -55,6 +54,7 @@
     <div class="container">
         
         <div class="gyroscope">
+            <img src="{{ url('storage/images/robertson/background.jpg') }}">
             <div class="ball"></div>
         </div>
 

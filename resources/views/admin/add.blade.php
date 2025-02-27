@@ -24,13 +24,10 @@
                                 @csrf
 
                                 <input type="hidden" value="{{ Auth::user()->id }}" name="creator_id"/>
-                            
-                                <input type="hidden" value="review" name="status"/>
-                                <input type="hidden" value="freedownload" name="usage"/>
+                                <input type="hidden" value="review" name="file_status"/>
+                                <input type="hidden" value="freedownload" name="file_usage"/>
                                 
-
                                 <!--<input type="hidden" name="file" value="https://cdn.pixabay.com/photo/2017/01/06/17/49/honey-1958464__340.jpg">-->
-
 
                                 <div class="row d-flex">
                                     <div class="col-6">
@@ -79,13 +76,13 @@
                                             <label for="imageTypeCheckboxInput" class="form-label fw-bold d-block">File Type</label>
                                             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                                                 
-                                                <input type="radio" class="btn-check" name="type" value="photo"  id="btnRadio1" autocomplete="off" checked>
+                                                <input type="radio" class="btn-check" name="file_type" value="photo"  id="btnRadio1" autocomplete="off" checked>
                                                 <label class="btn btn-outline-primary" for="btnRadio1">Photo</label>
 
-                                                <input type="radio" class="btn-check" name="type" value="video" id="btnRadio2" autocomplete="off">
+                                                <input type="radio" class="btn-check" name="file_type" value="video" id="btnRadio2" autocomplete="off">
                                                 <label class="btn btn-outline-primary" for="btnRadio2">Video</label>
 
-                                                <input type="radio" class="btn-check" name="type" value="audio" id="btnRadio3" autocomplete="off">
+                                                <input type="radio" class="btn-check" name="file_type" value="audio" id="btnRadio3" autocomplete="off">
                                                 <label class="btn btn-outline-primary" for="btnRadio3">Audio</label>
 
                                             </div>
@@ -96,27 +93,27 @@
                                             
                                             <div class="btn-group" role="group">
                                                 
-                                                <input type="radio" class="btn-check" name="usage" value="licensing" id="option3" autocomplete="off" checked>
+                                                <input type="radio" class="btn-check" name="file_usage" value="licensing" id="option3" autocomplete="off" checked>
                                                 <label class="btn btn-outline-primary" for="option3">License</label>
 
-                                                <input type="radio" class="btn-check" name="usage" value="freedownload" id="option4" autocomplete="off">
+                                                <input type="radio" class="btn-check" name="file_usage" value="freedownload" id="option4" autocomplete="off">
                                                 <label class="btn btn-outline-primary" for="option4">Download</label>
 
                                             </div>  
                                         </div>
 
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control border-bottom border-0" id="floatingInput" name="title" placeholder="Keywords">
+                                            <input type="text" class="form-control border-bottom border-0" id="floatingInput" name="file_title" placeholder="Keywords">
                                             <label for="floatingInput">File Name</label>
                                         </div>
 
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control border-bottom border-0" id="floatingInput" name="description" value="" placeholder="Description">
+                                            <input type="text" class="form-control border-bottom border-0" id="floatingInput" name="file_description" value="" placeholder="Description">
                                             <label for="floatingInput">Description</label>
                                         </div>
 
                                         <div class="form-floating mb-3">
-                                            <select name="category" class="form-select border-bottom border-0" id="floatingSelect" aria-label="Catergory">
+                                            <select name="file_category" class="form-select border-bottom border-0" id="floatingSelect" aria-label="Catergory">
                                                 <option value="">Select Catergory</option>
                                                 <option value="Abstract">Abstract</option>
                                                 <option value="Animals&Wildlife">Animals/Wildlife</option>
@@ -149,7 +146,7 @@
                                         </div>
 
                                         <div class="form-floating mb-3">
-                                            <select name="country" class="form-select border-bottom border-0" id="floatingSelect" aria-label="Region">
+                                            <select name="file_country" class="form-select border-bottom border-0" id="floatingSelect" aria-label="Region">
                                                 <option value="">Select Region</option>
                                                 <option value="al">Algeria</option>
                                                 <option value="ao">Angola</option>

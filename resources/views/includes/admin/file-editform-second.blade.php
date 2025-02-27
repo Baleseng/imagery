@@ -1,17 +1,17 @@
     <div class="form-floating mb-3">
-        <input type="text" class="form-control border-bottom border-0" id="floatingInputKeywords" value="{{ $id->title }}" name="title" placeholder="Keywords">
+        <input type="text" class="form-control border-bottom border-0" id="floatingInputKeywords" value="{{ $id->file_title }}" name="file_title" placeholder="Keywords">
         <label for="floatingInput">File Name</label>
     </div>
     
 
     <div class="form-floating mb-3">
-        <input type="text" class="form-control border-bottom border-0" id="floatingInput" name="description" value="{{ $id->description }}" placeholder="Description">
+        <input type="text" class="form-control border-bottom border-0" id="floatingInput" name="file_description" value="{{ $id->file_description }}" placeholder="Description">
         <label for="floatingInput">Description</label>
     </div>
 
     <div class="form-floating mb-3">
-        <select name="category" class="form-select border-bottom border-0" id="floatingSelect" aria-label="Catergory">
-            <option value="{{ $id->category }}">{{ $id->category }}</option>
+        <select name="file_category" class="form-select border-bottom border-0" id="floatingSelect" aria-label="Catergory">
+            <option value="{{ $id->file_category }}">{{ $id->file_category }}</option>
             <option value="Abstract">Abstract</option>
             <option value="Animals/Wildlife">Animals/Wildlife</option>
             <option value="Arts">Arts</option>
@@ -43,8 +43,8 @@
     </div>
 
     <div class="form-floating mb-3">
-        <select name="country" class="form-select border-bottom border-0" id="floatingSelect" aria-label="Region">
-            <option value="{{ $id->country }}">{{ $id->country }}</option>
+        <select name="file_country" class="form-select border-bottom border-0" id="floatingSelect" aria-label="Region">
+            <option value="{{ $id->file_country }}">{{ $id->file_country }}</option>
             <option value="ao">Angola</option>
             <option value="bw">Botswana</option>
             <option value="co">Comoros</option>

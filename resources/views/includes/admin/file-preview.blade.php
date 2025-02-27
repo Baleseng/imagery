@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-lg-5">
                     <div class="shadow-sm p-3 bg-white rounded">
-                        @include('includes.admin.file-package-'.$id->usage)
+                        @include('includes.admin.file-package-'.$id->file_usage)
                     </div>
                 </div>
             </div>
@@ -29,10 +29,10 @@
                         <div class="col-lg-4">
 
                             <p class="text-secondary">Description: 
-                                <span class="d-block text-dark text-capitalize">{{ $id->description }}</span>
+                                <span class="d-block text-dark text-capitalize">{{ $id->file_description }}</span>
                             </p>
                             <p class="text-secondary">Used Keywords: 
-                                <span class="d-block text-dark text-capitalize">{{ $id->keywords }}</span>
+                                <span class="d-block text-dark text-capitalize">{{ $id->file_keywords }}</span>
                             </p>
 
                             <p class="text-secondary">Created: 
@@ -40,13 +40,13 @@
                             </p>
 
                             <p class="text-secondary">Status: 
-                                <span class="d-block text-dark text-capitalize">{{ $id->status }}</span>
+                                <span class="d-block text-dark text-capitalize">{{ $id->file_status }}</span>
                             </p>
                             <p class="text-secondary">Used For: 
-                                <span class="d-block text-dark text-capitalize">{{ $id->usage }}</span>
+                                <span class="d-block text-dark text-capitalize">{{ $id->file_usage }}</span>
                             </p>
                             <p class="text-secondary">Catergory: 
-                                <span class="d-block text-dark text-capitalize">{{ $id->category }}</span>
+                                <span class="d-block text-dark text-capitalize">{{ $id->file_category }}</span>
                             </p>
                             <p class="text-secondary">Last Updated: 
                                 <span class="d-block text-dark text-capitalize">{{ $id->updated_at }}</span>

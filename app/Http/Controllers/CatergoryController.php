@@ -21,7 +21,7 @@ class CatergoryController extends Controller
     public function index(Request $request){      
         
         $url = 'user';
-        $holidays = DB::table('file_uploads')->where('category','Holidays')->get();
+        $holidays = DB::table('file_uploads')->where('file_category','Holidays')->get();
         
         return view('/catergories', compact('url','holidays'));
     }

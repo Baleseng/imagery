@@ -12,20 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('feeds', function (Blueprint $table) {
-            $table->id();
-
-            $table->integer('users_id');
-
-            $table->string('file_id');
-            $table->string('file_name');
-            $table->string('file_title');
-            $table->string('file_description');
             
+            $table->id();
+            
+            $table->foreignId('users_id')->constrained('users');
+            $table->foreignId('file_id')->constrained('file_uploads');
+
             $table->string('file_like')->nullable();
             $table->string('file_comment')->nullable();
             $table->string('file_shared')->nullable();
 
             $table->timestamps();
+            
         });
     }
 

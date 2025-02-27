@@ -50,12 +50,9 @@ class PaymentController extends Controller
         $ckeck->user_id = $request->user_id;
         $ckeck->creator_id = $request->creator_id;
         $ckeck->file_id= $request->file_id;
-        $ckeck->file = $request->file;
-        $ckeck->title = $request->title;
-        $ckeck->description = $request->description;
-        $ckeck->quantity = $request->quantity;
-        $ckeck->type = $request->type;
-        $ckeck->price = $request->price;
+        $ckeck->file_quantity = $request->file_quantity;
+        $ckeck->file_type = $request->file_type;
+        $ckeck->file_price = $request->file_price;
 
         
         $ckeck->cardholdername = $request->cardholdername;

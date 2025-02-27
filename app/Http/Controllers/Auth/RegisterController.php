@@ -72,6 +72,7 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'mobile' => $data['mobile'],
             'password' => Hash::make($data['password']),
         ]);
     }
@@ -83,6 +84,7 @@ class RegisterController extends Controller
         $admin = Admin::create([
             'name' => $request['name'],
             'email' => $request['email'],
+            'mobile' => $request['mobile'],
             'password' => Hash::make($request['password']),
         ]);
         return redirect()->intended('login/admin');
@@ -99,6 +101,7 @@ class RegisterController extends Controller
         $admin = Creator::create([
             'name' => $request['name'],
             'email' => $request['email'],
+            'mobile' => $request['mobile'],
             'password' => Hash::make($request['password']),
         ]);
         return redirect()->intended('login/creator');

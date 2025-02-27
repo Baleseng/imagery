@@ -17,13 +17,11 @@ return new class extends Migration
 
             $table->integer('user_id');
             $table->integer('creator_id')->nullable();
+            
             $table->integer('file_id')->nullable();
-            $table->string('file')->nullable();
-            $table->string('title')->nullable();
-            $table->text('description')->nullable();
-            $table->string('quantity')->nullable();
-            $table->string('type');
-            $table->string('price');
+            $table->string('file_quantity')->nullable();
+            $table->string('file_type')->nullable();
+            $table->string('file_price')->nullable();
 
             $table->string('cardholdername')->nullable();
             $table->integer('cardholdernumber')->nullable();
@@ -36,9 +34,9 @@ return new class extends Migration
             $table->string('cardholderzip')->nullable(); 
 
             $table->timestamps();
+
         });
     }
-
     /**
      * Reverse the migrations.
      */

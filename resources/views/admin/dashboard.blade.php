@@ -58,25 +58,39 @@
                     <div class="card shadow-sm border-0 rounded-0">
                         <div class="card-header">
                             
-                            @include('includes.admin.dashboardTabBtn')
+                             <nav class="d-flex flex-row nav nav-pills" id="pills-tab" role="tablist">
+                                <span class="p-2 col-6 text-bg-secondary">Uploads</span>
+
+                                <a class="rounded-0 nav-link active px-3" id="pills-profile-tab" data-bs-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Submit</a>
+
+                                <a class="rounded-0 nav-link px-3" id="pills-disabled-tab" data-bs-toggle="pill" href="#pills-disabled" role="tab" aria-controls="pills-disabled" tabindex="-1" aria-disabled="true">Review</a>
+                               
+                                <a class="rounded-0 nav-link px-3" id="pills-home-tab" data-bs-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Archive</a>
+
+                                <a class="rounded-0 nav-link px-3" id="pills-live-tab" data-bs-toggle="pill" href="#pills-live" role="tab" aria-controls="pills-live" aria-selected="false">Live Report</a>
+
+                            </nav>
 
                         </div>
                         <div class="card-body">
                             <div class="tab-content" id="pills-tabContent">
+                                
+                                <div class="tab-pane fade" id="pills-live" role="tabpanel" aria-labelledby="pills-live-tab">
+                                    @include('includes.admin.dashboardTabLive')
+                                </div>
+
                                 <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                                     @include('includes.admin.dashboardTabArchive')
                                 </div>
                                     
-                                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                <div class="tab-pane fade" id="pills-disabled" role="tabpanel" aria-labelledby="pills-disabled-tab">
+                                    @include('includes.admin.dashboardTabReview')
+                                </div>
+
+                                <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                                     @include('includes.admin.dashboardTabSubmit')
                                 </div>
-                                    
-                                <div class="tab-pane fade show active" id="pills-disabled" role="tabpanel" aria-labelledby="pills-disabled-tab">
-                                    Currently no file uploaded
-                                    @include('includes.admin.dashboardTabReview')
-                                    
 
-                                </div>
                             </div>
                         </div>
 
@@ -85,12 +99,35 @@
             </div>
             
             <div class="row">
-                <div class="col-md-0 mt-4">
+                <div class="col-6 mt-4">
                     <div class="card shadow-sm border-0 rounded-0">
                         <div class="card-header">
 
                             <nav class="d-flex flex-row nav nav-pills" id="pills-tab" role="tablist">
-                                <span class="py-2 col-9">Overall Performance</span>
+                                <span class="py-2 col-8">Popular</span>
+                                
+                                <a class="rounded-0 nav-link active" id="pills-live-tab" data-bs-toggle="pill" href="#pills-live" role="tab" aria-controls="pills-live" tabindex="-1" aria-audio="true">Live</a>
+                                <a class="rounded-0 nav-link" id="pills-other-tab" data-bs-toggle="pill" href="#pills-other" role="tab" aria-controls="pills-other" aria-selected="false">Other</a>
+
+                            </nav>
+                        </div>
+                         <div class="card-body">
+                            <div class="tab-content" id="pills-tabContent">
+
+                                <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                    @include('includes.admin.dashboardTabPopularLive')
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 mt-4">
+                    <div class="card shadow-sm border-0 rounded-0">
+                        <div class="card-header">
+
+                            <nav class="d-flex flex-row nav nav-pills" id="pills-tab" role="tablist">
+                                <span class="py-2 col-6">Overall Performance</span>
                                 
                                 <a class="rounded-0 nav-link active" id="pills-photo-tab" data-bs-toggle="pill" href="#pills-photo" role="tab" aria-controls="pills-photo" tabindex="-1" aria-audio="true">Photos</a>
                                 <a class="rounded-0 nav-link" id="pills-video-tab" data-bs-toggle="pill" href="#pills-video" role="tab" aria-controls="pills-video" aria-selected="false">Videos</a>

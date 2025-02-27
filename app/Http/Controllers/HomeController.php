@@ -62,30 +62,30 @@ class HomeController extends Controller
         $url = 'user';
         
         $subs = DB::table('file_uploads')
-        ->where('status','submit')
-        ->where('usage','licensing')
+        ->where('file_status','submit')
+        ->where('file_usage','licensing')
         ->orderBy('updated_at', 'desc')
          ->get();
 
         $free = DB::table('file_uploads')
-        ->where('status','submit')
-        ->where('usage','freedownload')
+        ->where('file_status','submit')
+        ->where('file_usage','freedownload')
         ->orderBy('updated_at', 'desc')->get();
 
          $paid = DB::table('file_uploads')
-        ->where('status','submit')
-        ->where('usage','paiddownload')
+        ->where('file_status','submit')
+        ->where('file_usage','paiddownload')
         ->orderBy('updated_at', 'desc')->get();
 
-        $popu = DB::table('file_uploads')
-        ->where('status','submit')
-        ->where('usage','paiddownload')
+        $popular = DB::table('file_uploads')
+        ->where('file_status','submit')
+        ->where('file_usage','paiddownload')
         ->orderBy('updated_at', 'desc')->get();
         
         $atc = DB::table('file_uploads');
 
-        $categories = DB::table('file_uploads')->select('category')->get();
+        $categories = DB::table('file_uploads')->select('file_category')->get();
         
-        return view('/home',compact('url','subs','free','paid','popu','atc','categories'));
+        return view('/home',compact('url','subs','free','paid','popular','atc','categories'));
     }
 }

@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Models\FileUpload;
+use App\Models\Popular;
 use App\Models\Creator;
 use App\Models\Admin;
 use App\Models\User;
+use App\Models\Track;
 use DB;
 
 class AdminController extends Controller
@@ -28,45 +30,53 @@ class AdminController extends Controller
         
         $url = 'admin';
         
+        $live = DB::table('tracks')->orderBy('id','desc')->get();
+
         $reviews = DB::table('file_uploads')
-        ->where('status','review')->get();
+        ->where('file_status','review')->get();
 
         $submits = DB::table('file_uploads')
-        ->where('status','submit')->get();
+        ->where('file_status','submit')->get();
 
         $archives = DB::table('file_uploads')
-        ->where('status','archive')->get();
+        ->where('file_status','archive')->get();
+
+        $popular = DB::table('populars')->get();
         
-        return view('/admin/dashboard', compact('url','reviews','submits','archives'));
+        return view('/admin/dashboard', compact('url','live','reviews','submits','popular','archives'));
     }
     /*|-------------------------------- EDIT PAPGE ----------------------------------|*/
     public function edit(FileUpload $id, Admin $admin, Request $request){ 
+        
         $url = 'admin';
         FileUpload::find($id);
         $admin = Admin::first();
         return view('admin.edit',compact('url','id','admin'));
     }
     public function update(FileUpload $id, Request $request){
+        
         $url = 'admin';
+        
         FileUpload::find($id);
+
+        $id->status = $request->get('file_status');
 
         $id->admin_id = $request->get('admin_id');
         $id->creator_id = $request->get('creator_id');
+
         $id->file_name = $request->get('file_name');
-        $id->description = $request->get('description');
-        $id->keywords = $request->get('keywords');
-        $id->category = $request->get('category');
+        $id->description = $request->get('file_description');
+        $id->keywords = $request->get('file_keywords');
+        $id->category = $request->get('file_category');
 
-        $id->usage = $request->get('usage');
-        $id->orientation = $request->get('orientation');
+        $id->usage = $request->get('file_usage');
+        $id->orientation = $request->get('file_orientation');
 
-        $id->standard = $request->get('standard');
-        $id->extended = $request->get('extended');
-        $id->enhance = $request->get('enhance');
-        $id->editorial = $request->get('editorial');
+        $id->standard = $request->get('file_standard');
+        $id->extended = $request->get('file_extended');
+        $id->enhance = $request->get('file_enhance');
+        $id->editorial = $request->get('file_editorial');
 
-        $id->status = $request->get('status');
-        
         $id->save(); 
         return redirect('admin');    
     }
@@ -89,25 +99,24 @@ class AdminController extends Controller
         
         FileUpload::find($id);
 
-        $id->status = $request->get('status');
-
-        $id->type = $request->get('type');
-        $id->title = $request->get('title');
-        $id->usage = $request->get('usage');
-        $id->country = $request->get('country');
-        $id->category = $request->get('category');
         $id->admin_id = $request->get('admin_id');
-        $id->file_name = $request->get('file_name');
         $id->creator_id = $request->get('creator_id');
-        $id->description = $request->get('description');
-        $id->orientation = $request->get('orientation');
-        
-        $id->keywords = $request->get('keywords');
 
-        $id->standard = $request->get('standard');
-        $id->extended = $request->get('extended');
-        $id->enhance = $request->get('enhance');
-        $id->editorial = $request->get('editorial');
+        $id->file_name = $request->get('file_name');
+        
+        $id->file_status = $request->get('file_status');
+        $id->file_type = $request->get('file_type');
+        $id->file_title = $request->get('file_title');
+        $id->file_usage = $request->get('file_usage');
+        $id->file_country = $request->get('file_country');
+        $id->file_category = $request->get('file_category');
+        $id->file_description = $request->get('file_description');
+        $id->file_orientation = $request->get('file_orientation'); 
+        $id->file_keywords = $request->get('file_keywords');
+        $id->file_standard = $request->get('file_standard');
+        $id->file_extended = $request->get('file_extended');
+        $id->file_enhance = $request->get('file_enhance');
+        $id->file_editorial = $request->get('file_editorial');
         
         $id->save(); 
         return redirect('admin');    

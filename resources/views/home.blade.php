@@ -20,7 +20,7 @@
         <div class="col-xxl-12 my-3 bg-white p-3 ">
             <div class="bg-white text-mute text-center my-3"> 
                 
-                <h1>Top 6 PopularContent </h1>
+                <h1>Top 6 Popular Content </h1>
                 <small>Unique hand-picked photos, affordable HD and 4K video clips, editable vectors—and much, much more. You'll find it all, right here.</small>
                    
                 <div class="row my-4"> 
@@ -29,7 +29,6 @@
                         @include('includes.users.file-carousel-mobile-card')
                     </div>
 
-                    
                     <div id="CarouselDesktop" class="carousel slide d-xxl-grid d-xl-grid d-lg-grid d-md-none d-none" data-bs-ride="carousel">
                         @include('includes.users.file-carousel-desktop-card')
                     </div>
@@ -91,7 +90,7 @@
 
                         <button class="m-1 btn btn-outline-primary" onclick="filterSelection('all')"> Show all</button>
                         @foreach ($categories as $button)
-                            <button class="m-1 btn btn-outline-primary" onclick="filterSelection('{{ $button->category }}')">{{ $button->category }}</button>
+                            <button class="m-1 btn btn-outline-primary" onclick="filterSelection('{{ $button->file_category }}')">{{ $button->file_category }}</button>
                         @endforeach
                         
                             

@@ -26,6 +26,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\CatergoryController;
+use App\Http\Controllers\TrackController;
 
 Route::get('/', [HomeController::class,'default']);
 
@@ -75,6 +76,7 @@ Route::get('/admin/insight', [AdminController::class,'insight']);
 
 Route::get('/admin/profile/{id}', [AdminController::class,'profile']);
 
+
 /*
   |--------------------------------------------------------------------------
   | Creator Route
@@ -89,17 +91,29 @@ Route::post('/creator', [CreatorController::class, 'store'])->name('fileUpload')
 Route::get('/creator/edit/{id}', [CreatorController::class,'edit']);
 Route::patch('/creator/{id}', [CreatorController::class,'update']);
 
-
-
 Route::get('/creator/preview/{id}', [CreatorController::class,'files']);
 Route::get('/creator/region/{id}', [CreatorController::class,'region']);
-
 Route::get('/creator/earnings', [CreatorController::class,'earning']);
 Route::get('/creator/portfolio', [CreatorController::class,'portfolio']);
 Route::get('/creator/insight', [CreatorController::class,'insight']);
-
 Route::get('/creator/profile/{id}', [CreatorController::class,'profile']);
 
+/*
+  |--------------------------------------------------------------------------
+  | User File Popular Route
+  |--------------------------------------------------------------------------
+*/
+Route::get( '/feed', [PopularController::class, 'post']);
+Route::post('/feed', [PopularController::class, 'store']);
+Route::post('/feed', [PopularController::class, 'create']);
+
+/*
+  |--------------------------------------------------------------------------
+  | Tracking Views $ Clicks Route
+  |--------------------------------------------------------------------------
+*/
+Route::post('/track/view', [TrackController::class, 'trackView']);
+Route::post('/track/click', [TrackController::class, 'trackClick']);
 
 /*
   |--------------------------------------------------------------------------
@@ -117,6 +131,7 @@ Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
 Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
 Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');
 Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
+
 
 /*
   |--------------------------------------------------------------------------
@@ -146,7 +161,6 @@ Route::get('/payment/{id}', [PaymentController::class,'checkout'])->name('paymen
 Route::get('/download/{id}', [DownloadController::class,'checkout'])->name('download');
 Route::post('/download', [DownloadController::class, 'store']);
 
-
 /*
   |--------------------------------------------------------------------------
   | User File Feed Route
@@ -157,14 +171,21 @@ Route::post('/feed', [FeedController::class, 'store']);
 Route::post('/feed', [FeedController::class, 'create']);
 
 
+
 /*
   |--------------------------------------------------------------------------
   | User Route
   |--------------------------------------------------------------------------
 */
-
 Route::get('/profile', [UserController::class,'profile']);
 Route::get('/ai-img-gen', [UserController::class,'ai']);
-Route::get('/tester/carousel', [UserController::class,'test']);
+
+/*
+  |--------------------------------------------------------------------------
+  | User Tester Route
+  |--------------------------------------------------------------------------
+*/
+
+Route::get('/tester/tiltrobertson', [UserController::class,'tilt']);
 
 

@@ -75,13 +75,13 @@
                                     <div class="mb-3">
                                         <label for="usageCheckboxInput" class="form-label fw-bold d-block">Usage</label>
                                         <div class="btn-group" role="group">
-                                            <input type="radio" class="btn-check" name="usage" value="licensing" id="option3" autocomplete="off" checked onclick="showCommercial2()">
+                                            <input type="radio" class="btn-check" name="file_usage" value="licensing" id="option3" autocomplete="off" checked onclick="showCommercial2()">
                                             <label class="btn btn-outline-primary" for="option3">Licensing</label>
 
-                                            <input type="radio" class="btn-check" name="usage" value="paiddownload" id="option4" autocomplete="off" onclick="showCommercial1()">
+                                            <input type="radio" class="btn-check" name="file_usage" value="paiddownload" id="option4" autocomplete="off" onclick="showCommercial1()">
                                             <label class="btn btn-outline-primary" for="option4">Pay-to-Download</label>
 
-                                            <input type="radio" class="btn-check" name="usage" value="freedownload" id="option5" autocomplete="off" onclick="showCommercial0()">
+                                            <input type="radio" class="btn-check" name="file_usage" value="freedownload" id="option5" autocomplete="off" onclick="showCommercial0()">
                                             <label class="btn btn-outline-primary" for="option5">Free-Download</label>
                                         </div>  
                                     </div>
@@ -90,16 +90,16 @@
                                         
                                         <label class="form-label fw-bold d-block">License</label>
                                         
-                                        <input class="cl-custom-check" type="checkbox" id="standard" name="standard" value="show"/>
+                                        <input class="cl-custom-check" type="checkbox" id="standard" name="file_standard" value="show"/>
                                         <label class="cl-custom-check-label" for="standard">Standard</label>
                                         
-                                        <input class="cl-custom-check" type="checkbox" id="extended" name="extended" value="show"/>
+                                        <input class="cl-custom-check" type="checkbox" id="extended" name="file_extended" value="show"/>
                                         <label class="cl-custom-check-label" for="extended">Extended</label>
 
-                                        <input class="cl-custom-check" type="checkbox" id="enhance" name="enhance" value="show" />
+                                        <input class="cl-custom-check" type="checkbox" id="enhance" name="file_enhance" value="show" />
                                         <label class="cl-custom-check-label" for="enhance">Enhance</label>
 
-                                        <input class="cl-custom-check" type="checkbox" id="editorial" name="editorial" value="show"/>
+                                        <input class="cl-custom-check" type="checkbox" id="editorial" name="file_editorial" value="show"/>
                                         <label class="cl-custom-check-label" for="editorial">Editorial</label>
                                         
                                     </div>
@@ -107,10 +107,10 @@
                                     <div class="mb-3">
                                         <label for="imageOrientationCheckboxInput" class="form-label fw-bold d-block">File Orientation</label>
                                         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">    
-                                            <input type="radio" class="btn-check" name="orientation" value="landscape"  id="btnOrientation1" autocomplete="off" checked>
+                                            <input type="radio" class="btn-check" name="file_orientation" value="landscape"  id="btnOrientation1" autocomplete="off" checked>
                                             <label class="btn btn-outline-primary" for="btnOrientation1"><i class="fa-solid fa-id-card-clip"></i> Landscape</label>
 
-                                            <input type="radio" class="btn-check" name="orientation" value="portrait" id="btnOrientation2" autocomplete="off">
+                                            <input type="radio" class="btn-check" name="file_orientation" value="portrait" id="btnOrientation2" autocomplete="off">
                                             <label class="btn btn-outline-primary" for="btnOrientation2"><i class="fa-solid fa-image-portrait fs-4"></i> Portrait</label>
                                         </div>
                                     </div>
@@ -124,22 +124,22 @@
                                        
                                         <div class="type type01">    
 
-                                            <input type="checkbox" class="inputCheck" id="check1" name="keywords" value="holiday">
+                                            <input type="checkbox" class="inputCheck" id="check1" name="file_keywords" value="holiday">
                                             <label class="labelCheck" for="check1">Holidays</label>
 
-                                            <input type="checkbox" class="inputCheck" id="check2" name="keywords" value="travel">
+                                            <input type="checkbox" class="inputCheck" id="check2" name="file_keywords" value="travel">
                                             <label class="labelCheck" for="check2">Travel</label>
 
-                                            <input type="checkbox" class="inputCheck" id="check3" name="keywords" value="mountian">
+                                            <input type="checkbox" class="inputCheck" id="check3" name="file_keywords" value="mountian">
                                             <label class="labelCheck" for="check3">Mountian</label>
 
-                                            <input type="checkbox" class="inputCheck" id="check4" name="keywords" value="ocean">
+                                            <input type="checkbox" class="inputCheck" id="check4" name="file_keywords" value="ocean">
                                             <label class="labelCheck" for="check4">Ocean</label>
 
-                                            <input type="checkbox" class="inputCheck" id="check5" name="keywords" value="beach">
+                                            <input type="checkbox" class="inputCheck" id="check5" name="file_keywords" value="beach">
                                             <label class="labelCheck" for="check5">Beach</label>
 
-                                            <input type="checkbox" class="inputCheck" id="check6" name="keywords" value="man">
+                                            <input type="checkbox" class="inputCheck" id="check6" name="file_keywords" value="man">
                                             <label class="labelCheck" for="check6">Man</label>  
                             
                                         </div>
@@ -148,9 +148,9 @@
                                     <div class="mb-3">
                                         <label for="submitCheckboxInput" class="form-label fw-bold d-block">Approval</label>
                                         <div class="btn-group" role="group">    
-                                            <input type="radio" class="btn-check" name="status" value="submit" id="submitOption1" autocomplete="off" onclick="showCorrection1()" checked>
+                                            <input type="radio" class="btn-check" name="file_status" value="submit" id="submitOption1" autocomplete="off" onclick="showCorrection1()" checked>
                                             <label class="btn btn-outline-primary" for="submitOption1">Submit No Correction</label>
-                                            <input type="radio" class="btn-check" name="status" value="review" id="submitOption2" onclick="showCorrection2()" autocomplete="off">
+                                            <input type="radio" class="btn-check" name="file_status" value="review" id="submitOption2" onclick="showCorrection2()" autocomplete="off">
                                             <label class="btn btn-outline-primary" for="submitOption2">Submit With Correction</label>
                                         </div> 
                                         <input type="hidden" value="{{ Auth::user()->id }}" name="admin_id"/> 

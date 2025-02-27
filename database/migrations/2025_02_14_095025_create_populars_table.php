@@ -16,12 +16,10 @@ return new class extends Migration
             $table->id();
 
             $table->integer('file_id');
-
-            $table->integer('creator_id');
-            $table->integer('admin_id')->nullable();
-            $table->integer('user_id')->nullable();
-
-            $table->integer('file_view');
+            $table->string('file_view')->nullable();
+            $table->string('file_shared')->nullable();
+            $table->string('file_saved')->nullable();
+            $table->string('file_mockup')->nullable();
 
             $table->timestamps();
 

@@ -14,7 +14,49 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title')</title>
+    
+    <script type="text/javascript">
+        // Track page view
+        window.addEventListener('load', () => {
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
+            fetch('/track/view', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrfToken
+                },
+                body: JSON.stringify({
+                    page_url: window.location.href
+                })
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error tracking view:', error));
+        });
+
+        // Track button clicks
+        document.addEventListener('click', (event) => {
+            if (event.target.tagName === 'BUTTON') {
+                const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+                fetch('/track/click', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': csrfToken
+                    },
+                    body: JSON.stringify({
+                        page_url: window.location.href
+                    })
+                })
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.error('Error tracking click:', error));
+            }
+        });
+    </script>
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
@@ -27,14 +69,9 @@
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
-    <!-- <style>
-        {!! Vite::content('resources/sass/app.scss') !!}
-    </style>
-    <script>
-        {!! Vite::content('resources/js/app.js') !!}
-    </script> -->
+   
 
-    @vite(['resources/sass/app.scss', 'resources/js/app.js']) 
+     @vite(['resources/sass/app.scss', 'resources/js/app.js']) 
 
 </head>
 <body class="roboto-regular">
@@ -97,12 +134,12 @@
                                     <span class="position-absolute px-1">0</span>
                                 </a>
                             </li> 
-                            <li class="list-group-item border-0 bg-light col-xxl-12 col-3">
+                            <li class="list-group-item border-0 bg-light col-xxl-8 col-3">
                                 <a href="{{ url('/feed') }}" class="text-secondary text-center" style="display:block;">
                                     <i class="fa-solid fa-share-from-square"></i>
                                 </a>
                             </li>
-                            <li class="list-group-item dropdown border-0 bg-light text-center col-xxl-12 col-3">
+                            <li class="list-group-item dropdown border-0 bg-light text-center col-xxl-8 col-3">
                                 <a id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre class="text-secondary">
                                     <i class="fa-solid fa-user"></i><i class="fa-solid fa-angle-down"></i>
                                 </a>

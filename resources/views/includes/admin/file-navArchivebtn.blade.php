@@ -12,24 +12,24 @@
             {{ method_field('PATCH') }}
             {{ csrf_field() }}
 
-            <input type="hidden" value="archive" name="status">
+            <input type="hidden" value="archive" name="file_status">
             
-            <input type="hidden" value="{{ $id->type }}" name="type">
-            <input type="hidden" value="{{ $id->title }}" name="title">
-            <input type="hidden" value="{{ $id->usage }}" name="usage">
-            <input type="hidden" value="{{ $id->country }}" name="country">
-            <input type="hidden" value="{{ $id->category }}" name="category">
+            <input type="hidden" value="{{ $id->file_type }}" name="file_type">
+            <input type="hidden" value="{{ $id->file_title }}" name="file_title">
+            <input type="hidden" value="{{ $id->file_usage }}" name="file_usage">
+            <input type="hidden" value="{{ $id->file_country }}" name="file_country">
+            <input type="hidden" value="{{ $id->file_category }}" name="file_category">
             <input type="hidden" value="{{ $id->file_name }}" name="file_name">
             <input type="hidden" value="{{ Auth::user()->id }}" name="admin_id"/>
             <input type="hidden" value="{{ $id->creator_id }}" name="creator_id">
-            <input type="hidden" value="{{ $id->description }}" name="description">
-            <input type="hidden" value="{{ $id->orientation }}" name="orientation">
+            <input type="hidden" value="{{ $id->file_description }}" name="file_description">
+            <input type="hidden" value="{{ $id->file_orientation }}" name="file_orientation">
 
-            <input type="hidden" value="{{ $id->keyword }}" name="keyword">
-            <input type="hidden" value="{{ $id->enhance }}" name="enhance">
-            <input type="hidden" value="{{ $id->standard }}" name="standard">
-            <input type="hidden" value="{{ $id->extended }}" name="extended">
-            <input type="hidden" value="{{ $id->editorial }}" name="editorial">
+            <input type="hidden" value="{{ $id->file_keyword }}" name="file_keyword">
+            <input type="hidden" value="{{ $id->file_enhance }}" name="file_enhance">
+            <input type="hidden" value="{{ $id->file_standard }}" name="file_standard">
+            <input type="hidden" value="{{ $id->file_extended }}" name="file_extended">
+            <input type="hidden" value="{{ $id->file_editorial }}" name="file_editorial">
 
             <button class="btn btn-danger">Archive</button>
         </form>

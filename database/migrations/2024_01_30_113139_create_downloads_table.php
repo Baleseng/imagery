@@ -17,9 +17,7 @@ return new class extends Migration
 
             $table->integer('user_id');
             $table->integer('file_id');
-            $table->string('file');
-            $table->string('title');
-            $table->text('description');
+            $table->string('file_name');
             $table->string('quantity');
             $table->string('price');
 

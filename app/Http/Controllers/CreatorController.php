@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Models\FileUpload;
+use App\Models\Popular;
 use App\Models\Creator;
 use App\Models\Admin;
 use App\Models\User;
@@ -30,17 +31,20 @@ class CreatorController extends Controller
         
         $reviews = DB::table('file_uploads')
         ->where('creator_id', auth()->id())
-        ->where('status','review')->get();
+        ->where('file_status','review')->get();
 
         $submits = DB::table('file_uploads')
         ->where('creator_id', auth()->id())
-        ->where('status','submit')->get();
+        ->where('file_status','submit')->get();
 
         $archives = DB::table('file_uploads')
         ->where('creator_id', auth()->id())
-        ->where('status','archive')->get();
+        ->where('file_status','archive')->get();
+
+        $popular = DB::table('populars')
+        ->where('file_id', auth()->id())->get();
         
-        return view('/creator/dashboard', compact('url','reviews','submits','archives'));
+        return view('/creator/dashboard', compact('url','reviews','submits','popular','archives'));
     }
 
     /*|-------------------------------- ADD & EDIT ----------------------------------|*/
@@ -52,25 +56,27 @@ class CreatorController extends Controller
 
         $request->validate([
             'file' => 'required|mimes:pdf,jpg,jpeg,png|max:20000',
-            'usage' => 'required',
-            'title' => 'required',
-            'description' => 'required',
-            'category' => 'required',
-            'country' => 'required',
+            'file_usage' => 'required',
+            'file_title' => 'required',
+            'file_status' => 'required',
+            'file_description' => 'required',
+            'file_category' => 'required',
+            'file_country' => 'required',
             
         ]);
 
         $fileModel = new FileUpload;
 
         $fileModel->creator_id=$request->post('creator_id');
-        $fileModel->status=$request->post('status');
+
+        $fileModel->file_status=$request->post('file_status');
         
-        $fileModel->type=$request->post('type');
-        $fileModel->title=$request->post('title');
-        $fileModel->usage=$request->post('usage');
-        $fileModel->description=$request->post('description');
-        $fileModel->category=$request->post('category');
-        $fileModel->country=$request->post('country');
+        $fileModel->file_type=$request->post('file_type');
+        $fileModel->file_title=$request->post('file_title');
+        $fileModel->file_usage=$request->post('file_usage');
+        $fileModel->file_description=$request->post('file_description');
+        $fileModel->file_category=$request->post('file_category');
+        $fileModel->file_country=$request->post('file_country');
 
         if($request->file()) {
             $fileName = time().'_'.$request->file->getClientOriginalName();
@@ -105,11 +111,11 @@ class CreatorController extends Controller
             ->with('file', $fileName);
         }
 
-        $id->usage = $request->get('usage');
-        $id->description = $request->get('description');
-        $id->keywords = $request->get('keywords');
-        $id->category = $request->get('category');
-        $id->status = $request->get('status');
+        $id->usage = $request->get('file_usage');
+        $id->description = $request->get('file_description');
+        $id->keywords = $request->get('file_keywords');
+        $id->category = $request->get('file_category');
+        $id->status = $request->get('file_status');
         $id->save(); 
         return redirect('creator');    
     }
