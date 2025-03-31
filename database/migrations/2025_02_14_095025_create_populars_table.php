@@ -14,13 +14,10 @@ return new class extends Migration
         Schema::create('populars', function (Blueprint $table) {
             
             $table->id();
-
-            $table->integer('file_id');
-            $table->string('file_view')->nullable();
-            $table->string('file_shared')->nullable();
-            $table->string('file_saved')->nullable();
-            $table->string('file_mockup')->nullable();
-
+            
+            $table->foreignId('file_id')->constrained('file_uploads');
+            $table->integer('file_popular')->default(0);
+            
             $table->timestamps();
 
         });

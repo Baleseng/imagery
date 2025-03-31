@@ -17,9 +17,9 @@
         </div>
 
         <div class="col-9">
+            
             <div class="row">
-                
-                <div class="col-3">   
+                <div class="col-2">   
                     <div class="card shadow-sm border-0 rounded-0">
                         <div class="card-body">
                                                             
@@ -54,31 +54,43 @@
                     </div> 
                 </div>
 
-                <div class="col-9">
+                <div class="col-10 mb-4">
+                    <div class="card shadow-sm border-0 rounded-0" style="height:895px;">
+                        <div class="card-header">
+
+                            <nav class="d-flex flex-row nav nav-pills" id="pills-tab" role="tablist">
+                                <span class="py-2 col-8">Activity Report</span>
+                            </nav>
+                        </div>
+
+                         <div class="card-body">
+                            <div class="tab-content" id="pills-tabContent">
+                                @include('includes.admin.dashboardActivityReport')
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 mb-4">
                     <div class="card shadow-sm border-0 rounded-0">
                         <div class="card-header">
                             
                              <nav class="d-flex flex-row nav nav-pills" id="pills-tab" role="tablist">
-                                <span class="p-2 col-6 text-bg-secondary">Uploads</span>
+                                <span class="p-2 col-9">Content</span>
 
                                 <a class="rounded-0 nav-link active px-3" id="pills-profile-tab" data-bs-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Submit</a>
 
                                 <a class="rounded-0 nav-link px-3" id="pills-disabled-tab" data-bs-toggle="pill" href="#pills-disabled" role="tab" aria-controls="pills-disabled" tabindex="-1" aria-disabled="true">Review</a>
                                
                                 <a class="rounded-0 nav-link px-3" id="pills-home-tab" data-bs-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Archive</a>
-
-                                <a class="rounded-0 nav-link px-3" id="pills-live-tab" data-bs-toggle="pill" href="#pills-live" role="tab" aria-controls="pills-live" aria-selected="false">Live Report</a>
-
                             </nav>
 
                         </div>
                         <div class="card-body">
                             <div class="tab-content" id="pills-tabContent">
-                                
-                                <div class="tab-pane fade" id="pills-live" role="tabpanel" aria-labelledby="pills-live-tab">
-                                    @include('includes.admin.dashboardTabLive')
-                                </div>
-
+                        
                                 <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                                     @include('includes.admin.dashboardTabArchive')
                                 </div>
@@ -95,39 +107,55 @@
                         </div>
 
                     </div>
-                </div>      
+                </div>
             </div>
-            
+
             <div class="row">
-                <div class="col-6 mt-4">
+                <div class="col-6">
                     <div class="card shadow-sm border-0 rounded-0">
                         <div class="card-header">
 
-                            <nav class="d-flex flex-row nav nav-pills" id="pills-tab" role="tablist">
-                                <span class="py-2 col-8">Popular</span>
+                            <nav class="d-flex flex-row nav nav-pills">
+                                <span class="py-2 col-9">Popular</span>
                                 
-                                <a class="rounded-0 nav-link active" id="pills-live-tab" data-bs-toggle="pill" href="#pills-live" role="tab" aria-controls="pills-live" tabindex="-1" aria-audio="true">Live</a>
-                                <a class="rounded-0 nav-link" id="pills-other-tab" data-bs-toggle="pill" href="#pills-other" role="tab" aria-controls="pills-other" aria-selected="false">Other</a>
+                                <a class="rounded-0 nav-link active" href="#">More Popular</a>
+                                
 
                             </nav>
                         </div>
                          <div class="card-body">
-                            <div class="tab-content" id="pills-tabContent">
-
-                                <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                                    @include('includes.admin.dashboardTabPopularLive')
-                                </div>
-
-                            </div>
+                            
+                            @include('includes.admin.dashboardTabPopularLive')
+                                
                         </div>
                     </div>
-                </div>
-                <div class="col-6 mt-4">
+                </div> 
+
+                <div class="col-6">
+                    <div class="card shadow-sm border-0 rounded-0">
+                        <div class="card-header">
+
+                            <nav class="d-flex flex-row nav nav-pills">
+                                <span class="py-2 col-9">Feed Post</span>
+                                <a class="rounded-0 nav-link active" href="#">More Post</a>
+                            </nav>
+                        </div>
+                         <div class="card-body">
+                            
+                            @include('includes.admin.dashboardTabPostFeed')
+                                
+                        </div>
+                    </div>
+                </div>                     
+            </div>
+
+            <div class="row"> 
+                <div class="col-12 mt-4">
                     <div class="card shadow-sm border-0 rounded-0">
                         <div class="card-header">
 
                             <nav class="d-flex flex-row nav nav-pills" id="pills-tab" role="tablist">
-                                <span class="py-2 col-6">Overall Performance</span>
+                                <span class="py-2 col-9">Overall Performance</span>
                                 
                                 <a class="rounded-0 nav-link active" id="pills-photo-tab" data-bs-toggle="pill" href="#pills-photo" role="tab" aria-controls="pills-photo" tabindex="-1" aria-audio="true">Photos</a>
                                 <a class="rounded-0 nav-link" id="pills-video-tab" data-bs-toggle="pill" href="#pills-video" role="tab" aria-controls="pills-video" aria-selected="false">Videos</a>
@@ -170,79 +198,79 @@
 </div>
 
 <script>
-function {
-  const element = document.getElementById("demo");
-  element.remove();
-}
+    function {
+      const element = document.getElementById("demo");
+      element.remove();
+    }
+    </script>
+
+    <script type="text/javascript">
+      function tabBtnIndex(tabIdIndex) {
+        var i;
+        var x = document.getElementsByClassName("tabClassIndex");
+        for (i = 0; i < x.length; i++) {x[i].style.display = "none";}
+        document.getElementById(tabIdIndex).style.display = "block";
+      }
+    </script>
+
+<script type="text/javascript">
+      function tabBtnChart(tabIdChart) {
+        var i;
+        var x = document.getElementsByClassName("tabClassChart");
+        for (i = 0; i < x.length; i++) {x[i].style.display = "none";}
+        document.getElementById(tabIdChart).style.display = "block";
+      }
 </script>
 
 <script type="text/javascript">
-  function tabBtnIndex(tabIdIndex) {
-    var i;
-    var x = document.getElementsByClassName("tabClassIndex");
-    for (i = 0; i < x.length; i++) {x[i].style.display = "none";}
-    document.getElementById(tabIdIndex).style.display = "block";
-  }
+    Highcharts.chart('photos-container', {
+        chart: {type: 'column'},
+        title: {text: 'Photos for 2024'},
+        xAxis: {categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']},
+        credits: {enabled: true},
+        plotOptions: {
+            column: {borderRadius: '25%'}
+        },
+        series: [
+            {name: 'Views',data: [5, 3, 4, 7, 2, 5, 3, 4, 7, 2, 1,1]},
+            {name: 'Downloads', data: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]}, 
+            {name: 'Shares',data: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]}
+        ]
+    });
 </script>
 
 <script type="text/javascript">
-  function tabBtnChart(tabIdChart) {
-    var i;
-    var x = document.getElementsByClassName("tabClassChart");
-    for (i = 0; i < x.length; i++) {x[i].style.display = "none";}
-    document.getElementById(tabIdChart).style.display = "block";
-  }
+    Highcharts.chart('videos-container', {
+        chart: {type: 'column'},
+        title: {text: 'Videos for 2024'},
+        xAxis: {categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']},
+        credits: {enabled: true},
+        plotOptions: {
+            column: {borderRadius: '25%'}
+        },
+        series: [
+            {name: 'Views',data: [5, 3, 4, 7, 2, 5, 3, 4, 7, 2, 1,1]},
+            {name: 'Downloads', data: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]}, 
+            {name: 'Shared',data: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]}
+        ]
+    });
 </script>
 
 <script type="text/javascript">
-Highcharts.chart('photos-container', {
-    chart: {type: 'column'},
-    title: {text: 'Photos for 2024'},
-    xAxis: {categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']},
-    credits: {enabled: true},
-    plotOptions: {
-        column: {borderRadius: '25%'}
-    },
-    series: [
-        {name: 'Views',data: [5, 3, 4, 7, 2, 5, 3, 4, 7, 2, 1,1]},
-        {name: 'Downloads', data: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]}, 
-        {name: 'Shares',data: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]}
-    ]
-});
-</script>
-
-<script type="text/javascript">
-Highcharts.chart('videos-container', {
-    chart: {type: 'column'},
-    title: {text: 'Videos for 2024'},
-    xAxis: {categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']},
-    credits: {enabled: true},
-    plotOptions: {
-        column: {borderRadius: '25%'}
-    },
-    series: [
-        {name: 'Views',data: [5, 3, 4, 7, 2, 5, 3, 4, 7, 2, 1,1]},
-        {name: 'Downloads', data: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]}, 
-        {name: 'Shared',data: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]}
-    ]
-});
-</script>
-
-<script type="text/javascript">
-Highcharts.chart('audios-container', {
-    chart: {type: 'column'},
-    title: {text: 'Audios for 2024'},
-    xAxis: {categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']},
-    credits: {enabled: true},
-    plotOptions: {
-        column: {borderRadius: '25%'}
-    },
-    series: [
-        {name: 'Views',data: [5, 3, 4, 7, 2, 5, 3, 4, 7, 2, 1,1]},
-        {name: 'Downloads', data: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]}, 
-        {name: 'Shared',data: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]}
-    ]
-});
+    Highcharts.chart('audios-container', {
+        chart: {type: 'column'},
+        title: {text: 'Audios for 2024'},
+        xAxis: {categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']},
+        credits: {enabled: true},
+        plotOptions: {
+            column: {borderRadius: '25%'}
+        },
+        series: [
+            {name: 'Views',data: [5, 3, 4, 7, 2, 5, 3, 4, 7, 2, 1,1]},
+            {name: 'Downloads', data: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]}, 
+            {name: 'Shared',data: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]}
+        ]
+    });
 </script>
 
 @endsection

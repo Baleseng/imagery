@@ -123,11 +123,10 @@ class UserController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function tilt(Request $request)
+    public function creative(Request $request)
     {
         $url = 'user';
-        
-        return view('/tester/tiltrobertson',compact('url'));
+        return view('/tester/nivea',compact('url'));
     }
 
 }

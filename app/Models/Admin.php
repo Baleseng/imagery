@@ -38,16 +38,8 @@ class Admin extends Authenticatable
     ];
 
 
-    public function file_admin(){
+    public function file(){
         return $this->hasMany('App\Models\FileUpload');
-    }
-
-    public function track_admin(){
-        return $this->hasMany('App\Models\Track');
-    }
-
-    public function stats_admin(){
-        return $this->hasMany('App\Models\PageStat');
     }
 
 }

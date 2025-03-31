@@ -10,7 +10,9 @@ use App\Models\Popular;
 use App\Models\Creator;
 use App\Models\Admin;
 use App\Models\User;
-use App\Models\Track;
+use App\Models\Feed;
+use App\Models\TrackingLog;
+
 use DB;
 
 class AdminController extends Controller
@@ -26,24 +28,35 @@ class AdminController extends Controller
     }
 
     /*|-------------------------------- INDEX PAPGE ----------------------------------|*/
-    public function index(Admin $admin, Request $request){      
+    public function index(Admin $admin, Feed $feed, TrackingLog $page, Request $request){      
         
         $url = 'admin';
         
-        $live = DB::table('tracks')->orderBy('id','desc')->get();
-
-        $reviews = DB::table('file_uploads')
-        ->where('file_status','review')->get();
+        $live = DB::table('tracking_logs')->orderBy('id', 'DESC')->get();
 
         $submits = DB::table('file_uploads')
         ->where('file_status','submit')->get();
 
+        $reviews = DB::table('file_uploads')
+        ->where('file_status','review')->get();
+
         $archives = DB::table('file_uploads')
         ->where('file_status','archive')->get();
 
-        $popular = DB::table('populars')->get();
-        
-        return view('/admin/dashboard', compact('url','live','reviews','submits','popular','archives'));
+        $popular = Popular::with('file')->orderBy('file_id', 'DESC')->get();
+
+        $feed = Feed::with('file')->orderBy('file_id', 'DESC')->get();
+
+        return view('/admin/dashboard', compact(
+                                                'url',
+                                                'live',
+                                                'reviews',
+                                                'submits',
+                                                'popular',
+                                                'archives',
+                                                'page',
+                                                'feed'
+                                                ));
     }
     /*|-------------------------------- EDIT PAPGE ----------------------------------|*/
     public function edit(FileUpload $id, Admin $admin, Request $request){ 
@@ -83,12 +96,30 @@ class AdminController extends Controller
    
      /*|-------------------------------- PAPGE ----------------------------------|*/
     public function preview(FileUpload $id, Admin $admin, Request $request){      
-        
         $url = 'admin';
+
         FileUpload::find($id);
         $creator= Admin::first();
 
         return view('/admin/preview', compact('url','id','admin'));
+    }
+
+
+     /*|--------------------------------Report PAPGE ----------------------------------|*/
+    public function reportIndex(Admin $admin, Request $request){      
+        
+        $url = 'admin';
+        $log = DB::table('tracking_logs')->orderBy('id', 'DESC')->get();
+
+        return view('/admin/reports', compact('url','log'));
+    }
+
+    public function report(TrackingLog $id, Admin $admin, Request $request){      
+        
+        $url = 'admin';
+        TrackingLog::find($id);
+
+        return view('/admin/report', compact('url','id','admin'));
     }
 
     /*|-------------------------------- ARCHIVE PAPGE ----------------------------------|*/
@@ -121,6 +152,7 @@ class AdminController extends Controller
         $id->save(); 
         return redirect('admin');    
     }
+
 
     /*|-------------------------------- LOCATION ----------------------------------|*/
     public function region(FileUpload $id, Admin $admin, Request $request){      

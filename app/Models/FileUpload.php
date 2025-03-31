@@ -17,6 +17,12 @@ class FileUpload extends Model implements Viewable
         'admin_id',
         'users_id',
 
+        'page_views',
+        'button_clicks',
+        'href_clicks',
+        'element_id', // Add these
+        'element_type',
+
         'file_status',
 
         'file_name',
@@ -32,13 +38,12 @@ class FileUpload extends Model implements Viewable
         'file_editorial',
 
         'file_title',
+        'file_description',
         
         'file_category',
         'file_country',
 
         'file_keywords',
-        'file_description',
-        'file_notes',
     ];
 
     public function feed(){
@@ -54,10 +59,16 @@ class FileUpload extends Model implements Viewable
         return $this->belongsTo('App\Models\Admin');
     }
 
-    
+    public function pay(){
+        return $this->hasMany('App\Models\Payment');
+    }
 
     public function popular(){
         return $this->belongsTo('App\Models\Popular');
+    }
+
+    public function track(){
+        return $this->hasMany('App\Models\TrackingLog');
     }
 
 

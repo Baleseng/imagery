@@ -15,18 +15,20 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\CreatorController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\FileUploadController;
-use App\Http\Controllers\FeedController;
 use App\Http\Controllers\CartController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\DownloadController;
-use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\CatergoryController;
-use App\Http\Controllers\TrackController;
+use App\Http\Controllers\CreatorController;
+use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\FeedController;
+use App\Http\Controllers\FileUploadController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PopularController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TrackingController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', [HomeController::class,'default']);
 
@@ -44,7 +46,7 @@ Route::get('/register/creator',[RegisterController::class,'showCreatorRegisterFo
 Route::post('/register/admin',[RegisterController::class,'createAdmin'])->name('admin.register');
 Route::post('/register/creator',[RegisterController::class,'createCreator'])->name('creator.register');
 
-Route::get('/', [HomeController::class,'index']);
+Route::get('/home', [HomeController::class,'index']);
 
 /*
   |--------------------------------------------------------------------------
@@ -76,6 +78,12 @@ Route::get('/admin/insight', [AdminController::class,'insight']);
 
 Route::get('/admin/profile/{id}', [AdminController::class,'profile']);
 
+Route::get('/admin/reports', [AdminController::class,'reportIndex']);
+Route::get('/admin/report/{id}', [AdminController::class,'report']);
+
+Route::post('/admin/preview/{id}', [PopularController::class, 'store']);
+
+
 
 /*
   |--------------------------------------------------------------------------
@@ -100,38 +108,37 @@ Route::get('/creator/profile/{id}', [CreatorController::class,'profile']);
 
 /*
   |--------------------------------------------------------------------------
-  | User File Popular Route
-  |--------------------------------------------------------------------------
-*/
-Route::get( '/feed', [PopularController::class, 'post']);
-Route::post('/feed', [PopularController::class, 'store']);
-Route::post('/feed', [PopularController::class, 'create']);
-
-/*
-  |--------------------------------------------------------------------------
   | Tracking Views $ Clicks Route
   |--------------------------------------------------------------------------
 */
-Route::post('/track/view', [TrackController::class, 'trackView']);
-Route::post('/track/click', [TrackController::class, 'trackClick']);
+
+Route::post('/log-event', [TrackingController::class, 'logEvent']);
 
 /*
   |--------------------------------------------------------------------------
   | User File To Be Checkout Route
   |--------------------------------------------------------------------------
 */
-Route::get('file/{id}', [ProductController::class, 'file'])->name('file');
 
+/*
+Route::get('file/{id}', [ProductController::class, 'file'])->name('file');
 Route::get('subscription', [ProductController::class, 'subscription']);
 Route::get('commercial', [ProductController::class, 'commercial']);
+*/
 
+/*
 Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
 Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
-
 Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
 Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');
 Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
+*/
 
+Route::get('/file/{id}', [FileUploadController::class, 'file'])->name('file');
+
+Route::post('/cart/add/{fileId}', [CartController::class, 'addToCart'])->name('cart.add');
+Route::get('/cart', [CartController::class, 'viewCart'])->name('cart');
+Route::delete('/cart/remove/{cartItemId}', [CartController::class, 'removeFromCart'])->name('cart.remove');
 
 /*
   |--------------------------------------------------------------------------
@@ -146,8 +153,11 @@ Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear'
   |--------------------------------------------------------------------------
 */
 
-/**Route::post('/payment', [DownloadController::class, 'store']);
-Route::get('/payment/{id}', [DownloadController::class,'checkout'])->name('payment');**/
+
+/*
+Route::post('/payment', [DownloadController::class, 'store']);
+Route::get('/payment/{id}', [DownloadController::class,'checkout'])->name('payment');
+*/
 
 Route::post('/payment', [PaymentController::class, 'store'])->name('payment');
 Route::get('/payment/{id}', [PaymentController::class,'checkout'])->name('payment');
@@ -186,6 +196,6 @@ Route::get('/ai-img-gen', [UserController::class,'ai']);
   |--------------------------------------------------------------------------
 */
 
-Route::get('/tester/tiltrobertson', [UserController::class,'tilt']);
+Route::get('/tester/nivea', [UserController::class,'creative']);
 
 

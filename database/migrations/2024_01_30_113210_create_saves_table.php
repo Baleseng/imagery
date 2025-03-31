@@ -14,9 +14,8 @@ return new class extends Migration
         Schema::create('saves', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('users_id');
-
-            $table->string('file_id');
+             $table->foreignId('user_id')->constrained('users');
+             $table->foreignId('file_id')->constrained('file_uploads');
 
             $table->timestamps();
         });

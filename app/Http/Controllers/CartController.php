@@ -2,61 +2,103 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\Cart;
 use App\Models\Payment;
 use App\Models\FileUpload;
 use App\Models\User;
+use DB;
 
 class CartController extends Controller
 {
 
-    public function cartList()
-    {
-        $cartItems = \Cart::getContent();
-        return view('cart', compact('cartItems'));
+    /**
+    * Create a new controller instance.
+    *
+    * @return void
+    */
+    public function __construct(){
+        $this->middleware('auth');
     }
 
-    public function addToCart(Request $request)
+    public function addToCart(Request $request, $fileId)
     {
-        \Cart::add([
-            'id' => $request->id,
-            'file_name' => $request->file_name,
-            'file_price' => $request->file_price,
-            'file_quantity' => $request->file_quantity,
-            'attributes' => array(
-                'image' => $request->image,
-            )
-        ]);
-        session()->flash('success', 'Product is Added to Cart Successfully !');
-        return redirect()->route('cart.list');
+        $file = FileUpload::findOrFail($fileId);
+
+        // Check if the file is already in the cart
+        $cartItem = Cart::where('user_id', Auth::id())
+            ->where('file_id', $fileId)
+            ->first();
+
+        if ($cartItem) {
+            // Update quantity if the product is already in the cart
+            $cartItem->increment('file_quantity');
+            $cartItem->file_quantity += $request->input('file_quantity', 1);
+            $cartItem->save();
+        } else {
+            // Add new item to the cart
+            Cart::create([
+                'user_id' => Auth::id(),
+                'creator_id' => $request->post('creator_id'),
+                'file_id' => $fileId,
+                'file_price' => $request->input('file_price', 0),
+                'file_quantity' => $request->input('file_quantity', 1),
+            ]);
+        }
+
+        // Get the updated cart count
+        $cartCount = Auth::user()->cartItems->sum('file_quantity');
+
+        return redirect()->route('cart')->with('success', 'File added to cart!');
+        //return response()->json(['success' => true,'cartCount' => $cartCount,]);
     }
 
-    public function updateCart(Request $request)
+    public function viewCart()
     {
-        \Cart::update(
-            $request->id,
-            [
-                'quantity' => [
-                    'relative' => false,
-                    'value' => $request->quantity
-                ],
-            ]
-        );
-        session()->flash('success', 'Item Cart is Updated Successfully !');
-        return redirect()->route('cart.list');
+        $cartItems = Cart::with('file')->where('user_id', Auth::id())->get();
+
+        // Calculate the total price
+        $totalPrice = 0;
+        foreach ($cartItems as $item) {
+            $totalPrice += $item->file_quantity * $item->file_price;
+        }
+
+        // Pass cart items and total price to the view
+        return view('cart', compact('cartItems', 'totalPrice'));
     }
 
-    public function removeCart(Request $request)
+    public function removeFromCart($cartItemId)
     {
-        \Cart::remove($request->id);
-        session()->flash('success', 'Item Cart Remove Successfully !');
-        return redirect()->route('cart.list');
-    }
+        // Find the cart item
+        $cartItem = Cart::where('user_id', Auth::id())
+            ->where('id', $cartItemId)
+            ->first();
 
-    public function clearAllCart()
-    {
-        \Cart::clear();
-        session()->flash('success', 'All Item Cart Clear Successfully !');
-        return redirect()->route('cart.list');
+        if ($cartItem) {
+            // Delete the cart item
+            $cartItem->delete();
+
+            // Calculate the updated total price
+            $cartItems = Cart::with('file')->where('user_id', Auth::id())->get();
+            $totalPrice = $cartItems->sum(function ($item) {
+                return $item->quantity * $item->price;
+            });
+
+            // Get the updated cart count
+            $cartCount = $cartItems->sum('file_quantity');
+
+            // Return JSON response for AJAX
+            return response()->json([
+                'success' => true,
+                'totalPrice' => $totalPrice,
+                'cartCount' => $cartCount,
+            ]);
+        }
+
+        return response()->json([
+            'success' => false,
+            'message' => 'Item not found in cart!',
+        ], 404);
     }
 }

@@ -15,9 +15,8 @@ return new class extends Migration
             
             $table->id();
 
-            $table->integer('user_id');
-            $table->integer('file_id');
-            $table->string('file_name');
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('file_id')->constrained('file_uploads');
             $table->string('quantity');
             $table->string('price');
 

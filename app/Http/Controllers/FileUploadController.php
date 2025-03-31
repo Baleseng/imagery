@@ -34,4 +34,41 @@ class FileUploadController extends Controller
 
     }
 
+    public function file(FileUpload $id, User $user, Request $request)
+    {
+        $url = DB::table('users')->select('users.*')->get();
+        return view('/file', compact('url','id'));
+    }
+
+    public function logEvent(Request $request)
+    {
+        $validated = $request->validate([
+            'element_id' => 'nullable|string', // e.g., 'buy-now-btn'
+            'element_type' => 'nullable|string', // 'button' or 'anchor'
+        ]);
+
+        $trackingLog = FileUpload::firstOrCreate(
+            [
+                'element_id' => $validated['element_id'] ?? null,
+            ],
+            [
+                'element_type' => $validated['element_type'] ?? null,
+                'page_views' => 0,
+                'button_clicks' => 0,
+                'href_clicks' => 0,
+            ]
+        );
+
+        // Increment counters based on element type
+        if ($validated['element_type'] === 'button') {
+            $trackingLog->increment('button_clicks');
+        } elseif ($validated['element_type'] === 'anchor') {
+            $trackingLog->increment('href_clicks');
+        } else {
+            $trackingLog->increment('page_views'); // Fallback for page views
+        }
+
+        return response()->json(['success' => true]);
+    }
+
 }

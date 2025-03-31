@@ -1,23 +1,22 @@
 <div class="row">
-    <div class="col-1 text-bg-primary text-center">Image</div>
-    <div class="col-4 text-bg-primary text-center">Title</div>
-    <div class="col-2 text-bg-primary text-center">Usage</div>
+    <div class="col-2 text-bg-primary text-center">Content</div>
+    <div class="col-3 text-bg-primary text-center">Views</div>
+    <div class="col-3 text-bg-primary text-center">Click</div>
+    <div class="col-3 text-bg-primary text-center">Downloads</div>
     <div class="col-1 text-bg-primary text-center"></div>
 </div>
-<div id="content-5" class="custom-scrollbar-js custom-scrollbar-css">
+
         
-    @foreach ($archives as $content)
+    @foreach ($popular as $content)
     <div class="row">
 
-        <div class="col-1 border text-center align-middle overflow-hidden" style="height:35px;">
-            <img src="{{ url('storage/images/'.$content->file_name) }}" class="img-thumbnail mx-auto border-0 col-12 ">
+        <div class="col-2 border text-center align-middle overflow-hidden" style="height:50px;">
+            <img src="{{ url('storage/images/'.$content->file->file_name) }}" class="img-thumbnail mx-auto border-0 col-12 ">
         </div>
 
-        <div class="col-4 border text-center align-middle py-1">
-            <a class="link-primary dropdown-item text-truncate" href="{{ url($url.'/preview/'.$content->id . '-' . str_replace(' ', '-', $content->file_title)) }}">{{ $content->file_title }}</a>
-        </div>
-
-        <div class="col-2 border text-center text-capitalize align-middle">{{ $content->file_usage }}</div>
+        <div class="col-3 border text-center align-middle">0</div>
+        <div class="col-3 border text-center align-middle">0</div>
+        <div class="col-3 border text-center align-middle">0</div>
 
         <div class="col-1 border text-center align-middle py-1">    
             <span id="navbarDropdown" class="link-primary" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><i class="fa-solid fa-ellipsis-vertical fs-3"></i></span>
@@ -37,4 +36,5 @@
     </div>
     @endforeach
 
-</div>
+
+

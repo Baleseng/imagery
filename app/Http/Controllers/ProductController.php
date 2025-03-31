@@ -24,7 +24,6 @@ class ProductController extends Controller
     public function file(FileUpload $id, User $user, Request $request)
     {
         $url = DB::table('users')->select('users.*')->get();
-    
         return view('/file', compact('url','id'));
     }
 

@@ -24,9 +24,9 @@
         </div>
 
         <div class="col-9">
+
             <div class="row">
-                
-                <div class="col-3">   
+                <div class="col-2">   
                     <div class="card shadow-sm border-0 rounded-0">
                         <div class="card-body">
                                                            
@@ -61,9 +61,8 @@
                         </div>
                     </div> 
                 </div>
-
-                <div class="col-9">
-                    <div class="card shadow-sm border-0 rounded-0">
+                <div class="col-10 mb-4">
+                    <div class="card shadow-sm border-0 rounded-0" style="height:895px">
                         <div class="card-header">
                             
                             <nav class="d-flex flex-row nav nav-pills" id="pills-tab" role="tablist">
@@ -96,11 +95,12 @@
                         </div>
 
                     </div>
-                </div>      
+                </div>
+
             </div>
-            
+
             <div class="row">
-                <div class="col-6 mt-4">
+                <div class="col-6">
                     <div class="card shadow-sm border-0 rounded-0">
                         <div class="card-header">
 
@@ -123,7 +123,32 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6 mt-4">
+
+                <div class="col-6">
+                    <div class="card shadow-sm border-0 rounded-0">
+                        <div class="card-header">
+
+                            <nav class="d-flex flex-row nav nav-pills" id="pills-tab" role="tablist">
+                                <span class="py-2 col-8">Feed Post</span>
+                            </nav>
+                        </div>
+                         <div class="card-body">
+                            <div class="tab-content" id="pills-tabContent">
+
+                                <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                    @include('includes.admin.dashboardTabPostFeed')
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                      
+            </div>
+            
+            <div class="row">
+                <div class="col-12 mt-4">
                     <div class="card shadow-sm border-0 rounded-0">
                         <div class="card-header">
 

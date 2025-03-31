@@ -15,10 +15,10 @@ return new class extends Migration
             
             $table->id();
 
-            $table->integer('user_id');
-            $table->integer('creator_id')->nullable();
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('file_id')->constrained('file_uploads');
+            $table->foreignId('creator_id')->constrained('creators')->nullable();
             
-            $table->integer('file_id')->nullable();
             $table->string('file_quantity')->nullable();
             $table->string('file_type')->nullable();
             $table->string('file_price')->nullable();

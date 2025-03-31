@@ -34,8 +34,6 @@ class FeedController extends Controller
 
         $feed = Feed::with('file')->orderBy('file_id', 'DESC')->get();
         
-        /**$posts = DB::table('feeds')->latest()->get();**/
-
         return view('/feed',compact('url','feed'));
 
     }

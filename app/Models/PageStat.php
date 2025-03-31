@@ -10,8 +10,12 @@ class PageStat extends Model
     use HasFactory;
 
     protected $fillable = [
-        'page_url',
+        'track_id',
         'view_count',
         'click_count',
     ];
+
+    public function track_status(){
+        return $this->belongsTo('App\Models\Track');
+    }
 }

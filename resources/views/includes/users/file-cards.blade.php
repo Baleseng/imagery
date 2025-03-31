@@ -49,7 +49,7 @@
 
              		<div class="middle">
 
-	             		<a href="{{ url('/file/'.$content->id.'-'.str_replace(' ', '-',$content->file_title)) }}" class="position-absolute top p-3 top-0 start-0 w-100 h-100 text-decoration-none text-light">
+	             		<a href="{{ url('/file/'.$content->id.'-'.str_replace(' ', '-',$content->file_title)) }}" class="position-absolute top p-3 top-0 start-0 w-100 h-100 text-decoration-none text-light" id="article">
 	             			<h6 class="w-50 mb-1 p-2 text-truncate roboto-light">{{ $content->file_title }} </h6>	
 	             		</a>
 

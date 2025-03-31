@@ -7,7 +7,7 @@
 */
 .custom-scrollbar-js,
 .custom-scrollbar-css {
-  height: 39rem;
+  height: 25rem;
 }
 
 
@@ -29,9 +29,9 @@
 
 /* scrollbar handle */
 .custom-scrollbar-css::-webkit-scrollbar-thumb {
-  border-radius: .25rem;
-  background-color: #00d2ff;
-  background-image: linear-gradient(to top, #00d2ff 0%, #3a7bd5 100%);
+  border-radius: .15rem;
+  background-color: #cccccc;
+  background-image: linear-gradient(to top, #cccccc 0%, #aaaaaa 100%);
 }
 
 

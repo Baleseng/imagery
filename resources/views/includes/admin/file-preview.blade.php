@@ -19,9 +19,11 @@
                     <div class="card-header">Photo Detail </div>
                     <div class="card-body d-flex flex-row">
                         <div class="col-lg-3">
-                          <img src="{{ URL::asset('images/temp-img.jpg') }}" class="d-block mx-auto col-5 pb-3">
-                          <p class="text-center">{{ Auth::user()->name }}</p> 
-                          <p class="text-center">Nature Photographer</p> 
+                            <h4 class="text-center">Creator</h4>
+                            <img src="{{ URL::asset('images/temp-img.jpg') }}" class="d-block mx-auto col-5 pb-3">
+                            <h3 class="text-center">{{ $id->creator->name }}</h3> 
+                            <h5 class="text-center">Nature Photographer</h5> 
+                            <a href="" class="btn btn-primary text-center d-block">More</a>
                         </div>
 
                         <div class="vr mx-3"></div>
@@ -32,32 +34,21 @@
                                 <span class="d-block text-dark text-capitalize">{{ $id->file_description }}</span>
                             </p>
                             <p class="text-secondary">Used Keywords: 
-                                <span class="d-block text-dark text-capitalize">{{ $id->file_keywords }}</span>
-                            </p>
-
-                            <p class="text-secondary">Created: 
-                                <span class="d-block text-dark text-capitalize">{{ $id->creator->name }}</span>
+                                <span class="text-dark text-capitalize">{{ $id->file_keywords }}</span>
                             </p>
 
                             <p class="text-secondary">Status: 
-                                <span class="d-block text-dark text-capitalize">{{ $id->file_status }}</span>
+                                <span class="text-dark text-capitalize">{{ $id->file_status }}</span>
                             </p>
                             <p class="text-secondary">Used For: 
-                                <span class="d-block text-dark text-capitalize">{{ $id->file_usage }}</span>
+                                <span class="text-dark text-capitalize">{{ $id->file_usage }}</span>
                             </p>
                             <p class="text-secondary">Catergory: 
-                                <span class="d-block text-dark text-capitalize">{{ $id->file_category }}</span>
+                                <span class="text-dark text-capitalize">{{ $id->file_category }}</span>
                             </p>
                             <p class="text-secondary">Last Updated: 
-                                <span class="d-block text-dark text-capitalize">{{ $id->updated_at }}</span>
+                                <span class="text-dark text-capitalize">{{ $id->updated_at }}</span>
                             </p>
-                            
-                        </div>
-
-                        <div class="vr mx-3"></div>
-
-                        <div class="col-lg-4">
-                            
 
                             <form>
                                 <div class="form-group">
@@ -67,6 +58,26 @@
                                     <button class="btn btn-primary mt-2">Comment</button>
                                 </div> 
                             </form>
+                            
+                        </div>
+
+                        <div class="vr mx-3"></div>
+
+                        <div class="col-lg-4">
+
+
+                            
+                            <form method="POST" action="{{url('/admin/preview/'. $id->id.'-'.$id->file_title)}}" method="post" enctype="multipart/form-data">
+                            @method('POST')
+                            @csrf  
+                                <div class="form-group">
+                                    <label for="comment">Publish to popular</label>
+                                    <input type="hidden" value="{{ $id->id }}" name="file_id"/>
+                                    <input type="hidden" value="0" name="file_popular"/>
+                                    <button class="btn btn-primary mt-2">Publish</button>
+                                </div> 
+                            </form>
+                            
 
                         </div>
 

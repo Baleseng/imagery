@@ -8,12 +8,12 @@
       <ul class="list-group mb-3">
         
         <li class="list-group-item d-flex justify-content-between lh-condensed">
-          <span class="col-2"><img src="{{ url('storage/images/'.$id->file) }}" class="img-thumbnail"></span>
+          <span class="col-2"><img src="{{ url('storage/images/'.$id->file_name) }}" class="img-thumbnail"></span>
           <div class="col-8">
-            <h6 class="my-0 roboto-regular">{{ $id->title }}</h6>
+            <h6 class="my-0 roboto-regular">{{ $id->file_title }}</h6>
             <small class="text-muted roboto-light">{{ date('d M Y', strtotime($id->created_at)) }}</small>
           </div>
-          <span class="roboto-medium text-muted">R {{ $id->price }}</span>
+          <span class="roboto-medium text-muted">R {{ $id->file_price }}</span>
         </li>
         
         <li class="list-group-item d-flex justify-content-between bg-light">
@@ -26,7 +26,7 @@
         <li class="list-group-item list-group-item-action">      
           <div class="d-flex w-100 justify-content-between">
             <h6 class="mb-1">Total Amount Due (ZAR)</h6>
-            <strong class="roboto-bold text-danger fs-4">R {{ $id->price }}</strong>
+            <strong class="roboto-bold text-danger fs-4">R {{ $id->file_price }}</strong>
           </div>
           <small class="text-center d-block"><i>By purchasing you agree to the <a href="#">Imagery License Agreement</a>, or a separate written agreement in effect with Shutterstock.</i></small> 
         </li>
@@ -38,7 +38,7 @@
           <div class="d-flex w-100 justify-content-between">
             <h6 class="mb-1">365-day Subscription, Standard License with 10 Downloads p/m</h6>
             <span class="roboto-medium text-muted">
-              R {{ $id->price }}
+              R {{ $id->file_price }}
             </span>
           </div>
           <small>
@@ -52,7 +52,7 @@
           <hr class="mb-3">
           <div class="d-flex w-100 justify-content-between">
             <h6 class="mb-1">Subtotal</h6>
-            <strong class="roboto-bold fs-6">R {{ $id->price }}</strong>
+            <strong class="roboto-bold fs-6">R {{ $id->file_price }}</strong>
           </div>
           <hr class="mb-2">
         </div>

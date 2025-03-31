@@ -18,9 +18,9 @@ return new class extends Migration
             $table->foreignId('users_id')->constrained('users');
             $table->foreignId('file_id')->constrained('file_uploads');
 
-            $table->string('file_like')->nullable();
-            $table->string('file_comment')->nullable();
-            $table->string('file_shared')->nullable();
+            $table->integer('file_like')->default(0); // Track page views
+            $table->integer('file_comment')->default(0); // Track button clicks
+            $table->integer('file_shared')->default(0); // Track href clicks
 
             $table->timestamps();
             

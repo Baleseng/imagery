@@ -2,35 +2,24 @@
 
 <span>Choose suitable licensing package below</span> 
 
-<form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data" class="flex justify-end">
+<form action="{{ route('cart.add',['fileId' => $id->id]) }}" method="POST" class="flex justify-end">
 
 @csrf 
-     
+
   <ul class="list-group rounded-0">
     <li class="list-group-item my-0 border-0">
       @include('includes.users.file-package-licensing-standard')
     </li>
-    <li class="list-group-item my-0 border-0" id="{{ $id->extended }}block">
-      @include('includes.users.file-package-licensing-extended')
-    </li>
-    <li class="list-group-item my-0 border-0" id="{{ $id->enhance }}block">
-      @include('includes.users.file-package-licensing-enhanced')
-    </li>
-    <li class="list-group-item my-0 border-0" id="{{ $id->editorial }}block">
-      @include('includes.users.file-package-licensing-editorial')
-    </li>
   </ul>
-
-  <input type="hidden" value="{{ $id->id }}" name="id">
-  <input type="hidden" value="{{ $id->creator_id }}" name="creator_id">
-  <input type="hidden" value="{{ $id->title }}" name="name">
-  <input type="hidden" value="{{ $id->file_name }}"  name="image">
-  <input type="hidden" value="1" name="quantity">
-  
+     
+  <input type="hidden" value="1" min="1" name="file_quantity">
+  <input type="hidden" value="{{ $id->creator->id }}" name="creator_id"/>
 
   <div class="d-grid gap-2 my-3">
     <button class="py-3 text-white text-sm bg-primary border-0 rounded">Add To Cart</button>
-    <a href="{{ url('/commercial') }}" class="btn btn-light btn-outline-danger fs-5 fw-bold" type="button">Custom Licensing</a>
+    <a href="{{ url('/commercial') }}" class="btn btn-light btn-outline-danger fs-5 fw-bold" type="button">
+      Custom Licensing
+    </a>
   </div>
 </form>
 

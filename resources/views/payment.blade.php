@@ -15,7 +15,7 @@
   
   <div class="row">
     
-    @include('includes.users.file-payment-'.$id->type)
+    @include('includes.users.file-payment-'.$id->file_type)
 
     <div class="col-md-7 order-md-1 py-3 border border-1">
       

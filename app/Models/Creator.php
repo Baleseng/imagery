@@ -40,10 +40,12 @@ class Creator extends Authenticatable
     ];
 
 
-    public function file_creator(){
-
+    public function file(){
         return $this->hasMany('App\Models\FileUpload');
+    }
 
+    public function popular(){
+        return $this->hasMany('App\Models\Popular');
     }
 
 

@@ -18,7 +18,13 @@ return new class extends Migration
             /** ADD BY CREATOR **/
             $table->integer('creator_id');
             $table->integer('admin_id')->nullable();
-            $table->integer('user_id')->nullable();
+
+            $table->integer('page_views')->default(0); // Track page views
+            $table->integer('button_clicks')->default(0); // Track button clicks
+            $table->integer('href_clicks')->default(0); // Track href clicks
+            
+            $table->string('element_id')->nullable(); // e.g., 'buy-now-btn'
+            $table->string('element_type')->nullable(); // 'button' or 'anchor'
 
             $table->string('file_status');
 
@@ -55,6 +61,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('file_uploads');
+       Schema::dropIfExists('file_uploads');
     }
 };

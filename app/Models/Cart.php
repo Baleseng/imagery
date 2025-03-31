@@ -9,14 +9,22 @@ class Cart extends Model
 {
     use HasFactory;
 
-    'user_id',
-    'file_id',
-    'creator_id',
-    'file',
-    'file_title',
-    'file_description',
-    'quantity',
-    'type',
-    'price',
+    protected $fillable = [
+        'user_id',
+        'creator_id',  
+        'file_id', 
+        'file_price', 
+        'file_quantity'
+    ];
+
+    public function file()
+    {
+        return $this->belongsTo(FileUpload::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
 }

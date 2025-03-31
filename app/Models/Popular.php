@@ -11,4 +11,20 @@ use Illuminate\Database\Eloquent\Model;
 class Popular extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        
+        'file_id',
+        'file_popular',
+    ];
+
+    public function file(){
+        return $this->belongsTo('App\Models\FileUpload');
+    }
+
+    public function admin(){
+        return $this->belongsTo('App\Models\Admin');
+    }
+
+
 }

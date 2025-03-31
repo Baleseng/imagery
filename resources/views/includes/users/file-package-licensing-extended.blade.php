@@ -1,4 +1,4 @@
-<input type="radio" class="btn-check" value="99" name="price" id="btnRadio2" autocomplete="off">
+<input type="radio" class="btn-check" value="99" name="file_price" id="btnRadio2" autocomplete="off">
 <label class="btn btn-outline-secondary col-12" for="btnRadio2">
   <div class="col-12 text-start fs-5 position-relative fw-bold">
     Extended License 

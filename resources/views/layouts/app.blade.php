@@ -15,48 +15,6 @@
 
     <title>@yield('title')</title>
     
-    <script type="text/javascript">
-        // Track page view
-        window.addEventListener('load', () => {
-            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
-            fetch('/track/view', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': csrfToken
-                },
-                body: JSON.stringify({
-                    page_url: window.location.href
-                })
-            })
-            .then(response => response.json())
-            .then(data => console.log(data))
-            .catch(error => console.error('Error tracking view:', error));
-        });
-
-        // Track button clicks
-        document.addEventListener('click', (event) => {
-            if (event.target.tagName === 'BUTTON') {
-                const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
-                fetch('/track/click', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': csrfToken
-                    },
-                    body: JSON.stringify({
-                        page_url: window.location.href
-                    })
-                })
-                .then(response => response.json())
-                .then(data => console.log(data))
-                .catch(error => console.error('Error tracking click:', error));
-            }
-        });
-    </script>
-    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
@@ -69,9 +27,7 @@
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
-   
-
-     @vite(['resources/sass/app.scss', 'resources/js/app.js']) 
+    @vite(['resources/sass/app.scss', 'resources/js/app.js']) 
 
 </head>
 <body class="roboto-regular">
@@ -80,7 +36,7 @@
         <nav class="navbar flex-row position-fixed top-0 z-3 navbar-light bg-white shadow-sm px-3">
             
             <div class="col-xxl-2 col-xl-3 col-lg-2 col-md-3 col-5 my-xxl-0 my-xl-0 my-lg-0 my-md-0 my-3 mx-xxl-0 mx-xl-0 mx-lg-0 mx-md-0 mx-1">
-                <a href="{{ url('/') }}"><img src="{{ URL::asset('images/logo.png') }}" class="col-12"></a>
+                <a href="{{ url('/home') }}"><img src="{{ URL::asset('images/logo.png') }}" class="col-12"></a>
             </div>
                 
             <div class="col-xxl-7 col-xl-6 col-lg-7 col-md-4 col-6">
@@ -122,9 +78,12 @@
                         <ul class="list-group list-group-horizontal">  
                             
                             <li class="list-group-item border-0 bg-light col-xxl-12 col-3">     
-                                <a href="{{ route('cart.list') }}" class="position-positive text-secondary">
+                                <a href="{{ route('cart') }}" class="position-positive text-secondary">
                                     <i class="fa-solid fa-cart-shopping"></i> 
-                                    <span class="position-absolute px-1">{{ Cart::getTotalQuantity()}}</span>
+                                    <!--<span class="position-absolute px-1">{{ Cart::getTotalQuantity()}}</span>-->
+                                    <span class="position-absolute px-1">
+                                        {{ auth()->check() ? auth()->user()->cartItems->sum('file_quantity') : 0 }}
+                                    </span>
                                 </a>
                             </li>
 

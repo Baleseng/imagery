@@ -10,6 +10,8 @@ use App\Models\Popular;
 use App\Models\Creator;
 use App\Models\Admin;
 use App\Models\User;
+use App\Models\Feed;
+use App\Models\TrackingLog;
 use DB;
 
 class CreatorController extends Controller
@@ -43,8 +45,10 @@ class CreatorController extends Controller
 
         $popular = DB::table('populars')
         ->where('file_id', auth()->id())->get();
+
+        $feed = Feed::with('file')->orderBy('file_id', 'DESC')->get();
         
-        return view('/creator/dashboard', compact('url','reviews','submits','popular','archives'));
+        return view('/creator/dashboard', compact('url','reviews','submits','popular','archives','feed'));
     }
 
     /*|-------------------------------- ADD & EDIT ----------------------------------|*/
@@ -53,7 +57,6 @@ class CreatorController extends Controller
         return view('creator/add', compact('url'));
     }
     public function store(Request $request){
-
         $request->validate([
             'file' => 'required|mimes:pdf,jpg,jpeg,png|max:20000',
             'file_usage' => 'required',
@@ -61,16 +64,12 @@ class CreatorController extends Controller
             'file_status' => 'required',
             'file_description' => 'required',
             'file_category' => 'required',
-            'file_country' => 'required',
-            
+            'file_country' => 'required',      
         ]);
 
         $fileModel = new FileUpload;
-
         $fileModel->creator_id=$request->post('creator_id');
-
         $fileModel->file_status=$request->post('file_status');
-        
         $fileModel->file_type=$request->post('file_type');
         $fileModel->file_title=$request->post('file_title');
         $fileModel->file_usage=$request->post('file_usage');
@@ -84,9 +83,7 @@ class CreatorController extends Controller
             $fileModel->file_name = time().'_'.$request->file->getClientOriginalName();
             $fileModel->file_path = '/storage/images/' . $filePath;    
             $fileModel->save();
-            return redirect('creator')
-            ->with('success','File has been uploaded.')
-            ->with('file', $fileName);
+            return redirect('creator')->with('success','File has been uploaded.')->with('file', $fileName);
         } 
     }
 
