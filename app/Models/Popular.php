@@ -14,12 +14,19 @@ class Popular extends Model
 
     protected $fillable = [
         
+        'users_id',
+        'creator_id',
         'file_id',
+        
         'file_popular',
     ];
 
     public function file(){
         return $this->belongsTo('App\Models\FileUpload');
+    }
+
+    public function user(){
+        return $this->belongsTo('App\Models\User');
     }
 
     public function admin(){

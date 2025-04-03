@@ -44,6 +44,10 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    public function file(){
+        return $this->hasMany('App\Models\FileUpload');
+    }
+
     public function user(){
         return $this->hasMany('App\Models\Feed');
     }

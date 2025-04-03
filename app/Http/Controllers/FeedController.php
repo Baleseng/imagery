@@ -44,20 +44,20 @@ class FeedController extends Controller
     * @return void
     */
     public function create(){
-    
         // Create an input & Save to database
         Feed::create([   
-            'users_id' => request('users_id'),
+            'user_id' => request('user_id'),
+            'creator_id' => request('creator_id'),
             'file_id' => request('file_id'), 
         ]);
         // Redirect
         return redirect('feed');
     }
 
-    public function store(Request $request){
-        
+    public function store(Request $request){ 
         $post = new Feed();
         $post->users_id = $request->users_id;
+        $post->creator_id = $request->creator_id;
         $post->file_id= $request->file_id;
         $postcard->save();
         return response()->json(['success'=>'Data is successfully added']);

@@ -10,8 +10,10 @@ class Download extends Model
     use HasFactory;
     protected $fillable = [
         
-        'user_id',
+        'users_id',
+        'creator_id',
         'file_id',
+        
         'file',
         'file_title',
         'file_description',

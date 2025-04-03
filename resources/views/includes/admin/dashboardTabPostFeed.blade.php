@@ -10,13 +10,21 @@
     @foreach ($feed as $content)
     <div class="row">
 
-        <div class="col-2 border text-center align-middle overflow-hidden" style="height:50px;">
-            <img src="{{ url('storage/images/'.$content->file->file_name) }}" class="img-thumbnail mx-auto border-0 col-12 ">
+        <div class="col-2 border">
+            <span class="text-center align-middle d-block overflow-hidden"  style="height:30px;">
+                <img src="{{ url('storage/images/'.$content->file->file_name) }}" class="img-thumbnail mx-auto border-0 col-12 ">
+            </span>
         </div>
 
-        <div class="col-3 border text-center align-middle">{{ $content->file_comment }}</div>
-        <div class="col-3 border text-center align-middle">{{ $content->file_shared }}</div>
-        <div class="col-3 border text-center align-middle">{{ $content->file_like }}</div>
+        <div class="col-3 border">
+            <span class="text-center align-middle d-block">{{ $content->file_comment }}</span>
+        </div>
+        <div class="col-3 border">
+            <span class="text-center align-middle d-block">{{ $content->file_shared }}</span>
+        </div>
+        <div class="col-3 border">
+            <span class="text-center align-middle d-block">{{ $content->file_like }}</span>
+        </div>
 
         <div class="col-1 border text-center align-middle py-1">    
             <span id="navbarDropdown" class="link-primary" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><i class="fa-solid fa-ellipsis-vertical fs-3"></i></span>

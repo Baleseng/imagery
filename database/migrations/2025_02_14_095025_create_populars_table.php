@@ -15,7 +15,10 @@ return new class extends Migration
             
             $table->id();
             
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('creator_id')->constrained('creators');
             $table->foreignId('file_id')->constrained('file_uploads');
+            
             $table->integer('file_popular')->default(0);
             
             $table->timestamps();

@@ -43,8 +43,7 @@ class CreatorController extends Controller
         ->where('creator_id', auth()->id())
         ->where('file_status','archive')->get();
 
-        $popular = DB::table('populars')
-        ->where('file_id', auth()->id())->get();
+        $popular = Popular::with('file')->orderBy('file_id', 'DESC')->get();
 
         $feed = Feed::with('file')->orderBy('file_id', 'DESC')->get();
         

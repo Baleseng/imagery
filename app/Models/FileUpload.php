@@ -46,30 +46,15 @@ class FileUpload extends Model implements Viewable
         'file_keywords',
     ];
 
-    public function feed(){
-        return $this->hasMany('App\Models\Feed');
-    }
+    public function feed()      { return $this->hasMany('App\Models\Feed'); }
+    public function pay()       { return $this->hasMany('App\Models\Payment'); }
+    public function track()     { return $this->hasMany('App\Models\TrackingLog'); }
+    
+    public function user()      { return $this->belongsTo('App\Models\User'); }
+    public function creator()   { return $this->belongsTo('App\Models\Creator');}
+    public function admin()     { return $this->belongsTo('App\Models\Admin'); }
+    public function popular()   { return $this->belongsTo('App\Models\Popular'); }
 
-
-    public function creator(){
-        return $this->belongsTo('App\Models\Creator');
-    }
-
-    public function admin(){
-        return $this->belongsTo('App\Models\Admin');
-    }
-
-    public function pay(){
-        return $this->hasMany('App\Models\Payment');
-    }
-
-    public function popular(){
-        return $this->belongsTo('App\Models\Popular');
-    }
-
-    public function track(){
-        return $this->hasMany('App\Models\TrackingLog');
-    }
 
 
 }

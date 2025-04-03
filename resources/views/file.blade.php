@@ -25,8 +25,9 @@
             @method('POST')
             @csrf      
 
-            <input type="hidden" value="{{ Auth::user()->id }}" name="users_id"/>
+            <input type="hidden" value="{{ Auth::user()->id }}" name="user_id"/>
             <input type="hidden" value="{{ $id->id }}" name="file_id"/>
+            <input type="hidden" value="{{ $id->creator_id }}" name="creator_id"/>
             
             <button type="submit" class="btn btn-primary col-12" id="post-button">
               <i class="fa-solid fa-share"></i> Post

@@ -67,7 +67,7 @@
 
 
                             
-                            <form method="POST" action="{{url('/admin/preview/'. $id->id.'-'.$id->file_title)}}" method="post" enctype="multipart/form-data">
+                            <form method="POST" action="{{url('/admin')}}" method="post" enctype="multipart/form-data">
                             @method('POST')
                             @csrf  
                                 <div class="form-group">

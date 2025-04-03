@@ -11,11 +11,11 @@
     
     @foreach ($live->take(18) as $content)
     <div class="row">
-        <div class="col-6 border align-middle py-1 text-truncate">{{ $content->page_url }}</div>
+        <div class="col-6 border"><p class="text-truncate">{{ $content->page_url }}</p></div>
 
-        <div class="col-1 border"><p class="text-center align-middle d-block lh-2">{{ $content->page_views }}</p></div>
-        <div class="col-1 border"><p class="text-center align-middle d-block lh-2">{{ $content->button_clicks }}</p></div>
-        <div class="col-1 border"><p class="text-center align-middle d-block lh-2">{{ $content->href_clicks }}</p></div>
+        <div class="col-1 border"><p>{{ $content->page_views }}</p></div>
+        <div class="col-1 border"><p>{{ $content->button_clicks }}</p></div>
+        <div class="col-1 border"><p>{{ $content->href_clicks }}</p></div>
 
 
         <div class="col-2 border align-middle text-center py-1"> 
@@ -29,7 +29,6 @@
                         <!-- Modal Header -->
                         <div class="modal-header">
                             <h4 class="modal-title">Error Report</h4>
-                            
                             <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal"></button>
                         </div>
 

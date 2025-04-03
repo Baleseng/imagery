@@ -10,8 +10,10 @@
     @foreach ($popular as $content)
     <div class="row">
 
-        <div class="col-2 border text-center align-middle overflow-hidden" style="height:50px;">
-            <img src="{{ url('storage/images/'.$content->file->file_name) }}" class="img-thumbnail mx-auto border-0 col-12 ">
+        <div class="col-2 border">
+            <span class="text-center align-middle d-block overflow-hidden"  style="height:30px;">
+                <img src="{{ url('storage/images/'.$content->file->file_name) }}" class="img-thumbnail mx-auto border-0 col-12 ">
+            </span>
         </div>
 
         <div class="col-3 border text-center align-middle">0</div>

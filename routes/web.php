@@ -30,7 +30,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TrackingController;
 use App\Http\Controllers\UserController;
 
-Route::get('/', [HomeController::class,'default']);
+Route::get('/', [UserController::class,'default']);
 
 Auth::routes();
 
@@ -46,7 +46,7 @@ Route::get('/register/creator',[RegisterController::class,'showCreatorRegisterFo
 Route::post('/register/admin',[RegisterController::class,'createAdmin'])->name('admin.register');
 Route::post('/register/creator',[RegisterController::class,'createCreator'])->name('creator.register');
 
-Route::get('/home', [HomeController::class,'index']);
+Route::get('/home', [UserController::class,'index']);
 
 /*
   |--------------------------------------------------------------------------
@@ -81,7 +81,9 @@ Route::get('/admin/profile/{id}', [AdminController::class,'profile']);
 Route::get('/admin/reports', [AdminController::class,'reportIndex']);
 Route::get('/admin/report/{id}', [AdminController::class,'report']);
 
-Route::post('/admin/preview/{id}', [PopularController::class, 'store']);
+Route::post('/admin', [PopularController::class, 'create']);
+Route::post('/admin', [PopularController::class, 'store']);
+
 
 
 
@@ -179,8 +181,6 @@ Route::post('/download', [DownloadController::class, 'store']);
 Route::get( '/feed', [FeedController::class, 'post']);
 Route::post('/feed', [FeedController::class, 'store']);
 Route::post('/feed', [FeedController::class, 'create']);
-
-
 
 /*
   |--------------------------------------------------------------------------

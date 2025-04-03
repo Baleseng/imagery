@@ -36,13 +36,11 @@ class PopularController extends Controller
         return redirect('/admin');
     }
 
-    public function store(Request $request){
-        $url = 'admin';
-        
+    public function store(Request $request){    
         $post = new Popular();
         $post->file_id= $request->file_id;
         $post->file_popular= $request->file_popular;
-
+        $post->save();
         return response()->json(['success'=>'Data is successfully added']);
     }
 }

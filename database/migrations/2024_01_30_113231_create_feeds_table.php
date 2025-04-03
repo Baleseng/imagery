@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('feeds', function (Blueprint $table) {
             
             $table->id();
-            
-            $table->foreignId('users_id')->constrained('users');
+
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('creator_id')->constrained('creators');
             $table->foreignId('file_id')->constrained('file_uploads');
 
             $table->integer('file_like')->default(0); // Track page views

@@ -16,8 +16,8 @@ return new class extends Migration
             $table->id();
 
             $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('creator_id')->constrained('creators');
             $table->foreignId('file_id')->constrained('file_uploads');
-            $table->foreignId('creator_id')->constrained('creators')->nullable();
             
             $table->string('file_quantity')->nullable();
             $table->string('file_type')->nullable();

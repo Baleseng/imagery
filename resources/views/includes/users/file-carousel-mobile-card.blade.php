@@ -11,39 +11,11 @@
 <!-- Slides -->
 <div class="carousel-inner">
     <div class="carousel-item active">
-        @include('includes.users.file-cards-popular-1')
-        <img src="https://imagery.test/storage/images/1738838000_1712832875_pexels-nappy-936043.jpg" class="col-12 images"/>
-        @include('includes.users.file-cards-popular-2')
-    </div>
-    <div class="carousel-item">
-        @include('includes.users.file-cards-popular-1')
-        <img src="https://imagery.test/storage/images/1726491153_1726045227_1712824748_pexels-ika-and-lukas-748870.jpg" class="col-12 images"/>
-        @include('includes.users.file-cards-popular-2')
-    </div>
-    <div class="carousel-item">
-        @include('includes.users.file-cards-popular-1')
-        <img src="https://imagery.test/storage/images/1726491153_1726045227_1712824748_pexels-ika-and-lukas-748870.jpg" class="col-12 images"/>
-        @include('includes.users.file-cards-popular-2')
-    </div>
-    <div class="carousel-item">
-        @include('includes.users.file-cards-popular-1')
-        <img src="https://imagery.test/storage/images/1727679369_1725976262_1712134990_WP_20150202_008.jpg" class="col-12 images"/>
-        @include('includes.users.file-cards-popular-2')
-    </div>
-    <div class="carousel-item">
-        @include('includes.users.file-cards-popular-1')
-        <img src="https://imagery.test/storage/images/1726491153_1726045227_1712824748_pexels-ika-and-lukas-748870.jpg" class="col-12 images"/>
-        @include('includes.users.file-cards-popular-2')
-    </div>
-    <div class="carousel-item">
-        @include('includes.users.file-cards-popular-1')
-        <img src="https://imagery.test/storage/images/1726490884_1712832811_pexels-jasmine-carter-812258.jpg" class="col-12 images"/>
-        @include('includes.users.file-cards-popular-2')
-    </div>
-    <div class="carousel-item">
-        @include('includes.users.file-cards-popular-1')
-        <img src="https://imagery.test/storage/images/1738838088_1710181111_WP_20150111_001.jpg" class="col-12 images"/>
-        @include('includes.users.file-cards-popular-2')
+        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-12">
+            <div class="filterDiv text-light w-100 text-decoration-none show">   
+                <div class="col-12 position-relative overflow-hidden hover d-flex justify-content-center align-items-center popular-img-col"><img src="https://imagery.test/storage/images/1738838000_1712832875_pexels-nappy-936043.jpg" class="col-12 images"/></div>
+            </div>
+        </div>
     </div>
 </div>
 

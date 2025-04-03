@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 use App\Models\FileUpload;
-use App\Models\savePost;
+use App\Models\Save;
+use App\Models\Popular;
 use App\Models\Creator;
 use App\Models\Admin;
 use App\Models\Cart;
@@ -32,30 +33,64 @@ class UserController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index(Request $request)
+    
+    public function default(FileUpload $id, Request $request)
     {
         $url = 'user';
         
-        $data = DB::table('file_uploads')
-        ->where('file_status','submit')->get();
-        return view('/home',compact('url','data'));
-    }
+        $subs = DB::table('file_uploads')
+        ->where('file_status','submit')
+        ->where('file_usage','licensing')
+        ->orderBy('updated_at', 'desc')
+         ->get();
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function feed()
+        $free = DB::table('file_uploads')
+        ->where('file_status','submit')
+        ->where('file_usage','freedownload')
+        ->orderBy('updated_at', 'desc')->get();
+
+         $paid = DB::table('file_uploads')
+        ->where('file_status','submit')
+        ->where('file_usage','paiddownload')
+        ->orderBy('updated_at', 'desc')->get();
+
+        $popular = Popular::with('file')->orderBy('file_id', 'DESC')->get();
+        
+        $atc = DB::table('file_uploads');
+
+        $categories = DB::table('file_uploads')->select('file_category')->get();
+
+        return view('/home',compact('url','subs','free','paid','popular','atc','categories'));
+    }
+    
+    
+    public function index(FileUpload $id, Request $request)
     {
         $url = 'user';
-        return view('/feed');
-    }
+        
+        $subs = DB::table('file_uploads')
+        ->where('file_status','submit')
+        ->where('file_usage','licensing')
+        ->orderBy('updated_at', 'desc')
+         ->get();
 
-    /*|-------------------------------- ADD FEED ----------------------------------|*/
-    public function add(Request $request){
-        $url = 'user';
-        return view('/feed', compact('url'));
+        $free = DB::table('file_uploads')
+        ->where('file_status','submit')
+        ->where('file_usage','freedownload')
+        ->orderBy('updated_at', 'desc')->get();
+
+         $paid = DB::table('file_uploads')
+        ->where('file_status','submit')
+        ->where('file_usage','paiddownload')
+        ->orderBy('updated_at', 'desc')->get();
+
+        $popular = Popular::with('file')->orderBy('file_id', 'DESC')->get();
+        
+        $atc = DB::table('file_uploads');
+
+        $categories = DB::table('file_uploads')->select('file_category')->get();
+        
+        return view('/home',compact('url','subs','free','paid','popular','atc','categories'));
     }
 
         /*|-------------------------------- AI Generate ----------------------------------|*/
@@ -70,8 +105,6 @@ class UserController extends Controller
         Feed::create(request(['model','description','title','file_name','user_id',]));
         return redirect('/feed');
     }
-
-
 
     /**
     * Show the application dashboard.

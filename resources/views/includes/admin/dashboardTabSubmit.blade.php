@@ -14,23 +14,35 @@
     @foreach ($submits as $content)
     <div class="row">
 
-        <div class="col-1 border text-center align-middle">{{ $content->id }}</div>
+        <div class="col-1 border"><span class="text-center align-middle d-block">{{ $content->id }}</span></div>
 
-        <div class="col-1 border text-center align-middle">
-            <img src="{{ URL::asset('images/africa/' . $content->file_country .'.svg') }}" class=" img-thumbnail mx-auto border-0" style="width:40px;">
+        <div class="col-1 border">
+            <span class="text-center align-middle d-block">
+                <img src="{{ URL::asset('images/africa/' . $content->file_country .'.svg') }}" class=" img-thumbnail mx-auto border-0" style="width:40px;">
+            </span>
         </div>
 
-        <div class="col-1 border text-center align-middle overflow-hidden" style="line-height:40px; height:40px;">
-            <img src="{{ url('storage/images/'.$content->file_name) }}" class="img-thumbnail mx-auto border-0 col-12 text-center align-middle d-block lh-2">
+        <div class="col-1 border">
+            <span class="text-center align-middle d-block overflow-hidden"  style="height:30px;">
+                 <div class="col-12 position-relative overflow-hidden hover d-flex justify-content-center align-items-center popular-img-col">
+                    <img src="{{ url('storage/images/'.$content->file_name) }}" class="img-thumbnail mx-auto border-0 col-12 text-center align-middle d-block lh-2">
+                </div>
+            </span>
         </div>
 
         <div class="col-5 border text-center align-middle py-1">
             <a class="link-primary dropdown-item text-truncate" href="{{ url($url.'/preview/'.$content->id . '-' . str_replace(' ', '-', $content->file_title)) }}">{{ $content->file_title }}</a>
         </div>
 
-        <div class="col-1 border"><p class="text-center align-middle d-block lh-2">{{ $content->page_views }}</p></div>
-        <div class="col-1 border"><p class="text-center align-middle d-block lh-2">{{ $content->button_clicks }}</p></div>
-        <div class="col-1 border"><p class="text-center align-middle d-block lh-2">{{ $content->href_clicks }}</p></div>
+        <div class="col-1 border">
+            <span class="text-center align-middle d-block">{{ $content->page_views }}</span>
+        </div>
+        <div class="col-1 border">
+            <span class="text-center align-middle d-block">{{ $content->button_clicks }}</span>
+        </div>
+        <div class="col-1 border">
+            <span class="text-center align-middle d-block">{{ $content->href_clicks }}</span>
+        </div>
 
 
         <div class="col-1 border text-center align-middle py-1">    
