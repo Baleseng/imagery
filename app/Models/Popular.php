@@ -14,10 +14,8 @@ class Popular extends Model
 
     protected $fillable = [
         
-        'users_id',
         'creator_id',
         'file_id',
-        
         'file_popular',
     ];
 

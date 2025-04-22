@@ -29,6 +29,7 @@ class PopularController extends Controller
         // Create an input & Save to database
         Popular::create([   
             'file_id' => request('file_id'), 
+            'creator_id' => request('creator_id'), 
             'file_popular' => request('file_popular'), 
         ]);
         // Redirect
@@ -39,6 +40,7 @@ class PopularController extends Controller
     public function store(Request $request){    
         $post = new Popular();
         $post->file_id= $request->file_id;
+        $post->creator_id= $request->creator_id;
         $post->file_popular= $request->file_popular;
         $post->save();
         return response()->json(['success'=>'Data is successfully added']);

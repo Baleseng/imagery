@@ -73,6 +73,7 @@
                                 <div class="form-group">
                                     <label for="comment">Publish to popular</label>
                                     <input type="hidden" value="{{ $id->id }}" name="file_id"/>
+                                    <input type="hidden" value="{{ $id->creator_id }}" name="creator_id"/>
                                     <input type="hidden" value="0" name="file_popular"/>
                                     <button class="btn btn-primary mt-2">Publish</button>
                                 </div> 

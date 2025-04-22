@@ -28,6 +28,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PopularController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TrackingController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', [UserController::class,'default']);
@@ -54,6 +55,14 @@ Route::get('/home', [UserController::class,'index']);
   |--------------------------------------------------------------------------
 */
 Route::get('logout', [LoginController::class,'logout']);
+
+/*
+  |--------------------------------------------------------------------------
+  | Invoice Route
+  |--------------------------------------------------------------------------
+*/
+Route::get('/', function () {return redirect()->route('invoices.index');});
+Route::resource('invoices', InvoiceController::class);
 
 /*
   |--------------------------------------------------------------------------
